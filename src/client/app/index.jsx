@@ -6,5 +6,5 @@ class App extends React.Component {
     return <p> Hello React project</p>;
   }
 }
-
+// "dev": "webpack-dev-server --inline --progress --host 0.0.0.0 --port 8080",
 render(<App/>, document.getElementById('app'));
