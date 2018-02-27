@@ -66,7 +66,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/client/app/index.jsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/client/app/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -347,15 +347,15 @@ eval("\r\n\r\nif (false) {} else {\r\n  module.exports = __webpack_require__(/*!
 
 /***/ }),
 
-/***/ "./src/client/app/index.jsx":
-/*!**********************************!*\
-  !*** ./src/client/app/index.jsx ***!
-  \**********************************/
+/***/ "./src/client/app/index.js":
+/*!*********************************!*\
+  !*** ./src/client/app/index.js ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nvar App = function (_React$Component) {\n  _inherits(App, _React$Component);\n\n  function App() {\n    _classCallCheck(this, App);\n\n    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));\n  }\n\n  _createClass(App, [{\n    key: 'render',\n    value: function render() {\n      return _react2.default.createElement(\n        'p',\n        null,\n        ' Hello React project'\n      );\n    }\n  }]);\n\n  return App;\n}(_react2.default.Component);\n// \"dev\": \"webpack-dev-server --inline --progress --host 0.0.0.0 --port 8080\",\n\n\n(0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('app'));\n\n//# sourceURL=webpack:///./src/client/app/index.jsx?");
+eval("\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nfunction _interopRequireDefault(obj) {\n  return obj && obj.__esModule ? obj : { default: obj };\n}\n\n// class App extends React.Component {\n// //   render () {\n// //     return <p> Hello React project</p>;\n// //   }\n// // }\n\n//   getInitialState: function () {\n\n//     // This is called before our render function. The object that is \n//     // returned is assigned to this.state, so we can use it later.\n\n//     return { elapsed: 0 };\n//   },\n\n//   componentDidMount: function () {\n\n//     // componentDidMount is called by react when the component \n//     // has been rendered on the page. We can set the interval here:\n\n//     this.timer = setInterval(this.tick, 50);\n//   },\n\n//   componentWillUnmount: function () {\n\n//     // This method is called immediately before the component is removed\n//     // from the page and destroyed. We can clear the interval here:\n\n//     clearInterval(this.timer);\n//   },\n\n//   tick: function () {\n\n//     // This function is called every 50 ms. It updates the \n//     // elapsed counter. Calling setState causes the component to be re-rendered\n\n//     this.setState({ elapsed: new Date() - this.props.start });\n//   },\n\n//   render: function () {\n\n//     var elapsed = Math.round(this.state.elapsed / 100);\n\n//     // This will give a number with one digit after the decimal dot (xx.x):\n//     var seconds = (elapsed / 10).toFixed(1);\n\n//     // Although we return an entire <p> element, react will smartly update\n//     // only the changed parts, which contain the seconds variable.\n\n//     return <p>This example was started <b>{seconds} seconds</b> ago.</p>;\n//   }\n\nfunction getUser(user) {\n  return 'Hello ' + user.firstName + ' ' + user.lastName;\n};\n\nvar User = { firstName: 'Karl', lastName: 'Levovsky' };\n\nvar element = _react2.default.createElement('h1', null, getUser(User));\n\n(0, _reactDom.render)(element, document.getElementById('app'));\n\n//# sourceURL=webpack:///./src/client/app/index.js?");
 
 /***/ })
 

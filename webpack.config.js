@@ -5,7 +5,7 @@ var APP_DIR = path.resolve(__dirname, 'src/client/app');
 var CLIENT_DIR = path.resolve(__dirname,'src/clinet');
 
 module.exports = {
-  entry: "./src/client/app/index.jsx",
+  entry: "./src/client/app/index.js",
   output: {
     path: BUNDLE_DIR, 
     filename: "bundle.js",
