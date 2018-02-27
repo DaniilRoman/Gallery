@@ -52,16 +52,12 @@ import {render} from 'react-dom';
 //     return <p>This example was started <b>{seconds} seconds</b> ago.</p>;
 //   }
 
-function getUser(user) {
-  return 'Hello '+user.firstName+' '+user.lastName;
-};
-
-let User =  {firstName:'Karl',lastName:'Levovsky'};
-
-let element = 
-<h1>
-  {getUser(User)}
-</h1>
-;
-
-render(element, document.getElementById('app'));
+function tick() {
+  const element = 
+  <div>
+    <h1>Hello world</h1>
+    <h2>It is {new Date().toLocaleTimeString()}.</h2>
+  </div>
+  render(element, document.getElementById('app'));
+}
+setInterval(tick,1000);
