@@ -52,47 +52,41 @@ import ReactDOM from 'react-dom';
 //     return <p>This example was started <b>{seconds} seconds</b> ago.</p>;
 //   }
 
-// const FunctionalComponent = (props) => {
-//   return <h3>Hi, {props.name}!</h3>
-// };
 
-// // class component
-// class ClassComponent extends React.Component {
-//   render() {
-//       return <h3>Hi, {this.props.name}!</h3>;
-//   }
-// }
+class Clock extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {date: new Date()};
+  }
 
-// // composing multiple components in one React element
-// const app = (
-//   <div>
-//       <FunctionalComponent name="John" />
-//       <ClassComponent name="Jack" />
-//   </div>
-// );
+  componentDidMount(){
+      this.timeID = setInterval(()=>this.tick(),1000);
+  }
 
-// // same as above but using component
-// function App(props) {
-//   return (
-//       <div>
-//           <FunctionalComponent name="John" />
-//           <ClassComponent name="Jack" />
-//       </div>
-//   )
-// }
+  componentWillUnmount(){
+    clearInterval(this.timerID);
+  }
 
-function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  tick(){
+    this.setState({
+      date: new Date()
+    });
+  }
+
+  render(){
+    return(
+      <div>
+        <h1>Hello world!</h1>
+        <FormattedDate date={this.state.date}/>
+      </div>
+    );
+  }
 }
 
-function App() {
-  return (
-    <div>
-      <Welcome name="Sara" />
-      <Welcome name="Cahal" />
-      <Welcome name="Edite" />
-    </div>
-  );
+function FormattedDate(props){
+  return <h2>It is {props.date.toLocaleTimeString()}.</h2>;
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+
+
+ReactDOM.render(<Clock/>, document.getElementById('app'));
