@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from 'react-dom';
+import ReactDOM from 'react-dom';
 
 // class App extends React.Component {
 // //   render () {
@@ -52,12 +52,47 @@ import {render} from 'react-dom';
 //     return <p>This example was started <b>{seconds} seconds</b> ago.</p>;
 //   }
 
-function tick() {
-  const element = 
-  <div>
-    <h1>Hello world</h1>
-    <h2>It is {new Date().toLocaleTimeString()}.</h2>
-  </div>
-  render(element, document.getElementById('app'));
+// const FunctionalComponent = (props) => {
+//   return <h3>Hi, {props.name}!</h3>
+// };
+
+// // class component
+// class ClassComponent extends React.Component {
+//   render() {
+//       return <h3>Hi, {this.props.name}!</h3>;
+//   }
+// }
+
+// // composing multiple components in one React element
+// const app = (
+//   <div>
+//       <FunctionalComponent name="John" />
+//       <ClassComponent name="Jack" />
+//   </div>
+// );
+
+// // same as above but using component
+// function App(props) {
+//   return (
+//       <div>
+//           <FunctionalComponent name="John" />
+//           <ClassComponent name="Jack" />
+//       </div>
+//   )
+// }
+
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
 }
-setInterval(tick,1000);
+
+function App() {
+  return (
+    <div>
+      <Welcome name="Sara" />
+      <Welcome name="Cahal" />
+      <Welcome name="Edite" />
+    </div>
+  );
+}
+
+ReactDOM.render(<App/>, document.getElementById('app'));
