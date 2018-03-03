@@ -11,7 +11,7 @@ class NameForm extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value.toUpperCase() });
+    this.setState({ value: event.target.value});
   }
 
   handleSubmit(event) {
