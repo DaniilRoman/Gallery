@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import openSocket from 'socket.io-client';
+// import openSocket from 'socket.io-client';
 import Socket from "./socketClient";
 
 class NameForm extends React.Component {
@@ -18,7 +18,7 @@ class NameForm extends React.Component {
   }
 
   handleSubmit(event) {
-    new Socket().sendString(event.target.value)
+    //this.socket.sendString(event.target.value)
     //alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
   }
@@ -29,7 +29,7 @@ class NameForm extends React.Component {
   
 
   componentWillUnmount(){
-    new Socket().disconnect();
+    this.socket.disconnect();
   }
 
   render() {
