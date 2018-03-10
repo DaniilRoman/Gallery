@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux'
-import todos from './todos'
-import visibilityFilter from './visibilityFilter'
- 
-const todoApp = combineReducers({
-  todos,
-  visibilityFilter
-})
- 
-export default todoApp
+import {combineReducers} from 'redux';
+import CarsReducers from './car';
+import ActiveCar from './car-active';
+
+const allReducers = combineReducers({
+    cars: CarsReducers,
+    active: ActiveCar
+});
+
+export default allReducers
