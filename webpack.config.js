@@ -58,6 +58,11 @@ module.exports = {
           template: './index.html',
           inject: "body"
       })],
+  node: {
+    fs: "empty",
+    net: "empty",
+    tls: "empty"
+  },
     devServer: {
       compress: true,
       port: 9000
