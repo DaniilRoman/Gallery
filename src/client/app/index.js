@@ -18,8 +18,8 @@ class NameForm extends React.Component {
   }
 
   handleSubmit(event) {
-    //this.socket.sendString(event.target.value)
-    //alert('A name was submitted: ' + this.state.value);
+    this.socket.sendMessage(this.state.value);
+    // alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
   }
 
