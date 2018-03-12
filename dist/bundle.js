@@ -25268,23 +25268,10 @@ var NameForm = function (_React$Component) {
       this.socket.sendMessage(event.target.value);
       this.setState({ value: event.target.value });
     }
-
-    //   handleChange(event) {
-    //   event.preventDefault();
-    //   this.socket.sendMessage(event.target.value);
-    //   setTimeout(this.temp(event.target.value), 1000);
-    // }
-
-    // temp(value) {
-    //   this.setState(
-    //     { value: value, result: this.socket.result })
-    // }
-
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
       this.socket.sendMessage(this.state.value);
-      // alert('A name was submitted: ' + this.state.value);
       event.preventDefault();
     }
   }, {
@@ -25300,7 +25287,7 @@ var NameForm = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', null, _react2.default.createElement('form', { onSubmit: this.handleSubmit }, _react2.default.createElement('label', null, 'Name:', _react2.default.createElement('input', { type: 'text', value: this.state.value, onChange: this.handleChange })), _react2.default.createElement('input', { type: 'submit', value: 'Submit' })), _react2.default.createElement('p', null, this.state.result));
+      return _react2.default.createElement('div', null, _react2.default.createElement('form', { onSubmit: this.handleSubmit }, _react2.default.createElement('label', null, 'Type:', _react2.default.createElement('input', { type: 'text', value: this.state.value, onChange: this.handleChange })), _react2.default.createElement('input', { type: 'hidden', value: 'Submit' })), _react2.default.createElement('p', null, this.state.result));
     }
   }]);
 

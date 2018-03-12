@@ -22,20 +22,8 @@ class NameForm extends React.Component {
   }
   
 
-  //   handleChange(event) {
-  //   event.preventDefault();
-  //   this.socket.sendMessage(event.target.value);
-  //   setTimeout(this.temp(event.target.value), 1000);
-  // }
-
-  // temp(value) {
-  //   this.setState(
-  //     { value: value, result: this.socket.result })
-  // }
-
   handleSubmit(event) {
     this.socket.sendMessage(this.state.value);
-    // alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -53,10 +41,10 @@ class NameForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>
-            Name:
+            Type:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
           </label>
-          <input type="submit" value="Submit" />
+          <input type="hidden" value="Submit" />
         </form>
         <p>{this.state.result}</p>
       </div>
