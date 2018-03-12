@@ -4,6 +4,7 @@ import { Stomp } from 'stompjs/lib/stomp'
 export default class Socket {
     constructor() {
         this.flag = true;
+        this.result = "";
         // this.stompClient = Stomp.
         //     over(new SockJS('http://localhost:8000/gs-guide-websocket'));
         this.socket = new SockJS('http://localhost:8000/gs-guide-websocket');
@@ -18,10 +19,10 @@ export default class Socket {
     sendMessage(value) {
         this.stompClient.send
             ("/app/hello", {}, JSON.stringify({ 'name': value }));
-        alert('A name was submitted: ' + value);//this.state.value
+        //alert('A name was submitted: ' + value);//this.state.value
         event.preventDefault();
     }
-    connect() {
+    connect(th) {
         this.socket.onopen = ()=>{console.log('OPEN::::::')}
         this.stompClient = Stomp.over(this.socket);
         this.stompClient.connect(
@@ -29,7 +30,7 @@ export default class Socket {
              (frame) => {
                 console.log('Connected: ' + frame);
                 //  if (!(frame === 'CONNECTED')) {
-                this.subscribe();
+                this.subscribe(th);
                 //  }
             });
 
@@ -37,10 +38,12 @@ export default class Socket {
         //return this.stompClient;
     }
 
-    subscribe() {
+    subscribe(th) {
         this.stompClient.subscribe('/topic/greetings',
             (greeting) => {
                 console.log("111:" + JSON.parse(greeting.body).content);
+                //this.result = JSON.parse(greeting.body).content;
+                th.setState({result: JSON.parse(greeting.body).content});
             });
     }
 
