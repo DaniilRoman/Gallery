@@ -24997,8 +24997,8 @@ var NameForm = function (_React$Component) {
   }, {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
-      this.socket.sendMessage(event.target.value);
-      alert('A name was submitted: ' + this.state.value);
+      this.socket.sendMessage(this.state.value);
+      // alert('A name was submitted: ' + this.state.value);
       event.preventDefault();
     }
   }, {
@@ -25069,9 +25069,13 @@ var Socket = function () {
     function Socket() {
         _classCallCheck(this, Socket);
 
+        this.flag = true;
         // this.stompClient = Stomp.
-        //     over(new SockJS('http://localhost:8080/gs-guide-websocket'));
+        //     over(new SockJS('http://localhost:8000/gs-guide-websocket'));
+        this.socket = new _sockjsClient2.default('http://localhost:8000/gs-guide-websocket');
+        this.stompClient = null;
         this.connect = this.connect.bind(this);
+        this.subscribe = this.subscribe.bind(this);
         this.disconnect = this.disconnect.bind(this);
         this.sendMessage = this.sendMessage.bind(this);
         console.log('init');
@@ -25080,41 +25084,44 @@ var Socket = function () {
     _createClass(Socket, [{
         key: 'sendMessage',
         value: function sendMessage(value) {
-            // this.stompClient.send
-            //     ("/app/hello", {}, JSON.stringify({ 'name': value.val() }));
-            // alert('A name was submitted: ' + this.state.value);
-            // event.preventDefault();
+            this.stompClient.send("/app/hello", {}, JSON.stringify({ 'name': value }));
+            alert('A name was submitted: ' + value); //this.state.value
+            event.preventDefault();
         }
     }, {
         key: 'connect',
         value: function connect() {
-            // var socket = new SockJS('http://localhost:8080/gs-guide-websocket');
-            // this.stompClient = Stomp.over(socket);
-            //this.stompClient = 
+            var _this = this;
 
-            // this.stompClient.connect(
-            //     { 'Access-Control-Allow-Origin': '*' },
-            //     function (frame) {
-            //         //setConnected(true);
-            //         console.log('Connected: ' + frame);
-            //         if (!(this.stompClient === undefined)) {
-            //             this.stompClient.subscribe('/topic/greetings', function (greeting) {
-            //                 alert(JSON.parse(greeting.body).content);
-            //             });
-            //         }
-            //     });
+            this.socket.onopen = function () {
+                console.log('OPEN::::::');
+            };
+            this.stompClient = _stomp.Stomp.over(this.socket);
+            this.stompClient.connect({ 'Access-Control-Allow-Origin': '*' }, function (frame) {
+                console.log('Connected: ' + frame);
+                //  if (!(frame === 'CONNECTED')) {
+                _this.subscribe();
+                //  }
+            });
 
             //console.log('Connected');
             //return this.stompClient;
         }
     }, {
+        key: 'subscribe',
+        value: function subscribe() {
+            this.stompClient.subscribe('/topic/greetings', function (greeting) {
+                console.log("111:" + JSON.parse(greeting.body).content);
+            });
+        }
+    }, {
         key: 'disconnect',
         value: function disconnect() {
-            // if (this.stompClient !== null) {
-            //     this.stompClient.disconnect();
-            // }
-            // //setConnected(false);
-            // console.log("Disconnected");
+            if (this.stompClient !== null) {
+                this.stompClient.disconnect();
+            }
+            //setConnected(false);
+            console.log("Disconnected");
         }
     }]);
 

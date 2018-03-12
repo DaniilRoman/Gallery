@@ -3,9 +3,13 @@ import { Stomp } from 'stompjs/lib/stomp'
 
 export default class Socket {
     constructor() {
-        this.stompClient = Stomp.
-            over(new SockJS('http://localhost:8080/gs-guide-websocket'));
+        this.flag = true;
+        // this.stompClient = Stomp.
+        //     over(new SockJS('http://localhost:8000/gs-guide-websocket'));
+        this.socket = new SockJS('http://localhost:8000/gs-guide-websocket');
+        this.stompClient = null;
         this.connect = this.connect.bind(this);
+        this.subscribe = this.subscribe.bind(this);
         this.disconnect = this.disconnect.bind(this);
         this.sendMessage = this.sendMessage.bind(this);
         console.log('init');
@@ -13,30 +17,31 @@ export default class Socket {
 
     sendMessage(value) {
         this.stompClient.send
-            ("/app/hello", {}, JSON.stringify(value));
+            ("/app/hello", {}, JSON.stringify({ 'name': value }));
         alert('A name was submitted: ' + value);//this.state.value
         event.preventDefault();
     }
     connect() {
-        // var socket = new SockJS('http://localhost:8080/gs-guide-websocket');
-        // this.stompClient = Stomp.over(socket);
-        //this.stompClient = 
-
+        this.socket.onopen = ()=>{console.log('OPEN::::::')}
+        this.stompClient = Stomp.over(this.socket);
         this.stompClient.connect(
             { 'Access-Control-Allow-Origin': '*' },
-            function (frame) {
-                //setConnected(true);
+             (frame) => {
                 console.log('Connected: ' + frame);
-                if (!(this.stompClient === undefined)) {
-                    this.stompClient.subscribe('/topic/greetings',
-                        function (greeting) {
-                            console.log("111:" + JSON.parse(greeting.body));
-                        });
-                }
+                //  if (!(frame === 'CONNECTED')) {
+                this.subscribe();
+                //  }
             });
 
         //console.log('Connected');
         //return this.stompClient;
+    }
+
+    subscribe() {
+        this.stompClient.subscribe('/topic/greetings',
+            (greeting) => {
+                console.log("111:" + JSON.parse(greeting.body).content);
+            });
     }
 
     disconnect() {
