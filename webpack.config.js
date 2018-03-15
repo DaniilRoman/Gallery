@@ -6,6 +6,7 @@ var APP_DIR = path.resolve(__dirname, 'src/client/app');
 var CLIENT_DIR = path.resolve(__dirname,'src/clinet');
 
 module.exports = {
+  devtool: "cheap-module-source-map",
   entry: "./src/client/app/index.js",
   output: {
     path: BUNDLE_DIR, 
