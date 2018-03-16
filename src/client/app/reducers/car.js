@@ -1,8 +1,14 @@
 import Behance from 'behance-api';
 
 export default function () {
-    // var result = {};
-    var resres = [];
+     var result = [];
+    // state.BehanceAPI.projects({ q: 'cars' }, function (err, res, data) {
+    //     if (err) throw err;
+    //     console.dir(JSON.parse(res.body).projects);
+    //     return JSON.parse(res.body).projects;
+    // });
+    return result;
+}
     // new Behance('e1A607WbYauktG2el5XT2dbZriXROx4T')
     //     .projects({}, function (err, res, data) {
     //         if (err) throw err;
@@ -38,8 +44,6 @@ export default function () {
     //             },
     //         ];
     //     })
-        return resres;
-}
 
 
 

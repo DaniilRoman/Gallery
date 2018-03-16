@@ -65,6 +65,7 @@ module.exports = {
     tls: "empty"
   },
     devServer: {
+      historyApiFallback: true,
       compress: true,
       port: 9000
     }

@@ -1,6 +1,6 @@
-export default function (state=null, action) {
+export default function (state = [], action) {
     switch (action.type) {
-        case "CAR_SELECTED":
+        case "CHANGE_PROJECTS":
             return action.payload;
             break;
         default:

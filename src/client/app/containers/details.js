@@ -34,10 +34,10 @@ class Details extends Component {
                 <img src={this.result.img} /><br />
                 <p>{this.result.url}</p> */}
                 <h2>{this.props.car.name}</h2>
-                <img src={this.props.car.img} /><br />
-                <p>{this.props.car.desc}</p>
-                <h2>Скорость: {this.props.car.speed},
-                вес: {this.props.car.weight}</h2>
+                <img width ="300px"  src={this.props.car.covers.original} /><br />
+                 <p>{this.props.car.fields[0]}</p>
+                {/* <h2>Скорость: {this.props.car.speed},
+                вес: {this.props.car.weight}</h2>  */}
             </div>
         );
     }

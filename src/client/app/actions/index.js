@@ -4,3 +4,9 @@ export const select = (car)=>{
     payload: car
   }
 };
+export const changeProjects = (projects)=>{
+  return{
+    type:"CHANGE_PROJECTS",
+    payload: projects
+  }
+}

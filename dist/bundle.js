@@ -85328,6 +85328,12 @@ var select = exports.select = function select(car) {
     payload: car
   };
 };
+var changeProjects = exports.changeProjects = function changeProjects(projects) {
+  return {
+    type: "CHANGE_PROJECTS",
+    payload: projects
+  };
+};
 
 /***/ }),
 
@@ -85437,22 +85443,22 @@ var Details = function (_Component) {
 
         _this.result = { name: "", img: "", url: "" };
         _this.getData = _this.getData.bind(_this);
-        _this.Be = new _behanceApi2.default('e1A607WbYauktG2el5XT2dbZriXROx4T');
+        // this.Be = new Behance('e1A607WbYauktG2el5XT2dbZriXROx4T');
         return _this;
     }
 
     _createClass(Details, [{
         key: 'getData',
         value: function getData(th) {
-            this.Be.projects({}, function (err, res, data) {
-                if (err) throw err;
-                res = JSON.parse(res.body).projects[3];
-                th.result.name = res.name;
-                th.result.img = res.covers.original;
-                th.result.url = res.url;
-                //let result = data[0]["colors"][0]["b"];
-                //return result
-            });
+            // this.Be.projects({}, function (err, res, data) {
+            //     if (err) throw err;
+            //     res = JSON.parse(res.body).projects[3];
+            //     th.result.name = res.name;
+            //     th.result.img = res.covers.original;
+            //     th.result.url = res.url;
+            //     //let result = data[0]["colors"][0]["b"];
+            //     //return result
+            // })
         }
     }, {
         key: 'render',
@@ -85460,7 +85466,7 @@ var Details = function (_Component) {
             if (!this.props.car) {
                 return _react2.default.createElement('p', null, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044C...");
             }
-            return _react2.default.createElement('div', null, _react2.default.createElement('p', null, this.getData(this)), _react2.default.createElement('h2', null, this.result.name), _react2.default.createElement('img', { src: this.result.img }), _react2.default.createElement('br', null), _react2.default.createElement('p', null, this.result.url));
+            return _react2.default.createElement('div', null, _react2.default.createElement('h2', null, this.props.car.name), _react2.default.createElement('img', { src: this.props.car.covers.original }), _react2.default.createElement('br', null), _react2.default.createElement('p', null, this.props.car.fields[0]));
         }
     }]);
 
@@ -85538,10 +85544,11 @@ function _inherits(subClass, superClass) {
 var CarsList = function (_Component) {
     _inherits(CarsList, _Component);
 
-    function CarsList() {
+    function CarsList(props) {
         _classCallCheck(this, CarsList);
 
-        return _possibleConstructorReturn(this, (CarsList.__proto__ || Object.getPrototypeOf(CarsList)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (CarsList.__proto__ || Object.getPrototypeOf(CarsList)).call(this, props));
+        //this.props.changeProjects = this.props.changeProjects.bind(this);
     }
 
     _createClass(CarsList, [{
@@ -85549,11 +85556,28 @@ var CarsList = function (_Component) {
         value: function showList() {
             var _this2 = this;
 
+            // let result = [];
+            // this.props.Be.projects({q: 'cars'}, function (err, res, data) {
+            //     if (err) throw err;
+            //     console.dir(JSON.parse(res.body).projects);
+            //     result = JSON.parse(res.body).projects;
+            // });
             return this.props.cars.map(function (car) {
                 return _react2.default.createElement('li', { onClick: function onClick() {
                         return _this2.props.select(car);
                     },
                     key: car.id }, car.name);
+            });
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this3 = this;
+
+            this.props.Be.projects({ q: 'cars' }, function (err, res, data) {
+                if (err) throw err;
+                console.dir(JSON.parse(res.body).projects);
+                _this3.props.changeProjects(JSON.parse(res.body).projects);
             });
         }
     }, {
@@ -85568,12 +85592,13 @@ var CarsList = function (_Component) {
 
 function mapStateToProps(state) {
     return {
-        cars: state.cars
+        cars: state.cars,
+        Be: state.BehanceAPI
     };
 }
 
 function matchDispatchToProps(dispatch) {
-    return (0, _redux.bindActionCreators)({ select: _index.select }, dispatch);
+    return (0, _redux.bindActionCreators)({ select: _index.select, changeProjects: _index.changeProjects }, dispatch);
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(CarsList);
@@ -85610,11 +85635,13 @@ var _WebPage = __webpack_require__(/*! ./components/WebPage */ "./src/client/app
 
 var _WebPage2 = _interopRequireDefault(_WebPage);
 
+var _logging = __webpack_require__(/*! ./reducers/logging */ "./src/client/app/reducers/logging.js");
+
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-var store = (0, _redux.createStore)(_reducers2.default);
+var store = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(_logging.logger, _logging.crashReporter));
 
 _reactDom2.default.render(_react2.default.createElement(_reactRedux.Provider, { store: store }, _react2.default.createElement(_WebPage2.default, null)), document.getElementById('app'));
 
@@ -85658,7 +85685,6 @@ exports.default = function () {
         case "CAR_SELECTED":
             return action.payload;
             break;
-
         default:
             return state;
     }
@@ -85681,38 +85707,41 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-    var result = {};
-    var resres = [];
-    new _behanceApi2.default('e1A607WbYauktG2el5XT2dbZriXROx4T').projects({}, function (err, res, data) {
-        if (err) throw err;
-        result = JSON.parse(res.body);
-        // th.result.name = res.name;
-        // th.result.img = res.covers.original;
-        // th.result.url = res.url;
-        resres = [{
-            id: 1,
-            name: result.projects[1].name,
-            speed: 245.54,
-            weight: 1.5,
-            desc: result.projects[1].url,
-            img: result.projects[1].covers.original
-        }, {
-            id: 2,
-            name: result.projects[2].name,
-            speed: 310.12,
-            weight: 1.22,
-            desc: result.projects[2].url,
-            img: result.projects[2].covers.original
-        }, {
-            id: 3,
-            name: result.projects[3].name,
-            speed: 290,
-            weight: 0.9,
-            desc: result.projects[3].url,
-            img: result.projects[3].covers.original
-        }];
-    });
-    return resres;
+    var result = [];
+    // state.BehanceAPI.projects({ q: 'cars' }, function (err, res, data) {
+    //     if (err) throw err;
+    //     console.dir(JSON.parse(res.body).projects);
+    //     return JSON.parse(res.body).projects;
+    // });
+    return result;
+};
+
+var _behanceApi = __webpack_require__(/*! behance-api */ "./node_modules/behance-api/index.js");
+
+var _behanceApi2 = _interopRequireDefault(_behanceApi);
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+/***/ }),
+
+/***/ "./src/client/app/reducers/connectToAPI.js":
+/*!*************************************************!*\
+  !*** ./src/client/app/reducers/connectToAPI.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    return new _behanceApi2.default('e1A607WbYauktG2el5XT2dbZriXROx4T');
 };
 
 var _behanceApi = __webpack_require__(/*! behance-api */ "./node_modules/behance-api/index.js");
@@ -85749,16 +85778,100 @@ var _carActive = __webpack_require__(/*! ./car-active */ "./src/client/app/reduc
 
 var _carActive2 = _interopRequireDefault(_carActive);
 
+var _connectToAPI = __webpack_require__(/*! ./connectToAPI */ "./src/client/app/reducers/connectToAPI.js");
+
+var _connectToAPI2 = _interopRequireDefault(_connectToAPI);
+
+var _projects = __webpack_require__(/*! ./projects */ "./src/client/app/reducers/projects.js");
+
+var _projects2 = _interopRequireDefault(_projects);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
 
 var allReducers = (0, _redux.combineReducers)({
-    cars: _car2.default,
-    active: _carActive2.default
+    cars: _projects2.default,
+    active: _carActive2.default,
+    BehanceAPI: _connectToAPI2.default
+
 });
 
 exports.default = allReducers;
+
+/***/ }),
+
+/***/ "./src/client/app/reducers/logging.js":
+/*!********************************************!*\
+  !*** ./src/client/app/reducers/logging.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var logger = exports.logger = function logger(store) {
+    return function (next) {
+        return function (action) {
+            console.log('dispatching', action);
+            var result = next(action);
+            console.log('next state', store.getState());
+            return result;
+        };
+    };
+};
+
+var crashReporter = exports.crashReporter = function crashReporter(store) {
+    return function (next) {
+        return function (action) {
+            try {
+                return next(action);
+            } catch (err) {
+                console.error('Caught an exception!', err);
+                Raven.captureException(err, {
+                    extra: {
+                        action: action,
+                        state: store.getState()
+                    }
+                });
+                throw err;
+            }
+        };
+    };
+};
+
+/***/ }),
+
+/***/ "./src/client/app/reducers/projects.js":
+/*!*********************************************!*\
+  !*** ./src/client/app/reducers/projects.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var action = arguments[1];
+
+    switch (action.type) {
+        case "CHANGE_PROJECTS":
+            return action.payload;
+            break;
+        default:
+            return state;
+    }
+};
 
 /***/ }),
 
