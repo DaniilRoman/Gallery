@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import allReducers from './reducers';
 import WebPage from './components/WebPage';
+import Root from './components/Root';
 import { logger, crashReporter} from './reducers/logging';
 
 

@@ -23,7 +23,7 @@ class CarsList extends Component {
     };
 
     componentDidMount() {
-        this.props.Be.projects({}, (err, res, data)=> {
+        this.props.Be.projects({q:"Moscow"}, (err, res, data)=> {
             if (err) throw err;
             console.dir(JSON.parse(res.body).projects);
             this.props.changeProjects(JSON.parse(res.body).projects);
