@@ -89652,6 +89652,8 @@ var _behanceApi = __webpack_require__(/*! behance-api */ "./node_modules/behance
 
 var _behanceApi2 = _interopRequireDefault(_behanceApi);
 
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -89673,9 +89675,6 @@ function _inherits(subClass, superClass) {
         throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
     }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-
-//import { Link } from 'react-router-dom';
-
 
 var Details = function (_Component) {
     _inherits(Details, _Component);
@@ -89708,9 +89707,9 @@ var Details = function (_Component) {
         key: 'render',
         value: function render() {
             if (!this.props.car) {
-                return _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('p', null, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044C..."));
+                return _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('p', null, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044C..."), _react2.default.createElement(_reactRouterDom.Link, { to: '/' }, 'Back'));
             }
-            return _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('h2', null, this.props.car.name), _react2.default.createElement('img', { width: '300px', src: this.props.car.covers.original }), _react2.default.createElement('br', null), _react2.default.createElement('p', null, this.props.car.fields[0]));
+            return _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('h2', null, this.props.car.name), _react2.default.createElement('img', { width: '300px', src: this.props.car.covers.original }), _react2.default.createElement('br', null), _react2.default.createElement('p', null, this.props.car.fields[0]), _react2.default.createElement(_reactRouterDom.Link, { to: '/' }, 'Back'));
         }
     }]);
 
@@ -89811,7 +89810,7 @@ var CarsList = function (_Component) {
             return this.props.cars.map(function (car) {
                 return _react2.default.createElement('li', { onClick: function onClick() {
                         return _this2.props.select(car);
-                    }, key: car.id }, _react2.default.createElement(_reactRouterDom.Link, { to: '/project/' + car.id }, car.name), car.name);
+                    }, key: car.id }, _react2.default.createElement(_reactRouterDom.Link, { to: '/project/' + car.id }, car.name));
             });
         }
     }, {
@@ -89891,7 +89890,7 @@ function _interopRequireDefault(obj) {
 //import Root from './components/Root';
 var store = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(_logging.logger, _logging.crashReporter));
 
-_reactDom2.default.render(_react2.default.createElement(_reactRedux.Provider, { store: store }, _react2.default.createElement(_WebPage2.default, null)), document.getElementById('app'));
+_reactDom2.default.render(_react2.default.createElement(_reactRedux.Provider, { store: store }, _react2.default.createElement(_reactRouterDom.BrowserRouter, null, _react2.default.createElement(_WebPage2.default, null))), document.getElementById('app'));
 
 // import React from 'react'
 // import { render } from 'react-dom'
