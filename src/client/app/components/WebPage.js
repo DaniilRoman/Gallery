@@ -1,13 +1,15 @@
 import React from 'react';
 import Projects from '../containers/projects';
 import Details from '../containers/details';
+import { Switch, Route } from 'react-router-dom';
 
 const WebPage = () => (
     <div>
-        <h2>Projects</h2>
-        <Projects />
-        <hr/>
-        <h3>Details:</h3>
+        {/* <Switch>
+            <Route exact path='/' component={Projects} />
+            <Route path='/project/:id' component={Details} />
+        </Switch> */}
+        <Projects/>
         <Details/>
     </div>
 );

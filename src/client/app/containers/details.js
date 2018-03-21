@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Behance from 'behance-api';
+import { Link } from 'react-router-dom';
 
 
 class Details extends Component {
     constructor(props) {
         super(props);
-        this.result = {name:"",img:"",url:""}
+        this.result = { name: "", img: "", url: "" }
         this.getData = this.getData.bind(this);
         // this.Be = new Behance('e1A607WbYauktG2el5XT2dbZriXROx4T');
     }
 
-    getData(th){
+    getData(th) {
         // this.Be.projects({}, function (err, res, data) {
         //     if (err) throw err;
         //     res = JSON.parse(res.body).projects[3];
@@ -25,19 +26,25 @@ class Details extends Component {
 
     render() {
         if (!this.props.car) {
-            return (<p>Выберите автомобиль...</p>);
+            return (
+                <div>
+                    <h3>Details:</h3>
+                    <p>Выберите автомобиль...</p>
+                </div>);
         }
         return (
             <div>
+                <h3>Details:</h3>
                 {/* <p>{this.getData(this)}</p>
                 <h2>{this.result.name}</h2>
                 <img src={this.result.img} /><br />
                 <p>{this.result.url}</p> */}
                 <h2>{this.props.car.name}</h2>
-                <img width ="300px"  src={this.props.car.covers.original} /><br />
-                 <p>{this.props.car.fields[0]}</p>
+                <img width="300px" src={this.props.car.covers.original} /><br />
+                <p>{this.props.car.fields[0]}</p>
                 {/* <h2>Скорость: {this.props.car.speed},
                 вес: {this.props.car.weight}</h2>  */}
+                <Link to='/'>Back</Link>
             </div>
         );
     }

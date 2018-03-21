@@ -13,4 +13,4 @@ const FilterLink = ({ filter, children }) => (
   </Link>
 );
 
-export default FilterLink;
+//export default FilterLink;
