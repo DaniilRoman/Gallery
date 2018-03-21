@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { select } from '../actions/index';
-import { changeProjects } from '../actions/index';
+<<<<<<< HEAD
+import { changeProjects } from '../actions/index'
 import { Link } from 'react-router-dom'
+=======
+import { changeProjects } from '../actions/index';
+//import { Link } from 'react-router-dom';
+>>>>>>> origin/test
 
 class CarsList extends Component {
     constructor(props) {
@@ -17,12 +22,24 @@ class CarsList extends Component {
         //     console.dir(JSON.parse(res.body).projects);
         //     result = JSON.parse(res.body).projects;
         // });
+<<<<<<< HEAD
         return this.props.cars.map((car) => {
             return <li onClick={() => this.props.select(car)} key={car.id}>
                 <Link to={`/project/${car.id}`}>{car.name}</Link>
                 {/* {car.name} */}
             </li>;
         })
+=======
+        return
+            this.props.cars.map((car) => {
+                return
+                <li onClick={() => this.props.select(car)} key={car.id}>
+                    {/* <Link to={`/project/${car.id}`}> */}
+                        {car.name}
+                    {/* </Link> */}
+                </li>;
+            })
+>>>>>>> origin/test
     };
 
     componentDidMount() {
@@ -37,10 +54,18 @@ class CarsList extends Component {
     render() {
         return (
             <div>
+<<<<<<< HEAD
                 <h2>Projects:</h2>
                 <ol>
                     {this.showList()}
                 </ol>
+=======
+                <h3>Projects:</h3>
+                <br/>
+            <ol>
+                {this.showList()}
+            </ol>
+>>>>>>> origin/test
             </div>
         )
     }

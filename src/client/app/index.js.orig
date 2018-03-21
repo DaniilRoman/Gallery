@@ -1,0 +1,51 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import allReducers from './reducers';
+import WebPage from './components/WebPage';
+//import Root from './components/Root';
+import { logger, crashReporter } from './reducers/logging';
+<<<<<<< HEAD
+import { BrowserRouter, Route } from 'react-router-dom'
+=======
+//import { BrowserRouter } from 'react-router-dom';
+
+
+//import { BrowserRouter, Route } from 'react-router';
+>>>>>>> origin/test
+
+
+const store = createStore(allReducers, applyMiddleware(logger, crashReporter));
+
+ReactDOM.render(
+  <Provider store={store}>
+<<<<<<< HEAD
+    <BrowserRouter>
+      <WebPage />
+    </BrowserRouter>
+=======
+    {/* <BrowserRouter>
+      <WebPage/>
+    </BrowserRouter> */}
+    <WebPage />
+>>>>>>> origin/test
+  </Provider>,
+  document.getElementById('app')
+);
+
+// import React from 'react'
+// import { render } from 'react-dom'
+// import { Provider } from 'react-redux'
+// import { createStore } from 'redux'
+// import todoApp from './reducers'
+// import App from './components/App'
+//  
+// let store = createStore(todoApp)
+//  
+// render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>,
+//   document.getElementById('app')
+// )
