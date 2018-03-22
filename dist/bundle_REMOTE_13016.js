@@ -89561,10 +89561,10 @@ function extend() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var select = exports.select = function select(project) {
+var select = exports.select = function select(car) {
   return {
-    type: "PROJECT_SELECTED",
-    payload: project
+    type: "CAR_SELECTED",
+    payload: car
   };
 };
 var changeProjects = exports.changeProjects = function changeProjects(projects) {
@@ -89576,115 +89576,10 @@ var changeProjects = exports.changeProjects = function changeProjects(projects) 
 
 /***/ }),
 
-/***/ "./src/client/app/components/App.js":
-/*!******************************************!*\
-  !*** ./src/client/app/components/App.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-var _Header = __webpack_require__(/*! ./Header */ "./src/client/app/components/Header.js");
-
-var _Header2 = _interopRequireDefault(_Header);
-
-var _Footer = __webpack_require__(/*! ./Footer */ "./src/client/app/components/Footer.js");
-
-var _Footer2 = _interopRequireDefault(_Footer);
-
-var _Main = __webpack_require__(/*! ./Main */ "./src/client/app/components/Main.js");
-
-var _Main2 = _interopRequireDefault(_Main);
-
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
-}
-
-var App = function App() {
-    return _react2.default.createElement('div', null, _react2.default.createElement(_Header2.default, null), _react2.default.createElement(_Main2.default, null), _react2.default.createElement(_Footer2.default, null));
-};
-
-exports.default = App;
-
-/***/ }),
-
-/***/ "./src/client/app/components/Footer.js":
-/*!*********************************************!*\
-  !*** ./src/client/app/components/Footer.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
-
-var Footer = function Footer() {
-  return _react2.default.createElement('footer', null, _react2.default.createElement('div', null, _react2.default.createElement('br', null), 'Footer'));
-};
-exports.default = Footer;
-
-/***/ }),
-
-/***/ "./src/client/app/components/Header.js":
-/*!*********************************************!*\
-  !*** ./src/client/app/components/Header.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
-
-var Header = function Header() {
-  return _react2.default.createElement('header', null, _react2.default.createElement('nav', null, _react2.default.createElement('ul', null, _react2.default.createElement('li', null, _react2.default.createElement(_reactRouterDom.Link, { to: '/projects' }, 'Projects')))));
-};
-
-exports.default = Header;
-
-/***/ }),
-
-/***/ "./src/client/app/components/Main.js":
-/*!*******************************************!*\
-  !*** ./src/client/app/components/Main.js ***!
-  \*******************************************/
+/***/ "./src/client/app/components/WebPage.js":
+/*!**********************************************!*\
+  !*** ./src/client/app/components/WebPage.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -89703,67 +89598,28 @@ var _projects = __webpack_require__(/*! ../containers/projects */ "./src/client/
 
 var _projects2 = _interopRequireDefault(_projects);
 
+var _details = __webpack_require__(/*! ../containers/details */ "./src/client/app/containers/details.js");
+
+var _details2 = _interopRequireDefault(_details);
+
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-var _ProjectsRouter = __webpack_require__(/*! ./ProjectsRouter */ "./src/client/app/components/ProjectsRouter.js");
-
-var _ProjectsRouter2 = _interopRequireDefault(_ProjectsRouter);
 
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
 
-var Main = function Main() {
-    return _react2.default.createElement('div', null, _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects', component: _ProjectsRouter2.default })));
+var WebPage = function WebPage() {
+    return _react2.default.createElement('div', null, _react2.default.createElement(_projects2.default, null), _react2.default.createElement(_details2.default, null));
 };
 
-exports.default = Main;
+exports.default = WebPage;
 
 /***/ }),
 
-/***/ "./src/client/app/components/ProjectsRouter.js":
-/*!*****************************************************!*\
-  !*** ./src/client/app/components/ProjectsRouter.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _projects = __webpack_require__(/*! ../containers/projects */ "./src/client/app/containers/projects.js");
-
-var _projects2 = _interopRequireDefault(_projects);
-
-var _projectDetails = __webpack_require__(/*! ../containers/projectDetails */ "./src/client/app/containers/projectDetails.js");
-
-var _projectDetails2 = _interopRequireDefault(_projectDetails);
-
-var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
-
-var ProjectsRouter = function ProjectsRouter() {
-  return _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/projects', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects/:id', component: _projectDetails2.default }));
-};
-exports.default = ProjectsRouter;
-
-/***/ }),
-
-/***/ "./src/client/app/containers/projectDetails.js":
-/*!*****************************************************!*\
-  !*** ./src/client/app/containers/projectDetails.js ***!
-  \*****************************************************/
+/***/ "./src/client/app/containers/details.js":
+/*!**********************************************!*\
+  !*** ./src/client/app/containers/details.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -89826,16 +89682,34 @@ var Details = function (_Component) {
     function Details(props) {
         _classCallCheck(this, Details);
 
-        return _possibleConstructorReturn(this, (Details.__proto__ || Object.getPrototypeOf(Details)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Details.__proto__ || Object.getPrototypeOf(Details)).call(this, props));
+
+        _this.result = { name: "", img: "", url: "" };
+        _this.getData = _this.getData.bind(_this);
+        // this.Be = new Behance('e1A607WbYauktG2el5XT2dbZriXROx4T');
+        return _this;
     }
 
     _createClass(Details, [{
+        key: 'getData',
+        value: function getData(th) {
+            // this.Be.projects({}, function (err, res, data) {
+            //     if (err) throw err;
+            //     res = JSON.parse(res.body).projects[3];
+            //     th.result.name = res.name;
+            //     th.result.img = res.covers.original;
+            //     th.result.url = res.url;
+            //     //let result = data[0]["colors"][0]["b"];
+            //     //return result
+            // })
+        }
+    }, {
         key: 'render',
         value: function render() {
-            if (!this.props.project) {
-                return _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('p', null, "\u0422\u0430\u043A\u043E\u0433\u043E \u043F\u0440\u043E\u0435\u043A\u0442\u0430 \u043D\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442"), _react2.default.createElement(_reactRouterDom.Link, { to: '/' }, 'Back'));
+            if (!this.props.car) {
+                return _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('p', null, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044C..."));
             }
-            return _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('h2', null, this.props.project.name), _react2.default.createElement('img', { width: '300px', src: this.props.project.covers.original }), _react2.default.createElement('br', null), _react2.default.createElement('p', null, this.props.project.fields[0]), _react2.default.createElement(_reactRouterDom.Link, { to: '/' }, 'Back'));
+            return _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('h2', null, this.props.car.name), _react2.default.createElement('img', { width: '300px', src: this.props.car.covers.original }), _react2.default.createElement('br', null), _react2.default.createElement('p', null, this.props.car.fields[0]), _react2.default.createElement(_reactRouterDom.Link, { to: '/' }, 'Back'));
         }
     }]);
 
@@ -89844,7 +89718,7 @@ var Details = function (_Component) {
 
 function mapStateToProps(state) {
     return {
-        project: state.active
+        car: state.active
     };
 }
 
@@ -89888,8 +89762,6 @@ var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-r
 
 var _index = __webpack_require__(/*! ../actions/index */ "./src/client/app/actions/index.js");
 
-var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -89912,25 +89784,35 @@ function _inherits(subClass, superClass) {
     }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
-var Projects = function (_Component) {
-    _inherits(Projects, _Component);
+//import { Link } from 'react-router-dom';
 
-    function Projects(props) {
-        _classCallCheck(this, Projects);
+var CarsList = function (_Component) {
+    _inherits(CarsList, _Component);
 
-        return _possibleConstructorReturn(this, (Projects.__proto__ || Object.getPrototypeOf(Projects)).call(this, props));
+    function CarsList(props) {
+        _classCallCheck(this, CarsList);
+
+        return _possibleConstructorReturn(this, (CarsList.__proto__ || Object.getPrototypeOf(CarsList)).call(this, props));
+        //this.props.changeProjects = this.props.changeProjects.bind(this);
     }
 
-    _createClass(Projects, [{
-        key: 'showProjectsList',
-        value: function showProjectsList() {
+    _createClass(CarsList, [{
+        key: 'showList',
+        value: function showList() {
             var _this2 = this;
 
-            return this.props.projects.map(function (project) {
-                return _react2.default.createElement('li', { onClick: function onClick() {
-                        return _this2.props.select(project);
-                    },
-                    key: project.id }, _react2.default.createElement(_reactRouterDom.Link, { to: '/projects/' + project.id }, project.name));
+            // let result = [];
+            // this.props.Be.projects({q: 'cars'}, function (err, res, data) {
+            //     if (err) throw err;
+            //     console.dir(JSON.parse(res.body).projects);
+            //     result = JSON.parse(res.body).projects;
+            // });
+            return;
+            this.props.cars.map(function (car) {
+                return;
+                _react2.default.createElement('li', { onClick: function onClick() {
+                        return _this2.props.select(car);
+                    }, key: car.id }, car.name);
             });
         }
     }, {
@@ -89938,7 +89820,7 @@ var Projects = function (_Component) {
         value: function componentDidMount() {
             var _this3 = this;
 
-            this.props.Be.projects({ q: "red" }, function (err, res, data) {
+            this.props.Be.projects({ q: "Moscow" }, function (err, res, data) {
                 if (err) throw err;
                 _this3.props.changeProjects(JSON.parse(res.body).projects);
                 console.dir(JSON.parse(res.body).projects);
@@ -89947,16 +89829,16 @@ var Projects = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', null, _react2.default.createElement('h2', null, 'Projects:'), _react2.default.createElement('ol', null, this.showProjectsList()));
+            return _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Projects:'), _react2.default.createElement('br', null), _react2.default.createElement('ol', null, this.showList()));
         }
     }]);
 
-    return Projects;
+    return CarsList;
 }(_react.Component);
 
 function mapStateToProps(state) {
     return {
-        projects: state.projects,
+        cars: state.cars,
         Be: state.BehanceAPI
     };
 }
@@ -89965,7 +89847,7 @@ function matchDispatchToProps(dispatch) {
     return (0, _redux.bindActionCreators)({ select: _index.select, changeProjects: _index.changeProjects }, dispatch);
 }
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Projects);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(CarsList);
 
 /***/ }),
 
@@ -89995,22 +89877,27 @@ var _reducers = __webpack_require__(/*! ./reducers */ "./src/client/app/reducers
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
-var _App = __webpack_require__(/*! ./components/App */ "./src/client/app/components/App.js");
+var _WebPage = __webpack_require__(/*! ./components/WebPage */ "./src/client/app/components/WebPage.js");
 
-var _App2 = _interopRequireDefault(_App);
+var _WebPage2 = _interopRequireDefault(_WebPage);
 
 var _logging = __webpack_require__(/*! ./reducers/logging */ "./src/client/app/reducers/logging.js");
-
-var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-//import Root from './components/Root';
-var store = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(_logging.logger, _logging.crashReporter));
+//import { BrowserRouter } from 'react-router-dom';
 
-_reactDom2.default.render(_react2.default.createElement(_reactRedux.Provider, { store: store }, _react2.default.createElement(_reactRouterDom.BrowserRouter, null, _react2.default.createElement(_App2.default, null))), document.getElementById('app'));
+
+//import { BrowserRouter, Route } from 'react-router';
+
+
+var store = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(_logging.logger, _logging.crashReporter));
+//import Root from './components/Root';
+
+
+_reactDom2.default.render(_react2.default.createElement(_reactRedux.Provider, { store: store }, _react2.default.createElement(_WebPage2.default, null)), document.getElementById('app'));
 
 // import React from 'react'
 // import { render } from 'react-dom'
@@ -90027,6 +89914,69 @@ _reactDom2.default.render(_react2.default.createElement(_reactRedux.Provider, { 
 //   </Provider>,
 //   document.getElementById('app')
 // )
+
+/***/ }),
+
+/***/ "./src/client/app/reducers/car-active.js":
+/*!***********************************************!*\
+  !*** ./src/client/app/reducers/car-active.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+    var action = arguments[1];
+
+    switch (action.type) {
+        case "CAR_SELECTED":
+            return action.payload;
+            break;
+        default:
+            return state;
+    }
+};
+
+/***/ }),
+
+/***/ "./src/client/app/reducers/car.js":
+/*!****************************************!*\
+  !*** ./src/client/app/reducers/car.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    var result = [];
+    // state.BehanceAPI.projects({ q: 'cars' }, function (err, res, data) {
+    //     if (err) throw err;
+    //     console.dir(JSON.parse(res.body).projects);
+    //     return JSON.parse(res.body).projects;
+    // });
+    return result;
+};
+
+var _behanceApi = __webpack_require__(/*! behance-api */ "./node_modules/behance-api/index.js");
+
+var _behanceApi2 = _interopRequireDefault(_behanceApi);
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
 
 /***/ }),
 
@@ -90074,9 +90024,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
 
-var _projectActive = __webpack_require__(/*! ./project-active */ "./src/client/app/reducers/project-active.js");
+var _car = __webpack_require__(/*! ./car */ "./src/client/app/reducers/car.js");
 
-var _projectActive2 = _interopRequireDefault(_projectActive);
+var _car2 = _interopRequireDefault(_car);
+
+var _carActive = __webpack_require__(/*! ./car-active */ "./src/client/app/reducers/car-active.js");
+
+var _carActive2 = _interopRequireDefault(_carActive);
 
 var _connectToAPI = __webpack_require__(/*! ./connectToAPI */ "./src/client/app/reducers/connectToAPI.js");
 
@@ -90091,12 +90045,12 @@ function _interopRequireDefault(obj) {
 }
 
 var allReducers = (0, _redux.combineReducers)({
-    projects: _projects2.default,
-    active: _projectActive2.default,
+    cars: _projects2.default,
+    active: _carActive2.default,
     BehanceAPI: _connectToAPI2.default
 
 });
-//import Projects from './car';
+
 exports.default = allReducers;
 
 /***/ }),
@@ -90142,35 +90096,6 @@ var crashReporter = exports.crashReporter = function crashReporter(store) {
             }
         };
     };
-};
-
-/***/ }),
-
-/***/ "./src/client/app/reducers/project-active.js":
-/*!***************************************************!*\
-  !*** ./src/client/app/reducers/project-active.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-exports.default = function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-    var action = arguments[1];
-
-    switch (action.type) {
-        case "PROJECT_SELECTED":
-            return action.payload;
-            break;
-        default:
-            return state;
-    }
 };
 
 /***/ }),
