@@ -1,17 +1,15 @@
 import React from 'react';
 import Projects from '../containers/projects';
-import Details from '../containers/details';
 import { Switch, Route } from 'react-router-dom';
+import ProjectsRouter from './ProjectsRouter';
 
-const WebPage = () => (
+const Main = () => (
     <div>
         <Switch>
             <Route exact path='/' component={Projects} />
-            <Route path='/project/:id' component={Details} />
+            <Route path='/projects' component={ProjectsRouter} />
         </Switch>
-        {/* <Projects/>
-        <Details/> */}
     </div>
 );
 
-export default WebPage;
+export default Main;

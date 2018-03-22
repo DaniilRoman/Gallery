@@ -5,28 +5,21 @@ import { select } from '../actions/index';
 import { changeProjects } from '../actions/index'
 import { Link } from 'react-router-dom'
 
-class CarsList extends Component {
+class Projects extends Component {
     constructor(props) {
         super(props);
-        //this.props.changeProjects = this.props.changeProjects.bind(this);
     }
-    showList() {
-        // let result = [];
-        // this.props.Be.projects({q: 'cars'}, function (err, res, data) {
-        //     if (err) throw err;
-        //     console.dir(JSON.parse(res.body).projects);
-        //     result = JSON.parse(res.body).projects;
-        // });
-        return this.props.cars.map((car) => {
-            return <li onClick={() => this.props.select(car)} key={car.id}>
-                <Link to={`/project/${car.id}`}>{car.name}</Link>
-                {/* {car.name} */}
+    showProjectsList() {
+        return this.props.projects.map((project) => {
+            return <li onClick={() => this.props.select(project)}
+                key={project.id}>
+                <Link to={`/projects/${project.id}`}>{project.name}</Link>
             </li>;
         })
     };
 
     componentDidMount() {
-        this.props.Be.projects({ q: "Moscow" }, (err, res, data) => {
+        this.props.Be.projects({ q: "red" }, (err, res, data) => {
             if (err) throw err;
             this.props.changeProjects(JSON.parse(res.body).projects);
             console.dir(JSON.parse(res.body).projects);
@@ -39,7 +32,7 @@ class CarsList extends Component {
             <div>
                 <h2>Projects:</h2>
                 <ol>
-                    {this.showList()}
+                    {this.showProjectsList()}
                 </ol>
             </div>
         )
@@ -48,7 +41,7 @@ class CarsList extends Component {
 
 function mapStateToProps(state) {
     return {
-        cars: state.cars,
+        projects: state.projects,
         Be: state.BehanceAPI
     };
 }
@@ -58,4 +51,4 @@ function matchDispatchToProps(dispatch) {
         { select: select, changeProjects: changeProjects }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(CarsList);
+export default connect(mapStateToProps, matchDispatchToProps)(Projects);

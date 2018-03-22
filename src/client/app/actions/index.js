@@ -1,7 +1,7 @@
-export const select = (car)=>{
+export const select = (project)=>{
   return{
-    type:"CAR_SELECTED",
-    payload: car
+    type:"PROJECT_SELECTED",
+    payload: project
   }
 };
 export const changeProjects = (projects)=>{
