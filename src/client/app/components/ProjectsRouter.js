@@ -1,6 +1,6 @@
 import React from 'react';
 import Projects from '../containers/projects';
-import Details from '../containers/projectDetails';
+import Details from '../containers/project-details';
 import { Switch, Route } from 'react-router-dom';
 
 const ProjectsRouter = () => (

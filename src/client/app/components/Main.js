@@ -1,5 +1,6 @@
 import React from 'react';
 import Projects from '../containers/projects';
+import LoginPage from '../containers/login-page';
 import { Switch, Route } from 'react-router-dom';
 import ProjectsRouter from './ProjectsRouter';
 
@@ -8,6 +9,7 @@ const Main = () => (
         <Switch>
             <Route exact path='/' component={Projects} />
             <Route path='/projects' component={ProjectsRouter} />
+            <Route path='/login' component={LoginPage}/>
         </Switch>
     </div>
 );

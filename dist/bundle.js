@@ -89573,6 +89573,12 @@ var changeProjects = exports.changeProjects = function changeProjects(projects) 
     payload: projects
   };
 };
+var changeQueryForSearch = exports.changeQueryForSearch = function changeQueryForSearch(query) {
+  return {
+    type: "CHANGE_QUERY_FOR_SEARCH",
+    payload: query
+  };
+};
 
 /***/ }),
 
@@ -89643,7 +89649,7 @@ function _interopRequireDefault(obj) {
 }
 
 var Footer = function Footer() {
-  return _react2.default.createElement('footer', null, _react2.default.createElement('div', null, _react2.default.createElement('br', null), 'Footer'));
+  return _react2.default.createElement('footer', null, _react2.default.createElement('div', null, _react2.default.createElement('br', null), _react2.default.createElement('hr', null), 'Footer'));
 };
 exports.default = Footer;
 
@@ -89674,7 +89680,7 @@ function _interopRequireDefault(obj) {
 }
 
 var Header = function Header() {
-  return _react2.default.createElement('header', null, _react2.default.createElement('nav', null, _react2.default.createElement('ul', null, _react2.default.createElement('li', null, _react2.default.createElement(_reactRouterDom.Link, { to: '/projects' }, 'Projects')))));
+  return _react2.default.createElement('header', null, _react2.default.createElement('nav', null, _react2.default.createElement('ul', null, _react2.default.createElement('li', null, _react2.default.createElement(_reactRouterDom.Link, { to: '/projects' }, 'Projects')), _react2.default.createElement('li', null, _react2.default.createElement(_reactRouterDom.Link, { to: '/login' }, 'Login')))), _react2.default.createElement('hr', null));
 };
 
 exports.default = Header;
@@ -89703,6 +89709,10 @@ var _projects = __webpack_require__(/*! ../containers/projects */ "./src/client/
 
 var _projects2 = _interopRequireDefault(_projects);
 
+var _loginPage = __webpack_require__(/*! ../containers/login-page */ "./src/client/app/containers/login-page.js");
+
+var _loginPage2 = _interopRequireDefault(_loginPage);
+
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
 var _ProjectsRouter = __webpack_require__(/*! ./ProjectsRouter */ "./src/client/app/components/ProjectsRouter.js");
@@ -89714,7 +89724,7 @@ function _interopRequireDefault(obj) {
 }
 
 var Main = function Main() {
-    return _react2.default.createElement('div', null, _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects', component: _ProjectsRouter2.default })));
+    return _react2.default.createElement('div', null, _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects', component: _ProjectsRouter2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _loginPage2.default })));
 };
 
 exports.default = Main;
@@ -89743,7 +89753,7 @@ var _projects = __webpack_require__(/*! ../containers/projects */ "./src/client/
 
 var _projects2 = _interopRequireDefault(_projects);
 
-var _projectDetails = __webpack_require__(/*! ../containers/projectDetails */ "./src/client/app/containers/projectDetails.js");
+var _projectDetails = __webpack_require__(/*! ../containers/project-details */ "./src/client/app/containers/project-details.js");
 
 var _projectDetails2 = _interopRequireDefault(_projectDetails);
 
@@ -89760,10 +89770,109 @@ exports.default = ProjectsRouter;
 
 /***/ }),
 
-/***/ "./src/client/app/containers/projectDetails.js":
-/*!*****************************************************!*\
-  !*** ./src/client/app/containers/projectDetails.js ***!
-  \*****************************************************/
+/***/ "./src/client/app/containers/login-page.js":
+/*!*************************************************!*\
+  !*** ./src/client/app/containers/login-page.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(__dirname) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () {
+    function defineProperties(target, props) {
+        for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+        }
+    }return function (Constructor, protoProps, staticProps) {
+        if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+    };
+}();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _index = __webpack_require__(/*! ../actions/index */ "./src/client/app/actions/index.js");
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+    }
+}
+
+function _possibleConstructorReturn(self, call) {
+    if (!self) {
+        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+        throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+    }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var path = __webpack_require__(/*! path */ "./node_modules/path-browserify/index.js");
+var IMG_DIR = path.resolve(__dirname, "src/client/app/resources/login.png");
+
+var LoginPage = function (_Component) {
+    _inherits(LoginPage, _Component);
+
+    function LoginPage(props) {
+        _classCallCheck(this, LoginPage);
+
+        return _possibleConstructorReturn(this, (LoginPage.__proto__ || Object.getPrototypeOf(LoginPage)).call(this, props));
+    }
+
+    _createClass(LoginPage, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement('div', null, _react2.default.createElement('form', null, _react2.default.createElement('div', { className: 'imgcontainer' }, _react2.default.createElement('img', { width: '30px', src: IMG_DIR, alt: 'Avatar', className: 'avatar' })), _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('label', { htmlFor: 'uname' }, _react2.default.createElement('b', null, 'Username')), _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Username', name: 'uname', required: true }), _react2.default.createElement('label', { htmlFor: 'psw' }, _react2.default.createElement('b', null, 'Password')), _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Password', name: 'psw', required: true }), _react2.default.createElement('button', { type: 'submit' }, 'Login'), _react2.default.createElement('label', null, _react2.default.createElement('input', { type: 'checkbox', name: 'remember' }), ' Remember me')), _react2.default.createElement('div', { className: 'container', style: { backgroundColor: "#f1f1f1" } }, _react2.default.createElement('button', { type: 'button', className: 'cancelbtn' }, 'Cancel'), _react2.default.createElement('span', { className: 'psw' }, 'Forgot ', _react2.default.createElement('a', { href: '#' }, 'password?')))));
+        }
+    }]);
+
+    return LoginPage;
+}(_react.Component);
+
+function mapStateToProps(state) {
+    return {
+        // projects: state.projects,
+        // Be: state.BehanceAPI
+    };
+}
+
+// function matchDispatchToProps(dispatch) {
+//     return bindActionCreators()
+//         // { select: select, changeProjects: changeProjects }, dispatch)
+// }
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(LoginPage);
+/* WEBPACK VAR INJECTION */}.call(this, "/"))
+
+/***/ }),
+
+/***/ "./src/client/app/containers/project-details.js":
+/*!******************************************************!*\
+  !*** ./src/client/app/containers/project-details.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -89919,6 +90028,7 @@ var Projects = function (_Component) {
         _classCallCheck(this, Projects);
 
         return _possibleConstructorReturn(this, (Projects.__proto__ || Object.getPrototypeOf(Projects)).call(this, props));
+        //this.getProjectsBySearch = this.getProjectsBySearch.bind(this);
     }
 
     _createClass(Projects, [{
@@ -89934,20 +90044,32 @@ var Projects = function (_Component) {
             });
         }
     }, {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
+        key: 'getProjectsBySearch',
+        value: function getProjectsBySearch() {
             var _this3 = this;
 
-            this.props.Be.projects({ q: "red" }, function (err, res, data) {
+            this.props.Be.projects({ q: this.props.queryForSearch }, function (err, res, data) {
                 if (err) throw err;
                 _this3.props.changeProjects(JSON.parse(res.body).projects);
                 console.dir(JSON.parse(res.body).projects);
             });
         }
     }, {
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.props.changeQueryForSearch(e.target.value);
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.getProjectsBySearch();
+        }
+    }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', null, _react2.default.createElement('h2', null, 'Projects:'), _react2.default.createElement('ol', null, this.showProjectsList()));
+            return _react2.default.createElement('div', null, _react2.default.createElement('h2', null, 'Projects:'), _react2.default.createElement('form', null, _react2.default.createElement('input', { value: this.props.queryForSearch,
+                onChange: this.handleChange, type: 'text',
+                placeholder: 'search...' }), _react2.default.createElement('button', { onClick: this.getProjectsBySearch, type: 'submit' }, 'search')), _react2.default.createElement('ol', null, this.showProjectsList()));
         }
     }]);
 
@@ -89957,12 +90079,17 @@ var Projects = function (_Component) {
 function mapStateToProps(state) {
     return {
         projects: state.projects,
-        Be: state.BehanceAPI
+        Be: state.BehanceAPI,
+        queryForSearch: state.queryForSearch
     };
 }
 
 function matchDispatchToProps(dispatch) {
-    return (0, _redux.bindActionCreators)({ select: _index.select, changeProjects: _index.changeProjects }, dispatch);
+    return (0, _redux.bindActionCreators)({
+        select: _index.select,
+        changeProjects: _index.changeProjects,
+        changeQueryForSearch: _index.changeQueryForSearch
+    }, dispatch);
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Projects);
@@ -90007,33 +90134,45 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-//import Root from './components/Root';
 var store = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(_logging.logger, _logging.crashReporter));
 
 _reactDom2.default.render(_react2.default.createElement(_reactRedux.Provider, { store: store }, _react2.default.createElement(_reactRouterDom.BrowserRouter, null, _react2.default.createElement(_App2.default, null))), document.getElementById('app'));
 
-// import React from 'react'
-// import { render } from 'react-dom'
-// import { Provider } from 'react-redux'
-// import { createStore } from 'redux'
-// import todoApp from './reducers'
-// import App from './components/App'
-//  
-// let store = createStore(todoApp)
-//  
-// render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>,
-//   document.getElementById('app')
-// )
+/***/ }),
+
+/***/ "./src/client/app/reducers/change-query-for-search.js":
+/*!************************************************************!*\
+  !*** ./src/client/app/reducers/change-query-for-search.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "Russia";
+    var action = arguments[1];
+
+    switch (action.type) {
+        case "CHANGE_QUERY_FOR_SEARCH":
+            return action.payload;
+            break;
+        default:
+            return state;
+    }
+};
 
 /***/ }),
 
-/***/ "./src/client/app/reducers/connectToAPI.js":
-/*!*************************************************!*\
-  !*** ./src/client/app/reducers/connectToAPI.js ***!
-  \*************************************************/
+/***/ "./src/client/app/reducers/connect-to-api.js":
+/*!***************************************************!*\
+  !*** ./src/client/app/reducers/connect-to-api.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -90078,13 +90217,17 @@ var _projectActive = __webpack_require__(/*! ./project-active */ "./src/client/a
 
 var _projectActive2 = _interopRequireDefault(_projectActive);
 
-var _connectToAPI = __webpack_require__(/*! ./connectToAPI */ "./src/client/app/reducers/connectToAPI.js");
+var _connectToApi = __webpack_require__(/*! ./connect-to-api */ "./src/client/app/reducers/connect-to-api.js");
 
-var _connectToAPI2 = _interopRequireDefault(_connectToAPI);
+var _connectToApi2 = _interopRequireDefault(_connectToApi);
 
 var _projects = __webpack_require__(/*! ./projects */ "./src/client/app/reducers/projects.js");
 
 var _projects2 = _interopRequireDefault(_projects);
+
+var _changeQueryForSearch = __webpack_require__(/*! ./change-query-for-search */ "./src/client/app/reducers/change-query-for-search.js");
+
+var _changeQueryForSearch2 = _interopRequireDefault(_changeQueryForSearch);
 
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
@@ -90093,10 +90236,11 @@ function _interopRequireDefault(obj) {
 var allReducers = (0, _redux.combineReducers)({
     projects: _projects2.default,
     active: _projectActive2.default,
-    BehanceAPI: _connectToAPI2.default
+    BehanceAPI: _connectToApi2.default,
+    queryForSearch: _changeQueryForSearch2.default
 
 });
-//import Projects from './car';
+
 exports.default = allReducers;
 
 /***/ }),
