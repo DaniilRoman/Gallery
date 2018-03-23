@@ -16,3 +16,10 @@ export const changeQueryForSearch = (query)=>{
     payload: query
   }
 }
+
+export const changeActivePage = (page)=>{
+  return{
+    type:"CHANGE_ACTIVE_PAGE",
+    payload: page
+  }
+}

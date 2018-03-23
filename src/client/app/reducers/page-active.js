@@ -1,6 +1,6 @@
-export default function (state="", action) {
+export default function (state=1, action) {
     switch (action.type) {
-        case "CHANGE_QUERY_FOR_SEARCH":
+        case "CHANGE_ACTIVE_PAGE":
             return action.payload;
             break;
         default:
