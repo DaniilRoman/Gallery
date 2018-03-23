@@ -9,7 +9,8 @@ import { changeQueryForSearch } from '../actions/index';
 class Projects extends Component {
     constructor(props) {
         super(props);
-        //this.getProjectsBySearch = this.getProjectsBySearch.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
     showProjectsList() {
         return this.props.projects.map((project) => {
@@ -28,7 +29,13 @@ class Projects extends Component {
         });
     }
 
+    handleClick(e){
+        e.preventDefault();
+        this.getProjectsBySearch();
+    }
+
     handleChange(e) {
+        e.preventDefault();
         this.props.changeQueryForSearch(e.target.value);
     }
 
@@ -45,7 +52,7 @@ class Projects extends Component {
                     <input value = {this.props.queryForSearch}
                         onChange={this.handleChange} type="text"
                         placeholder="search..." />
-                    <button onClick={this.getProjectsBySearch} type="submit">search</button>
+                    <button onClick={this.handleClick} type="submit">search</button>
                 </form>
                 <ol>
                     {this.showProjectsList()}
