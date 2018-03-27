@@ -21,6 +21,7 @@ public class UserController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public ResponseEntity addNewUser (@Valid @RequestBody SaveUserRequest request) {
+        System.out.println(request.toString());
         UserDTO newUser = new UserDTO();
         newUser.setUsername(request.getUsername());
         newUser.setPassword(request.getPassword());

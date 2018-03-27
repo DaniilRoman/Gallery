@@ -89813,8 +89813,6 @@ function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
 
-// import 'bootstrap'; 
-
 var App = function App() {
     return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement(_Header2.default, null), _react2.default.createElement(_Main2.default, null), _react2.default.createElement(_Footer2.default, null));
 };
@@ -89939,12 +89937,16 @@ var _ProjectsRouter = __webpack_require__(/*! ./ProjectsRouter */ "./src/client/
 
 var _ProjectsRouter2 = _interopRequireDefault(_ProjectsRouter);
 
+var _registerPage = __webpack_require__(/*! ../containers/register-page */ "./src/client/app/containers/register-page.js");
+
+var _registerPage2 = _interopRequireDefault(_registerPage);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
 
 var Main = function Main() {
-    return _react2.default.createElement('div', null, _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects', component: _ProjectsRouter2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _loginPage2.default })));
+    return _react2.default.createElement('div', null, _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects', component: _ProjectsRouter2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _loginPage2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _registerPage2.default })));
 };
 
 exports.default = Main;
@@ -90065,7 +90067,7 @@ var LoginPage = function (_Component) {
     _createClass(LoginPage, [{
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('form', null, _react2.default.createElement('div', { className: 'imgcontainer' }, _react2.default.createElement('img', { width: '30px', src: IMG_DIR, alt: 'Avatar', className: 'avatar' })), _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('label', { htmlFor: 'uname' }, _react2.default.createElement('b', null, 'Username')), _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Username', name: 'uname', required: true }), _react2.default.createElement('label', { htmlFor: 'psw' }, _react2.default.createElement('b', null, 'Password')), _react2.default.createElement('input', { type: 'password', placeholder: 'Enter Password', name: 'psw', required: true }), _react2.default.createElement('button', { type: 'submit' }, 'Login'), _react2.default.createElement('label', null, _react2.default.createElement('input', { type: 'checkbox', name: 'remember' }), ' Remember me')), _react2.default.createElement('div', { className: 'container', style: { backgroundColor: "#f1f1f1" } }, _react2.default.createElement('button', { type: 'button', className: 'cancelbtn' }, 'Cancel'), _react2.default.createElement('span', { className: 'psw' }, 'Forgot ', _react2.default.createElement('a', { href: '#' }, 'password?')))));
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('form', { className: 'form-horizontal' }, _react2.default.createElement('div', { className: 'imgcontainer' }, _react2.default.createElement('img', { width: '30px', src: IMG_DIR, alt: 'Avatar', className: 'avatar' })), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'uname' }, _react2.default.createElement('b', null, 'Username')), _react2.default.createElement('input', { className: 'input-xlarge', type: 'text', placeholder: 'Enter Username', name: 'uname', required: true }), _react2.default.createElement('label', { className: 'control-label', htmlFor: 'psw' }, _react2.default.createElement('b', null, 'Password')), _react2.default.createElement('input', { className: 'input-xlarge', type: 'password', placeholder: 'Enter Password', name: 'psw', required: true }), _react2.default.createElement('button', { type: 'submit' }, 'Login'), _react2.default.createElement('label', { className: 'control-label' }, _react2.default.createElement('input', { className: 'input-xlarge', type: 'checkbox', name: 'remember' }), ' Remember me')), _react2.default.createElement('div', { className: 'container', style: { backgroundColor: "#f1f1f1" } }, _react2.default.createElement('button', { type: 'button', className: 'cancelbtn' }, 'Cancel'), _react2.default.createElement('span', { className: 'psw' }, _react2.default.createElement(_reactRouterDom.Link, { to: '/register' }, 'Dont register?')))));
         }
     }]);
 
@@ -90467,6 +90469,133 @@ function matchDispatchToProps(dispatch) {
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Projects);
+
+/***/ }),
+
+/***/ "./src/client/app/containers/register-page.js":
+/*!****************************************************!*\
+  !*** ./src/client/app/containers/register-page.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(__dirname) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () {
+    function defineProperties(target, props) {
+        for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+        }
+    }return function (Constructor, protoProps, staticProps) {
+        if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+    };
+}();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _index = __webpack_require__(/*! ../actions/index */ "./src/client/app/actions/index.js");
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+    }
+}
+
+function _possibleConstructorReturn(self, call) {
+    if (!self) {
+        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+        throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+    }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var path = __webpack_require__(/*! path */ "./node_modules/path-browserify/index.js");
+var IMG_DIR = path.resolve(__dirname, "src/client/app/resources/login.png");
+
+var Register = function (_Component) {
+    _inherits(Register, _Component);
+
+    function Register(props) {
+        _classCallCheck(this, Register);
+
+        return _possibleConstructorReturn(this, (Register.__proto__ || Object.getPrototypeOf(Register)).call(this, props));
+    }
+
+    _createClass(Register, [{
+        key: 'handleClick',
+        value: function handleClick(e) {
+            e.preventDefault();
+            var payload = {
+                username: document.getElementById("username").innerHTML,
+                password: document.getElementById("password").innerHTML,
+                name: document.getElementById("truthname").innerHTML,
+                email: document.getElementById("email").innerHTML
+            };
+
+            var data = new FormData();
+            data.append("json", JSON.stringify(payload));
+
+            fetch("http://localhost:8080/user/save", {
+                headers: {
+                    //'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                method: "POST",
+                body: data
+            }).then(function (res) {
+                console.log(res.json());
+            }).then(function (data) {
+                console.log(JSON.stringify(data));
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('form', { className: 'form-horizontal' }, _react2.default.createElement('fieldset', null, _react2.default.createElement('div', { id: 'legend' }, _react2.default.createElement('legend', { className: '' }, 'Register')), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'username' }, 'Username'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'text', id: 'username', name: 'username', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Username can contain any letters or numbers, without spaces'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'truthname' }, 'Truth name'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'text', id: 'truthname', name: 'truthname', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Please provide your truth name'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'email' }, 'E-mail'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'text', id: 'email', name: 'email', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Please provide your E-mail'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'password' }, 'Password'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'password', id: 'password', name: 'password', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Password should be at least 4 characters'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'password_confirm' }, 'Password (Confirm)'), _react2.default.createElement('div', { clclassNameass: 'controls' }, _react2.default.createElement('input', { type: 'password', id: 'password_confirm', name: 'password_confirm', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Please confirm password'))), _react2.default.createElement('div', { claclassNamess: 'control-group' }, _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('button', { onClick: this.handleClick, className: 'btn btn-success' }, 'Register'))))));
+        }
+    }]);
+
+    return Register;
+}(_react.Component);
+
+function mapStateToProps(state) {
+    return {
+        // projects: state.projects,
+        // Be: state.BehanceAPI
+    };
+}
+
+// function matchDispatchToProps(dispatch) {
+//     return bindActionCreators()
+//         // { select: select, changeProjects: changeProjects }, dispatch)
+// }
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Register);
+/* WEBPACK VAR INJECTION */}.call(this, "/"))
 
 /***/ }),
 

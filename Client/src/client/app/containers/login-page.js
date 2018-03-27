@@ -14,25 +14,25 @@ class LoginPage extends Component {
     }
     render() {
         return <div className="container">
-            <form >
+            <form className="form-horizontal">
                 <div className="imgcontainer">
                     <img width="30px" src={IMG_DIR} alt="Avatar" className="avatar" />
                 </div>
-                <div className="container">
-                    <label htmlFor="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required />
+                <div className="control-group">
+                    <label className="control-label" htmlFor="uname"><b>Username</b></label>
+                    <input className="input-xlarge" type="text" placeholder="Enter Username" name="uname" required />
 
-                    <label htmlFor="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required />
+                    <label className="control-label" htmlFor="psw"><b>Password</b></label>
+                    <input className="input-xlarge" type="password" placeholder="Enter Password" name="psw" required />
 
                     <button type="submit">Login</button>
-                    <label>
-                        <input type="checkbox" name="remember" /> Remember me
+                    <label className="control-label">
+                        <input className="input-xlarge" type="checkbox" name="remember" /> Remember me
                     </label>
                 </div>
                 <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
                     <button type="button" className="cancelbtn">Cancel</button>
-                    <span className="psw">Forgot <a href="#">password?</a></span>
+                    <span className="psw"><Link to={`/register`}>Dont register?</Link></span>
                 </div>
             </form>
         </div>
