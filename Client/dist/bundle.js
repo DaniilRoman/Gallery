@@ -89775,6 +89775,13 @@ var changeActiveNavLink = exports.changeActiveNavLink = function changeActiveNav
   };
 };
 
+var changeRegisterPage = exports.changeRegisterPage = function changeRegisterPage(registerPage) {
+  return {
+    type: "CHANGE_REGISTER_PAGE",
+    payload: registerPage
+  };
+};
+
 /***/ }),
 
 /***/ "./src/client/app/components/App.js":
@@ -90549,14 +90556,19 @@ var Register = function (_Component) {
         value: function handleClick(e) {
             e.preventDefault();
             var payload = {
-                username: document.getElementById("username").innerHTML,
-                password: document.getElementById("password").innerHTML,
-                name: document.getElementById("truthname").innerHTML,
-                email: document.getElementById("email").innerHTML
+                // username: document.getElementById("username").innerHTML,
+                // password: document.getElementById("password").innerHTML,
+                // name: document.getElementById("truthname").innerHTML,
+                // email: document.getElementById("email").innerHTML
+                username: this.props.username,
+                password: this.prosp.password,
+                name: this.props.name,
+                email: this.props.email
             };
 
-            var data = new FormData();
-            data.append("json", JSON.stringify(payload));
+            //let data = new FormData();
+            //data.append("json", JSON.stringify(payload));
+            console.log(payload);
 
             fetch("http://localhost:8080/user/save", {
                 headers: {
@@ -90565,7 +90577,7 @@ var Register = function (_Component) {
                     'Access-Control-Allow-Origin': '*'
                 },
                 method: "POST",
-                body: data
+                body: payload
             }).then(function (res) {
                 console.log(res.json());
             }).then(function (data) {
@@ -90573,9 +90585,14 @@ var Register = function (_Component) {
             });
         }
     }, {
+        key: 'handleChange',
+        value: function handleChange(registerPage) {
+            this.props.changeRegisterPage(registerPage); //username: "", password: "", name: input, email: "" });
+        }
+    }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('form', { className: 'form-horizontal' }, _react2.default.createElement('fieldset', null, _react2.default.createElement('div', { id: 'legend' }, _react2.default.createElement('legend', { className: '' }, 'Register')), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'username' }, 'Username'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'text', id: 'username', name: 'username', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Username can contain any letters or numbers, without spaces'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'truthname' }, 'Truth name'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'text', id: 'truthname', name: 'truthname', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Please provide your truth name'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'email' }, 'E-mail'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'text', id: 'email', name: 'email', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Please provide your E-mail'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'password' }, 'Password'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'password', id: 'password', name: 'password', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Password should be at least 4 characters'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'password_confirm' }, 'Password (Confirm)'), _react2.default.createElement('div', { clclassNameass: 'controls' }, _react2.default.createElement('input', { type: 'password', id: 'password_confirm', name: 'password_confirm', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Please confirm password'))), _react2.default.createElement('div', { claclassNamess: 'control-group' }, _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('button', { onClick: this.handleClick, className: 'btn btn-success' }, 'Register'))))));
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('form', { className: 'form-horizontal' }, _react2.default.createElement('fieldset', null, _react2.default.createElement('div', { id: 'legend' }, _react2.default.createElement('legend', { className: '' }, 'Register')), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'username' }, 'Username'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'text', id: 'username', onChange: this.handleChange({ username: value, password: "", name: "", email: "" }), name: 'username', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Username can contain any letters or numbers, without spaces'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'truthname' }, 'Truth name'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'text', id: 'truthname', onChange: this.handleChange({ username: "", password: "", value: value, email: "" }), placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Please provide your truth name'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'email' }, 'E-mail'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'text', id: 'email', onChange: this.handleChange({ username: "", password: "", name: "", email: value }), name: 'email', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Please provide your E-mail'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'password' }, 'Password'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'password', id: 'password', onChange: this.handleChange({ username: "", password: value, name: "", email: "" }), name: 'password', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Password should be at least 4 characters'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'password_confirm' }, 'Password (Confirm)'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'password', id: 'password_confirm', name: 'password_confirm', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Please confirm password'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('button', { onClick: this.handleClick, className: 'btn btn-success' }, 'Register'))))));
         }
     }]);
 
@@ -90584,17 +90601,19 @@ var Register = function (_Component) {
 
 function mapStateToProps(state) {
     return {
-        // projects: state.projects,
-        // Be: state.BehanceAPI
+        username: state.registerPage.username,
+        password: state.registerPage.password,
+        name: state.registerPage.name,
+        email: state.registerPage.email
+
     };
 }
 
-// function matchDispatchToProps(dispatch) {
-//     return bindActionCreators()
-//         // { select: select, changeProjects: changeProjects }, dispatch)
-// }
+function matchDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({ changeRegisterPage: _index.changeRegisterPage }, dispatch);
+}
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Register);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Register);
 /* WEBPACK VAR INJECTION */}.call(this, "/"))
 
 /***/ }),
@@ -90701,6 +90720,35 @@ exports.default = function () {
 
 /***/ }),
 
+/***/ "./src/client/app/reducers/change-register-page.js":
+/*!*********************************************************!*\
+  !*** ./src/client/app/reducers/change-register-page.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { username: "", password: "", name: "", email: "" };
+    var action = arguments[1];
+
+    switch (action.type) {
+        case "CHANGE_REGISTER_PAGE":
+            return action.payload;
+            break;
+        default:
+            return state;
+    }
+};
+
+/***/ }),
+
 /***/ "./src/client/app/reducers/connect-to-api.js":
 /*!***************************************************!*\
   !*** ./src/client/app/reducers/connect-to-api.js ***!
@@ -90769,6 +90817,10 @@ var _activeNavLink = __webpack_require__(/*! ./active-nav-link */ "./src/client/
 
 var _activeNavLink2 = _interopRequireDefault(_activeNavLink);
 
+var _changeRegisterPage = __webpack_require__(/*! ./change-register-page */ "./src/client/app/reducers/change-register-page.js");
+
+var _changeRegisterPage2 = _interopRequireDefault(_changeRegisterPage);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -90779,7 +90831,8 @@ var allReducers = (0, _redux.combineReducers)({
     BehanceAPI: _connectToApi2.default,
     queryForSearch: _changeQueryForSearch2.default,
     activePage: _pageActive2.default,
-    navLinks: _activeNavLink2.default
+    navLinks: _activeNavLink2.default,
+    registerPage: _changeRegisterPage2.default
 
 });
 

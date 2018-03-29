@@ -30,3 +30,10 @@ export const changeActiveNavLink = (navLinks)=>{
     payload: navLinks
   }
 }
+
+export const changeRegisterPage = (registerPage) => {
+  return {
+    type: "CHANGE_REGISTER_PAGE",
+    payload: registerPage
+  }
+}
