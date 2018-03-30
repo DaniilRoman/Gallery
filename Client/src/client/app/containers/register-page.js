@@ -19,35 +19,13 @@ class Register extends Component {
     handleClick(e) {
         e.preventDefault();
 
-
-
-
-        console.log(e.currentTarget.className);
-        switch (e.currentTarget.className) {
-            case "nav-item 1":
-                this.props.changeActiveNavLink(["nav-link active", "nav-link"]);
-                console.log("1");
-                break;
-            case "nav-item 2":
-                this.props.changeActiveNavLink(["nav-link", "nav-link active"]);
-                console.log("2");
-                break;
-            default:
-                break;
-
-        }
-
-
-
-
-
         let payload = {
             // username: document.getElementById("username").innerHTML,
             // password: document.getElementById("password").innerHTML,
             // name: document.getElementById("truthname").innerHTML,
             // email: document.getElementById("email").innerHTML
             username: this.props.username,
-            password: this.prosp.password,
+            password: this.props.password,
             name: this.props.name,
             email: this.props.email
         };
@@ -70,8 +48,33 @@ class Register extends Component {
             .then(function (data) { console.log(JSON.stringify(data)) })
     }
 
-    handleChange(registerPage){
-        this.props.changeRegisterPage(registerPage);//username: "", password: "", name: input, email: "" });
+    handleChange(e) {
+        //this.props.changeRegisterPage(registerPage);//username: "", password: "", name: input, email: "" });
+
+        console.log(e.currentTarget.className);
+        switch (e.currentTarget.id) {
+            case "username":
+                this.props.changeRegisterPage({username: e.target.value});
+                console.log("username");
+                break;
+            case "truthname":
+                this.props.changeRegisterPage({name: e.target.value});
+                console.log("truthname");
+                break;
+            case "email":
+                this.props.changeRegisterPage({email: e.target.value});
+                console.log("email");
+                break;
+            case "password":
+                this.props.changeRegisterPage({password: e.target.value});
+                console.log("password");
+                break;
+            default:
+                break;
+
+        }
+
+
     }
 
     render() {
@@ -84,7 +87,7 @@ class Register extends Component {
                     <div className="control-group">
                         <label className="control-label" htmlFor="username">Username</label>
                         <div className="controls">
-                            <input type="text" id="username" onChange = { this.handleChange({ username: evevalue, password: "", name: "", email: ""}) } name="username" placeholder="" className="input-xlarge" />
+                            <input type="text" id="username" onChange={this.handleChange} name="username" placeholder="" className="input-xlarge" />
                             <p className="help-block">Username can contain any letters or numbers, without spaces</p>
                         </div>
                     </div>
@@ -92,7 +95,7 @@ class Register extends Component {
                     <div className="control-group">
                         <label className="control-label" htmlFor="truthname">Truth name</label>
                         <div className="controls">
-                            <input type="text" id="truthname" onChange={this.handleChange({ username: "", password: "", value, email: "" }) } placeholder="" className="input-xlarge" />
+                            <input type="text" id="truthname" onChange={this.handleChange} placeholder="" className="input-xlarge" />
                             <p className="help-block">Please provide your truth name</p>
                         </div>
                     </div>
@@ -100,7 +103,7 @@ class Register extends Component {
                     <div className="control-group">
                         <label className="control-label" htmlFor="email">E-mail</label>
                         <div className="controls">
-                            <input type="text" id="email" onChange = { this.handleChange({ username: "", password: "", name: "", email: value })} name="email" placeholder="" className="input-xlarge" />
+                            <input type="text" id="email" onChange={this.handleChange} name="email" placeholder="" className="input-xlarge" />
                             <p className="help-block">Please provide your E-mail</p>
                         </div>
                     </div>
@@ -108,7 +111,7 @@ class Register extends Component {
                     <div className="control-group">
                         <label className="control-label" htmlFor="password">Password</label>
                         <div className="controls">
-                            <input type="password" id="password" onChange = { this.handleChange({ username:"", password: value, name:"",email:""}) } name="password" placeholder="" className="input-xlarge" />
+                            <input type="password" id="password" onChange={this.handleChange} name="password" placeholder="" className="input-xlarge" />
                             <p className="help-block">Password should be at least 4 characters</p>
                         </div>
                     </div>
@@ -143,7 +146,7 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators(
-    { changeRegisterPage: changeRegisterPage } , dispatch)
+        { changeRegisterPage: changeRegisterPage }, dispatch)
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Register);
