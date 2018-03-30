@@ -1,5 +1,7 @@
 package app;
 
+import java.math.BigInteger;
+
 public interface UserService {
-    Long getNextId();
+    BigInteger getNextId();
 }

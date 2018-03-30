@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.ws.rs.core.MediaType;
+import java.math.BigInteger;
 
 @RestController
 @CrossOrigin(methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
@@ -38,7 +39,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/id/{id}/find", method = RequestMethod.GET)
-    public ResponseEntity getAllUsers(@PathVariable(required = true) Long id) {
+    public ResponseEntity getAllUsers(@PathVariable(required = true) BigInteger id) {
         return new ResponseEntity<User>(new User(userRepository.findMy(id)), HttpStatus.OK);
 //        return new ResponseEntity<List<UserDTO>>(userRepository.findAll(), HttpStatus.OK);
     }

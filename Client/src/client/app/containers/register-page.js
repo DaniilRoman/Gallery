@@ -42,7 +42,7 @@ class Register extends Component {
                     'Access-Control-Allow-Origin': '*'
                 },
                 method: "POST",
-                body: payload
+                body: JSON.stringify(payload)
             })
             .then(function (res) { console.log(res.json()) })
             .then(function (data) { console.log(JSON.stringify(data)) })

@@ -12,9 +12,10 @@ import java.math.BigInteger;
 public class UserServiceImpl implements UserService{
     @Autowired
     private EntityManagerFactory entityManagerFactory;
-    public Long getNextId() {
+    public BigInteger getNextId() {
         @Cleanup EntityManager em = entityManagerFactory.createEntityManager();
-        BigInteger nextId = (BigInteger) em.createNativeQuery("select nextval('super_user_seq')").getSingleResult();
-        return nextId.longValue();
+        BigInteger tmp =  (BigInteger) em.createNativeQuery("select nextval('super_user_seq')").getSingleResult();
+        System.out.println("------------"+tmp);
+        return tmp;
     }
 }
