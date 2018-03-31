@@ -32,9 +32,9 @@ class LoginPage extends Component {
                                         <div className="form-group">
                                             <input className="form-control" tabindex="2" type="password" placeholder="Enter Password" name="psw" required />
                                         </div>
-                                        <div class="form-group text-center">
+                                        <div className="form-group text-center">
                                             <input className="" type="checkbox" tabindex="4" name="remember" />
-                                            <label for="remember">Remember me</label>
+                                            <label htmlFor="remember">Remember me</label>
                                         </div>
                                         <div className="form-group">
                                             <div className="row">
