@@ -1,6 +1,6 @@
-export default function (state = ["nav-link active", "nav-link", "nav-link"], action) {
+export default function (state = false, action) {
     switch (action.type) {
-        case "CHANGE_ACTIVE_NAV_LINK":
+        case "CHANGE_FLAG":
             return action.payload;
             break;
         default:

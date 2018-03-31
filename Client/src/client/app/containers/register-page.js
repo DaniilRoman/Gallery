@@ -5,6 +5,8 @@ import { select } from '../actions/index';
 import { changeProjects } from '../actions/index';
 import { Link } from 'react-router-dom';
 import { changeRegisterPage } from '../actions/index';
+import { changeActiveNavLink } from '../actions/index';
+import '../resources/login-register.css';
 
 const path = require('path');
 var IMG_DIR = path.resolve(__dirname, "src/client/app/resources/login.png");
@@ -16,28 +18,25 @@ class Register extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    componentDidMount() {
+        this.props.changeActiveNavLink(["nav-link", "nav-link", "nav-link active"]);
+    }
+
+
     handleClick(e) {
         e.preventDefault();
 
         let payload = {
-            // username: document.getElementById("username").innerHTML,
-            // password: document.getElementById("password").innerHTML,
-            // name: document.getElementById("truthname").innerHTML,
-            // email: document.getElementById("email").innerHTML
             username: this.props.username,
             password: this.props.password,
             name: this.props.name,
             email: this.props.email
         };
 
-        //let data = new FormData();
-        //data.append("json", JSON.stringify(payload));
-        console.log(payload);
 
         fetch("http://localhost:8080/user/save",
             {
                 headers: {
-                    //'Accept': 'application/json',
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'
                 },
@@ -49,24 +48,23 @@ class Register extends Component {
     }
 
     handleChange(e) {
-        //this.props.changeRegisterPage(registerPage);//username: "", password: "", name: input, email: "" });
 
         console.log(e.currentTarget.className);
         switch (e.currentTarget.id) {
             case "username":
-                this.props.changeRegisterPage({username: e.target.value});
+                this.props.changeRegisterPage({ username: e.target.value });
                 console.log("username");
                 break;
             case "truthname":
-                this.props.changeRegisterPage({name: e.target.value});
+                this.props.changeRegisterPage({ name: e.target.value });
                 console.log("truthname");
                 break;
             case "email":
-                this.props.changeRegisterPage({email: e.target.value});
+                this.props.changeRegisterPage({ email: e.target.value });
                 console.log("email");
                 break;
             case "password":
-                this.props.changeRegisterPage({password: e.target.value});
+                this.props.changeRegisterPage({ password: e.target.value });
                 console.log("password");
                 break;
             default:
@@ -77,62 +75,51 @@ class Register extends Component {
 
     }
 
+
     render() {
         return <div className="container">
-            <form className="form-horizontal" >
-                <fieldset>
-                    <div id="legend">
-                        <legend className="">Register</legend>
-                    </div>
-                    <div className="control-group">
-                        <label className="control-label" htmlFor="username">Username</label>
-                        <div className="controls">
-                            <input type="text" id="username" onChange={this.handleChange} name="username" placeholder="" className="input-xlarge" />
-                            <p className="help-block">Username can contain any letters or numbers, without spaces</p>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-login">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form id="register-form" >
+                                        <div className="form-group">
+                                            <input type="text" id="username" tabindex="1" onChange={this.handleChange} name="username" placeholder="Username" class="form-control" required />
+                                        </div>
 
-                    <div className="control-group">
-                        <label className="control-label" htmlFor="truthname">Truth name</label>
-                        <div className="controls">
-                            <input type="text" id="truthname" onChange={this.handleChange} placeholder="" className="input-xlarge" />
-                            <p className="help-block">Please provide your truth name</p>
-                        </div>
-                    </div>
+                                        <div className="form-group">
+                                            <input type="text" id="truthname" tabindex="2" onChange={this.handleChange} placeholder="Full name" className="form-control" required />
+                                        </div>
 
-                    <div className="control-group">
-                        <label className="control-label" htmlFor="email">E-mail</label>
-                        <div className="controls">
-                            <input type="text" id="email" onChange={this.handleChange} name="email" placeholder="" className="input-xlarge" />
-                            <p className="help-block">Please provide your E-mail</p>
-                        </div>
-                    </div>
+                                        <div className="form-group">
+                                            <input type="email" id="email" tabindex="3" onChange={this.handleChange} name="email" placeholder="Email Address" className="form-control" required />
+                                        </div>
 
-                    <div className="control-group">
-                        <label className="control-label" htmlFor="password">Password</label>
-                        <div className="controls">
-                            <input type="password" id="password" onChange={this.handleChange} name="password" placeholder="" className="input-xlarge" />
-                            <p className="help-block">Password should be at least 4 characters</p>
-                        </div>
-                    </div>
+                                        <div className="form-group">
+                                            <input type="password" id="password" tabindex="4" onChange={this.handleChange} name="password" placeholder="Password" className="form-control" required />
+                                        </div>
 
-                    <div className="control-group">
-                        <label className="control-label" htmlFor="password_confirm">Password (Confirm)</label>
-                        <div className="controls">
-                            <input type="password" id="password_confirm" name="password_confirm" placeholder="" className="input-xlarge" />
-                            <p className="help-block">Please confirm password</p>
-                        </div>
-                    </div>
+                                        <div className="form-group">
+                                            <input type="password" id="password_confirm" tabindex="5" name="password_confirm" placeholder="Password confirm" className="form-control" required />
+                                        </div>
 
-                    <div className="control-group">
-                        <div className="controls">
-                            <button onClick={this.handleClick} className="btn btn-success">Register</button>
+                                        <div className="form-group">
+                                            <div className="row">
+                                                <input type="submit" name="register-submit" tabindex="6" id="register-submit" class="form-control btn btn-register" value="Register Now" />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </fieldset>
-            </form>
+                </div>
+            </div>
         </div>
     };
+
 }
 function mapStateToProps(state) {
     return {
@@ -146,7 +133,10 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators(
-        { changeRegisterPage: changeRegisterPage }, dispatch)
+        {
+            changeRegisterPage: changeRegisterPage,
+            changeActiveNavLink: changeActiveNavLink
+        }, dispatch)
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Register);

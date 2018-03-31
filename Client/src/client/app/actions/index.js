@@ -37,3 +37,10 @@ export const changeRegisterPage = (registerPage) => {
     payload: registerPage
   }
 }
+
+export const changeFlag = (flag) => {
+  return {
+    type: "CHANGE_FLAG",
+    payload: flag
+  }
+}

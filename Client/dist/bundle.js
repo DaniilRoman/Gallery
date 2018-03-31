@@ -20180,6 +20180,93 @@ exports.constants = {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/lib/css-base.js":
+/*!*************************************************!*\
+  !*** ./node_modules/css-loader/lib/css-base.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/delayed-stream/lib/delayed_stream.js":
 /*!***********************************************************!*\
   !*** ./node_modules/delayed-stream/lib/delayed_stream.js ***!
@@ -26225,10 +26312,10 @@ utils.intFromLE = intFromLE;
 /*!********************************************!*\
   !*** ./node_modules/elliptic/package.json ***!
   \********************************************/
-/*! exports provided: _args, _development, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, author, bugs, dependencies, description, devDependencies, files, homepage, keywords, license, main, name, repository, scripts, version, default */
+/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, files, homepage, keywords, license, main, name, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = {"_args":[["elliptic@6.4.0","C:\\test\\JS_test\\Gallery\\Client"]],"_development":true,"_from":"elliptic@6.4.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"elliptic@6.4.0","name":"elliptic","escapedName":"elliptic","rawSpec":"6.4.0","saveSpec":null,"fetchSpec":"6.4.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_spec":"6.4.0","_where":"C:\\test\\JS_test\\Gallery\\Client","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"};
+module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_shasum":"cac9af8762c85836187003c8dfe193e5e2eae5df","_spec":"elliptic@^6.0.0","_where":"C:\\test\\JS_test\\TestWebpack\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"};
 
 /***/ }),
 
@@ -84518,10 +84605,10 @@ Store.prototype.getAllCookies = function(cb) {
 /*!************************************************!*\
   !*** ./node_modules/tough-cookie/package.json ***!
   \************************************************/
-/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, author, bugs, contributors, dependencies, description, devDependencies, engines, files, homepage, keywords, license, main, name, repository, scripts, version, default */
+/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, contributors, dependencies, deprecated, description, devDependencies, engines, files, homepage, keywords, license, main, name, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = {"_args":[["tough-cookie@2.3.4","C:\\test\\JS_test\\Gallery\\Client"]],"_from":"tough-cookie@2.3.4","_id":"tough-cookie@2.3.4","_inBundle":false,"_integrity":"sha512-TZ6TTfI5NtZnuyy/Kecv+CnoROnyXn2DN97LontgQpCwsX2XyLYCC0ENhYkehSOwAp8rTQKc/NUIF7BkQ5rKLA==","_location":"/tough-cookie","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"tough-cookie@2.3.4","name":"tough-cookie","escapedName":"tough-cookie","rawSpec":"2.3.4","saveSpec":null,"fetchSpec":"2.3.4"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.4.tgz","_spec":"2.3.4","_where":"C:\\test\\JS_test\\Gallery\\Client","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"engines":{"node":">=0.8"},"files":["lib"],"homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","name":"tough-cookie","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.4"};
+module.exports = {"_from":"tough-cookie@~2.3.0","_id":"tough-cookie@2.3.4","_inBundle":false,"_integrity":"sha512-TZ6TTfI5NtZnuyy/Kecv+CnoROnyXn2DN97LontgQpCwsX2XyLYCC0ENhYkehSOwAp8rTQKc/NUIF7BkQ5rKLA==","_location":"/tough-cookie","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"tough-cookie@~2.3.0","name":"tough-cookie","escapedName":"tough-cookie","rawSpec":"~2.3.0","saveSpec":null,"fetchSpec":"~2.3.0"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.4.tgz","_shasum":"ec60cee38ac675063ffc97a5c18970578ee83655","_spec":"tough-cookie@~2.3.0","_where":"C:\\test\\JS_test\\TestWebpack\\node_modules\\request","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"bundleDependencies":false,"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"deprecated":false,"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"engines":{"node":">=0.8"},"files":["lib"],"homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","name":"tough-cookie","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.4"};
 
 /***/ }),
 
@@ -89782,6 +89869,13 @@ var changeRegisterPage = exports.changeRegisterPage = function changeRegisterPag
   };
 };
 
+var changeFlag = exports.changeFlag = function changeFlag(flag) {
+  return {
+    type: "CHANGE_FLAG",
+    payload: flag
+  };
+};
+
 /***/ }),
 
 /***/ "./src/client/app/components/App.js":
@@ -90037,6 +90131,8 @@ var _index = __webpack_require__(/*! ../actions/index */ "./src/client/app/actio
 
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
+__webpack_require__(/*! ../resources/login-register.css */ "./src/client/app/resources/login-register.css");
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -90072,9 +90168,14 @@ var LoginPage = function (_Component) {
     }
 
     _createClass(LoginPage, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.props.changeActiveNavLink(["nav-link", "nav-link active", "nav-link"]);
+        }
+    }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('form', { className: 'form-horizontal' }, _react2.default.createElement('div', { className: 'imgcontainer' }, _react2.default.createElement('img', { width: '30px', src: IMG_DIR, alt: 'Avatar', className: 'avatar' })), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'uname' }, _react2.default.createElement('b', null, 'Username')), _react2.default.createElement('input', { className: 'input-xlarge', type: 'text', placeholder: 'Enter Username', name: 'uname', required: true }), _react2.default.createElement('label', { className: 'control-label', htmlFor: 'psw' }, _react2.default.createElement('b', null, 'Password')), _react2.default.createElement('input', { className: 'input-xlarge', type: 'password', placeholder: 'Enter Password', name: 'psw', required: true }), _react2.default.createElement('button', { type: 'submit' }, 'Login'), _react2.default.createElement('label', { className: 'control-label' }, _react2.default.createElement('input', { className: 'input-xlarge', type: 'checkbox', name: 'remember' }), ' Remember me')), _react2.default.createElement('div', { className: 'container', style: { backgroundColor: "#f1f1f1" } }, _react2.default.createElement('button', { type: 'button', className: 'cancelbtn' }, 'Cancel'), _react2.default.createElement('span', { className: 'psw' }, _react2.default.createElement(_reactRouterDom.Link, { to: '/register' }, 'Dont register?')))));
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { className: 'panel panel-login' }, _react2.default.createElement('div', { className: 'panel-body' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { 'class': 'col-lg-12' }, _react2.default.createElement('form', { id: 'login-form', style: { display: 'block' } }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', tabindex: '1', type: 'text', placeholder: 'Enter Username', name: 'uname', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', tabindex: '2', type: 'password', placeholder: 'Enter Password', name: 'psw', required: true })), _react2.default.createElement('div', { 'class': 'form-group text-center' }, _react2.default.createElement('input', { className: '', type: 'checkbox', tabindex: '4', name: 'remember' }), _react2.default.createElement('label', { 'for': 'remember' }, 'Remember me')), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-sm-6 col-sm-offset-3' }, _react2.default.createElement('input', { type: 'submit', name: 'login-submit', id: 'login-submit', tabindex: '3', className: 'form-control btn btn-login', value: 'Log In' })))), _react2.default.createElement('span', { className: 'psw' }, _react2.default.createElement(_reactRouterDom.Link, { to: '/register' }, 'Dont register?'))))))))));
         }
     }]);
 
@@ -90084,16 +90185,16 @@ var LoginPage = function (_Component) {
 function mapStateToProps(state) {
     return {
         // projects: state.projects,
-        // Be: state.BehanceAPI
     };
 }
 
-// function matchDispatchToProps(dispatch) {
-//     return bindActionCreators()
-//         // { select: select, changeProjects: changeProjects }, dispatch)
-// }
+function matchDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        changeActiveNavLink: _index.changeActiveNavLink
+    }, dispatch);
+}
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(LoginPage);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(LoginPage);
 /* WEBPACK VAR INJECTION */}.call(this, "/"))
 
 /***/ }),
@@ -90176,12 +90277,16 @@ var Navigation = function (_Component) {
             console.log(e.currentTarget.className);
             switch (e.currentTarget.className) {
                 case "nav-item 1":
-                    this.props.changeActiveNavLink(["nav-link active", "nav-link"]);
+                    this.props.changeActiveNavLink(["nav-link active", "nav-link", "nav-link"]);
                     console.log("1");
                     break;
                 case "nav-item 2":
-                    this.props.changeActiveNavLink(["nav-link", "nav-link active"]);
+                    this.props.changeActiveNavLink(["nav-link", "nav-link active", "nav-link"]);
                     console.log("2");
+                    break;
+                case "nav-item 3":
+                    this.props.changeActiveNavLink(["nav-link", "nav-link", "nav-link active"]);
+                    console.log("3");
                     break;
                 default:
                     break;
@@ -90191,7 +90296,7 @@ var Navigation = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('nav', null, _react2.default.createElement('ul', { className: 'nav nav-tabs' }, _react2.default.createElement('li', { className: 'nav-item 1', onClick: this.handleClick }, _react2.default.createElement(_reactRouterDom.Link, { className: this.props.projectsLink, to: '/projects' }, 'Projects')), _react2.default.createElement('li', { className: 'nav-item 2', onClick: this.handleClick }, _react2.default.createElement(_reactRouterDom.Link, { className: this.props.loginActive, to: '/login' }, 'Login'))));
+            return _react2.default.createElement('nav', null, _react2.default.createElement('ul', { className: 'nav nav-tabs' }, _react2.default.createElement('li', { className: 'nav-item 1', onClick: this.handleClick }, _react2.default.createElement(_reactRouterDom.Link, { className: this.props.projectsLink, to: '/projects' }, 'Projects')), _react2.default.createElement('li', { className: 'nav-item 2', onClick: this.handleClick }, _react2.default.createElement(_reactRouterDom.Link, { className: this.props.loginActive, to: '/login' }, 'Login')), _react2.default.createElement('li', { className: 'nav-item 3', onClick: this.handleClick }, _react2.default.createElement(_reactRouterDom.Link, { className: this.props.registerActive, to: '/register' }, 'Register'))));
         }
     }]);
 
@@ -90201,7 +90306,8 @@ var Navigation = function (_Component) {
 function mapStateToProps(state) {
     return {
         projectsLink: state.navLinks[0],
-        loginActive: state.navLinks[1]
+        loginActive: state.navLinks[1],
+        registerActive: state.navLinks[2]
     };
 }
 
@@ -90517,6 +90623,8 @@ var _index = __webpack_require__(/*! ../actions/index */ "./src/client/app/actio
 
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
+__webpack_require__(/*! ../resources/login-register.css */ "./src/client/app/resources/login-register.css");
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -90556,48 +90664,29 @@ var Register = function (_Component) {
     }
 
     _createClass(Register, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.props.changeActiveNavLink(["nav-link", "nav-link", "nav-link active"]);
+        }
+    }, {
         key: 'handleClick',
         value: function handleClick(e) {
             e.preventDefault();
 
-            console.log(e.currentTarget.className);
-            switch (e.currentTarget.className) {
-                case "nav-item 1":
-                    this.props.changeActiveNavLink(["nav-link active", "nav-link"]);
-                    console.log("1");
-                    break;
-                case "nav-item 2":
-                    this.props.changeActiveNavLink(["nav-link", "nav-link active"]);
-                    console.log("2");
-                    break;
-                default:
-                    break;
-
-            }
-
             var payload = {
-                // username: document.getElementById("username").innerHTML,
-                // password: document.getElementById("password").innerHTML,
-                // name: document.getElementById("truthname").innerHTML,
-                // email: document.getElementById("email").innerHTML
                 username: this.props.username,
-                password: this.prosp.password,
+                password: this.props.password,
                 name: this.props.name,
                 email: this.props.email
             };
 
-            //let data = new FormData();
-            //data.append("json", JSON.stringify(payload));
-            console.log(payload);
-
             fetch("http://localhost:8080/user/save", {
                 headers: {
-                    //'Accept': 'application/json',
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'
                 },
                 method: "POST",
-                body: payload
+                body: JSON.stringify(payload)
             }).then(function (res) {
                 console.log(res.json());
             }).then(function (data) {
@@ -90606,13 +90695,35 @@ var Register = function (_Component) {
         }
     }, {
         key: 'handleChange',
-        value: function handleChange(registerPage) {
-            this.props.changeRegisterPage(registerPage); //username: "", password: "", name: input, email: "" });
+        value: function handleChange(e) {
+
+            console.log(e.currentTarget.className);
+            switch (e.currentTarget.id) {
+                case "username":
+                    this.props.changeRegisterPage({ username: e.target.value });
+                    console.log("username");
+                    break;
+                case "truthname":
+                    this.props.changeRegisterPage({ name: e.target.value });
+                    console.log("truthname");
+                    break;
+                case "email":
+                    this.props.changeRegisterPage({ email: e.target.value });
+                    console.log("email");
+                    break;
+                case "password":
+                    this.props.changeRegisterPage({ password: e.target.value });
+                    console.log("password");
+                    break;
+                default:
+                    break;
+
+            }
         }
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('form', { className: 'form-horizontal' }, _react2.default.createElement('fieldset', null, _react2.default.createElement('div', { id: 'legend' }, _react2.default.createElement('legend', { className: '' }, 'Register')), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'username' }, 'Username'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'text', id: 'username', onChange: this.handleChange({ username: evevalue, password: "", name: "", email: "" }), name: 'username', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Username can contain any letters or numbers, without spaces'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'truthname' }, 'Truth name'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'text', id: 'truthname', onChange: this.handleChange({ username: "", password: "", name: value, email: "" }), placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Please provide your truth name'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'email' }, 'E-mail'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'text', id: 'email', onChange: this.handleChange({ username: "", password: "", name: "", email: value }), name: 'email', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Please provide your E-mail'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'password' }, 'Password'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'password', id: 'password', onChange: this.handleChange({ username: "", password: value, name: "", email: "" }), name: 'password', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Password should be at least 4 characters'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('label', { className: 'control-label', htmlFor: 'password_confirm' }, 'Password (Confirm)'), _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('input', { type: 'password', id: 'password_confirm', name: 'password_confirm', placeholder: '', className: 'input-xlarge' }), _react2.default.createElement('p', { className: 'help-block' }, 'Please confirm password'))), _react2.default.createElement('div', { className: 'control-group' }, _react2.default.createElement('div', { className: 'controls' }, _react2.default.createElement('button', { onClick: this.handleClick, className: 'btn btn-success' }, 'Register'))))));
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { 'class': 'row' }, _react2.default.createElement('div', { 'class': 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { 'class': 'panel panel-login' }, _react2.default.createElement('div', { 'class': 'panel-body' }, _react2.default.createElement('div', { 'class': 'row' }, _react2.default.createElement('div', { 'class': 'col-lg-12' }, _react2.default.createElement('form', { id: 'register-form' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'username', tabindex: '1', onChange: this.handleChange, name: 'username', placeholder: 'Username', 'class': 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'truthname', tabindex: '2', onChange: this.handleChange, placeholder: 'Full name', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'email', id: 'email', tabindex: '3', onChange: this.handleChange, name: 'email', placeholder: 'Email Address', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password', tabindex: '4', onChange: this.handleChange, name: 'password', placeholder: 'Password', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password_confirm', tabindex: '5', name: 'password_confirm', placeholder: 'Password confirm', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('input', { type: 'submit', name: 'register-submit', tabindex: '6', id: 'register-submit', 'class': 'form-control btn btn-register', value: 'Register Now' })))))))))));
         }
     }]);
 
@@ -90630,7 +90741,10 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-    return (0, _redux.bindActionCreators)({ changeRegisterPage: _index.changeRegisterPage }, dispatch);
+    return (0, _redux.bindActionCreators)({
+        changeRegisterPage: _index.changeRegisterPage,
+        changeActiveNavLink: _index.changeActiveNavLink
+    }, dispatch);
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Register);
@@ -90697,11 +90811,40 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ["nav-link active", "nav-link"];
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ["nav-link active", "nav-link", "nav-link"];
     var action = arguments[1];
 
     switch (action.type) {
         case "CHANGE_ACTIVE_NAV_LINK":
+            return action.payload;
+            break;
+        default:
+            return state;
+    }
+};
+
+/***/ }),
+
+/***/ "./src/client/app/reducers/change-flag.js":
+/*!************************************************!*\
+  !*** ./src/client/app/reducers/change-flag.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+    var action = arguments[1];
+
+    switch (action.type) {
+        case "CHANGE_FLAG":
             return action.payload;
             break;
         default:
@@ -90760,7 +90903,11 @@ exports.default = function () {
 
     switch (action.type) {
         case "CHANGE_REGISTER_PAGE":
-            return action.payload;
+            if ("username" in action.payload) state.username = action.payload.username;
+            if ("password" in action.payload) state.password = action.payload.password;
+            if ("name" in action.payload) state.name = action.payload.name;
+            if ("email" in action.payload) state.email = action.payload.email;
+            return state;
             break;
         default:
             return state;
@@ -90841,6 +90988,10 @@ var _changeRegisterPage = __webpack_require__(/*! ./change-register-page */ "./s
 
 var _changeRegisterPage2 = _interopRequireDefault(_changeRegisterPage);
 
+var _changeFlag = __webpack_require__(/*! ./change-flag */ "./src/client/app/reducers/change-flag.js");
+
+var _changeFlag2 = _interopRequireDefault(_changeFlag);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -90852,7 +91003,8 @@ var allReducers = (0, _redux.combineReducers)({
     queryForSearch: _changeQueryForSearch2.default,
     activePage: _pageActive2.default,
     navLinks: _activeNavLink2.default,
-    registerPage: _changeRegisterPage2.default
+    registerPage: _changeRegisterPage2.default,
+    changeFlag: _changeFlag2.default
 
 });
 
@@ -90989,6 +91141,25 @@ exports.default = function () {
             return state;
     }
 };
+
+/***/ }),
+
+/***/ "./src/client/app/resources/login-register.css":
+/*!*****************************************************!*\
+  !*** ./src/client/app/resources/login-register.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "body {\r\n    padding-top: 90px;\r\n}\r\n.panel-login {\r\n\tborder-color: #ccc;\r\n\t-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);\r\n\t-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);\r\n\tbox-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);\r\n}\r\n.panel-login>.panel-heading {\r\n\tcolor: #00415d;\r\n\tbackground-color: #fff;\r\n\tborder-color: #fff;\r\n\ttext-align:center;\r\n}\r\n.panel-login>.panel-heading a{\r\n\ttext-decoration: none;\r\n\tcolor: #666;\r\n\tfont-weight: bold;\r\n\tfont-size: 15px;\r\n\t-webkit-transition: all 0.1s linear;\r\n\t-moz-transition: all 0.1s linear;\r\n\ttransition: all 0.1s linear;\r\n}\r\n.panel-login>.panel-heading a.active{\r\n\tcolor: #029f5b;\r\n\tfont-size: 18px;\r\n}\r\n.panel-login>.panel-heading hr{\r\n\tmargin-top: 10px;\r\n\tmargin-bottom: 0px;\r\n\tclear: both;\r\n\tborder: 0;\r\n\theight: 1px;\r\n\tbackground-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));\r\n\tbackground-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));\r\n\tbackground-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));\r\n\tbackground-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));\r\n}\r\n.panel-login input[type=\"text\"],.panel-login input[type=\"email\"],.panel-login input[type=\"password\"] {\r\n\theight: 45px;\r\n\tborder: 1px solid #ddd;\r\n\tfont-size: 16px;\r\n\t-webkit-transition: all 0.1s linear;\r\n\t-moz-transition: all 0.1s linear;\r\n\ttransition: all 0.1s linear;\r\n}\r\n.panel-login input:hover,\r\n.panel-login input:focus {\r\n\toutline:none;\r\n\t-webkit-box-shadow: none;\r\n\t-moz-box-shadow: none;\r\n\tbox-shadow: none;\r\n\tborder-color: #ccc;\r\n}\r\n.btn-login {\r\n\tbackground-color: #59B2E0;\r\n\toutline: none;\r\n\tcolor: #fff;\r\n\tfont-size: 14px;\r\n\theight: auto;\r\n\tfont-weight: normal;\r\n\tpadding: 14px 0;\r\n\ttext-transform: uppercase;\r\n\tborder-color: #59B2E6;\r\n}\r\n.btn-login:hover,\r\n.btn-login:focus {\r\n\tcolor: #fff;\r\n\tbackground-color: #53A3CD;\r\n\tborder-color: #53A3CD;\r\n}\r\n.forgot-password {\r\n\ttext-decoration: underline;\r\n\tcolor: #888;\r\n}\r\n.forgot-password:hover,\r\n.forgot-password:focus {\r\n\ttext-decoration: underline;\r\n\tcolor: #666;\r\n}\r\n\r\n.btn-register {\r\n\tbackground-color: #1CB94E;\r\n\toutline: none;\r\n\tcolor: #fff;\r\n\tfont-size: 14px;\r\n\theight: auto;\r\n\tfont-weight: normal;\r\n\tpadding: 14px 0;\r\n\ttext-transform: uppercase;\r\n\tborder-color: #1CB94A;\r\n}\r\n.btn-register:hover,\r\n.btn-register:focus {\r\n\tcolor: #fff;\r\n\tbackground-color: #1CA347;\r\n\tborder-color: #1CA347;\r\n}\r\n", ""]);
+
+// exports
+
 
 /***/ }),
 
