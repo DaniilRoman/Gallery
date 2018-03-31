@@ -15,12 +15,16 @@ class Navigation extends Component {
         console.log(e.currentTarget.className);
         switch (e.currentTarget.className) {
             case "nav-item 1":
-                this.props.changeActiveNavLink(["nav-link active","nav-link"]);
+                this.props.changeActiveNavLink(["nav-link active", "nav-link", "nav-link",]);
                 console.log("1");
                 break;
             case "nav-item 2":
-                this.props.changeActiveNavLink(["nav-link", "nav-link active"]);
+                this.props.changeActiveNavLink(["nav-link", "nav-link active", "nav-link",]);
                 console.log("2");
+                break;
+            case "nav-item 3":
+                this.props.changeActiveNavLink(["nav-link", "nav-link", "nav-link active",]);
+                console.log("3");
                 break;
             default:
                 break;
@@ -40,6 +44,9 @@ class Navigation extends Component {
                     <li className="nav-item 2" onClick={this.handleClick}>
                         <Link className={this.props.loginActive} to='/login'>Login</Link>
                     </li>
+                    <li className="nav-item 3" onClick={this.handleClick}>
+                        <Link className={this.props.registerActive} to='/register'>Register</Link>
+                    </li>
                 </ul>
             </nav>
         )
@@ -49,7 +56,8 @@ class Navigation extends Component {
 function mapStateToProps(state) {
     return {
         projectsLink: state.navLinks[0],
-        loginActive: state.navLinks[1]
+        loginActive: state.navLinks[1],
+        registerActive: state.navLinks[2]
     };
 }
 

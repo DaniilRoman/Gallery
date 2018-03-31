@@ -40,6 +40,12 @@ module.exports = {
         },
 
         {
+          test: /\.css$/,
+          use: 'css-loader',
+          exclude: /node_modules/
+        },
+
+        {
           test: /\.(jpg|png|gif)$/,
           use: 'file-loader'
         },

@@ -5,6 +5,8 @@ import ChangeProjects from './projects';
 import activePage from './page-active';
 import ChangeQueryForSearch from './change-query-for-search';
 import navLinks from "./active-nav-link";
+import registerPage from './change-register-page';
+import changeFlag from './change-flag';
 
 const allReducers = combineReducers({
     projects: ChangeProjects,
@@ -12,7 +14,9 @@ const allReducers = combineReducers({
     BehanceAPI: ConnectToAPI,
     queryForSearch: ChangeQueryForSearch,
     activePage: activePage,
-    navLinks: navLinks
+    navLinks: navLinks,
+    registerPage: registerPage,
+    changeFlag: changeFlag
 
 });
 
