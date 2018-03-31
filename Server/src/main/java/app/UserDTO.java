@@ -3,6 +3,7 @@ package app;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 
 
 @Data
@@ -13,10 +14,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "super_user")
 public class UserDTO {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)
-    private Long id;
+    private BigInteger id;
     @Column(name = "username",nullable = false)
     private String username;
     @Column(name = "password",nullable = false)
