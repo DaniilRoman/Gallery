@@ -38,6 +38,13 @@ export const changeRegisterPage = (registerPage) => {
   }
 }
 
+export const changeLoginPage = (loginPage) => {
+  return {
+    type: "CHANGE_LOGIN_PAGE",
+    payload: loginPage
+  }
+}
+
 export const changeFlag = (flag) => {
   return {
     type: "CHANGE_FLAG",

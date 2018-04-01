@@ -6,6 +6,7 @@ import activePage from './page-active';
 import ChangeQueryForSearch from './change-query-for-search';
 import navLinks from "./active-nav-link";
 import registerPage from './change-register-page';
+import loginPage from "./change-login-page";
 import changeFlag from './change-flag';
 
 const allReducers = combineReducers({
@@ -16,7 +17,8 @@ const allReducers = combineReducers({
     activePage: activePage,
     navLinks: navLinks,
     registerPage: registerPage,
-    changeFlag: changeFlag
+    loginPage:loginPage,
+    flag: changeFlag
 
 });
 

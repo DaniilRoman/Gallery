@@ -89869,6 +89869,13 @@ var changeRegisterPage = exports.changeRegisterPage = function changeRegisterPag
   };
 };
 
+var changeLoginPage = exports.changeLoginPage = function changeLoginPage(loginPage) {
+  return {
+    type: "CHANGE_LOGIN_PAGE",
+    payload: loginPage
+  };
+};
+
 var changeFlag = exports.changeFlag = function changeFlag(flag) {
   return {
     type: "CHANGE_FLAG",
@@ -89979,25 +89986,6 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-// var active = true;
-// var projectsLink = "nav-link active";
-// var loginActive = "nav-link";
-// function changeActive(e) {
-//   e.preventDefault();
-//   switch (e.target.className) {
-//     case "nav-item 1":
-//       projectsLink = "nav-link active";
-//       loginActive = "nav-link";
-//       break;
-//     case "nav-item 2":
-//       projectsLink = "nav-link";
-//       loginActive = "nav-link-active";
-//       break;
-//     default:
-//       break;
-//   }
-
-// }
 var Header = function Header() {
   return _react2.default.createElement('header', { className: 'header clearfix' }, _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement(_navigation2.default, null)), _react2.default.createElement('hr', null));
 };
@@ -90042,15 +90030,51 @@ var _registerPage = __webpack_require__(/*! ../containers/register-page */ "./sr
 
 var _registerPage2 = _interopRequireDefault(_registerPage);
 
+var _NoAuth = __webpack_require__(/*! ./NoAuth */ "./src/client/app/components/NoAuth.js");
+
+var _NoAuth2 = _interopRequireDefault(_NoAuth);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
 
 var Main = function Main() {
-    return _react2.default.createElement('div', null, _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects', component: _ProjectsRouter2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _loginPage2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _registerPage2.default })));
+    return _react2.default.createElement('div', null, _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects', component: _ProjectsRouter2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _loginPage2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _registerPage2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/no_auth', component: _NoAuth2.default })));
 };
 
 exports.default = Main;
+
+/***/ }),
+
+/***/ "./src/client/app/components/NoAuth.js":
+/*!*********************************************!*\
+  !*** ./src/client/app/components/NoAuth.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+var NoAuth = function NoAuth() {
+    return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h3', null, 'No authtarization'));
+};
+
+exports.default = NoAuth;
 
 /***/ }),
 
@@ -90164,7 +90188,11 @@ var LoginPage = function (_Component) {
     function LoginPage(props) {
         _classCallCheck(this, LoginPage);
 
-        return _possibleConstructorReturn(this, (LoginPage.__proto__ || Object.getPrototypeOf(LoginPage)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (LoginPage.__proto__ || Object.getPrototypeOf(LoginPage)).call(this, props));
+
+        _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleClick = _this.handleClick.bind(_this);
+        return _this;
     }
 
     _createClass(LoginPage, [{
@@ -90173,9 +90201,58 @@ var LoginPage = function (_Component) {
             this.props.changeActiveNavLink(["nav-link", "nav-link active", "nav-link"]);
         }
     }, {
+        key: 'handleClick',
+        value: function handleClick(e) {
+            var _this2 = this;
+
+            e.preventDefault();
+
+            var username = this.props.username,
+                password = this.props.password;
+
+            fetch("http://localhost:8080/user/" + username + "/" + password + "/truthname", {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                method: "GET"
+            }).then(function (res) {
+                return res.json();
+            }).then(function (user) {
+                switch (JSON.stringify(user.name)) {
+                    case "null":
+                        _this2.props.changeFlag(false);
+                        break;
+                    case "trable with password":
+                        _this2.props.changeFlag(false);
+                        break;
+                    default:
+                        _this2.props.changeFlag(true);
+                        break;
+                }
+            });
+        }
+    }, {
+        key: 'handleChange',
+        value: function handleChange(e) {
+
+            console.log(e.currentTarget.className);
+            switch (e.currentTarget.id) {
+                case "username":
+                    this.props.changeLoginPage({ username: e.target.value });
+                    break;
+                case "password":
+                    this.props.changeLoginPage({ password: e.target.value });
+                    break;
+                default:
+                    break;
+
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { className: 'panel panel-login' }, _react2.default.createElement('div', { className: 'panel-body' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { 'class': 'col-lg-12' }, _react2.default.createElement('form', { id: 'login-form', style: { display: 'block' } }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', tabindex: '1', type: 'text', placeholder: 'Enter Username', name: 'uname', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', tabindex: '2', type: 'password', placeholder: 'Enter Password', name: 'psw', required: true })), _react2.default.createElement('div', { 'class': 'form-group text-center' }, _react2.default.createElement('input', { className: '', type: 'checkbox', tabindex: '4', name: 'remember' }), _react2.default.createElement('label', { 'for': 'remember' }, 'Remember me')), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-sm-6 col-sm-offset-3' }, _react2.default.createElement('input', { type: 'submit', name: 'login-submit', id: 'login-submit', tabindex: '3', className: 'form-control btn btn-login', value: 'Log In' })))), _react2.default.createElement('span', { className: 'psw' }, _react2.default.createElement(_reactRouterDom.Link, { to: '/register' }, 'Dont register?'))))))))));
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { className: 'panel panel-login' }, _react2.default.createElement('div', { className: 'panel-body' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-12' }, _react2.default.createElement('form', { id: 'login-form', style: { display: 'block' } }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', onChange: this.handleChange, id: 'username', tabIndex: '1', type: 'text', placeholder: 'Enter Username', name: 'uname', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', onChange: this.handleChange, id: 'password', tabIndex: '2', type: 'password', placeholder: 'Enter Password', name: 'psw', required: true })), _react2.default.createElement('div', { className: 'form-group text-center' }, _react2.default.createElement('input', { className: '', type: 'checkbox', tabIndex: '4', name: 'remember' }), _react2.default.createElement('label', { htmlFor: 'remember' }, 'Remember me')), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-sm-6 col-sm-offset-3' }, _react2.default.createElement('input', { type: 'submit', name: 'login-submit', onClick: this.handleClick, id: 'login-submit', tabIndex: '3', className: 'form-control btn btn-login', value: 'Log In' })))), _react2.default.createElement('span', { className: 'psw' }, _react2.default.createElement(_reactRouterDom.Link, { to: '/register' }, 'Dont register?'))))))))));
         }
     }]);
 
@@ -90184,13 +90261,18 @@ var LoginPage = function (_Component) {
 
 function mapStateToProps(state) {
     return {
-        // projects: state.projects,
+        username: state.loginPage.username,
+        password: state.loginPage.password,
+        flag: state.flag
     };
 }
 
 function matchDispatchToProps(dispatch) {
     return (0, _redux.bindActionCreators)({
-        changeActiveNavLink: _index.changeActiveNavLink
+        changeLoginPage: _index.changeLoginPage,
+        changeActiveNavLink: _index.changeActiveNavLink,
+        changeFlag: _index.changeFlag
+
     }, dispatch);
 }
 
@@ -90504,9 +90586,66 @@ var Projects = function (_Component) {
                 return _react2.default.createElement('li', { onClick: function onClick() {
                         return _this2.props.select(project);
                     },
-                    key: project.id }, _react2.default.createElement(_reactRouterDom.Link, { to: '/projects/' + project.id }, project.name));
+                    key: project.id }, _this2.checkAuth(project));
             });
         }
+    }, {
+        key: 'checkAuth',
+        value: function checkAuth(project) {
+            if (this.props.flag === true) {
+                return _react2.default.createElement(_reactRouterDom.Link, { to: '/projects/' + project.id }, project.name);
+            }return _react2.default.createElement(_reactRouterDom.Link, { to: '/no_auth' }, project.name);
+        }
+
+        // projectInfo(project) {
+        //     return <div class="col-xs-12 col-sm-6 col-md-4">
+        //         <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+        //             <div class="mainflip">
+        //                 <div class="frontside">
+        //                     <div class="card">
+        //                         <div class="card-body text-center">
+        //                             <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image" /></p>
+        //                             <h4 class="card-title">Sunlimetech</h4>
+        //                             <p class="card-text">This is basic card with image on top, title, description and button.</p>
+        //                             <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+        //                         </div>
+        //                     </div>
+        //                 </div>
+        //                 <div class="backside">
+        //                     <div class="card">
+        //                         <div class="card-body text-center mt-4">
+        //                             <h4 class="card-title">Sunlimetech</h4>
+        //                             <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+        //                             <ul class="list-inline">
+        //                                 <li class="list-inline-item">
+        //                                     <a class="social-icon text-xs-center" target="_blank" href="#">
+        //                                         <i class="fa fa-facebook"></i>
+        //                                     </a>
+        //                                 </li>
+        //                                 <li class="list-inline-item">
+        //                                     <a class="social-icon text-xs-center" target="_blank" href="#">
+        //                                         <i class="fa fa-twitter"></i>
+        //                                     </a>
+        //                                 </li>
+        //                                 <li class="list-inline-item">
+        //                                     <a class="social-icon text-xs-center" target="_blank" href="#">
+        //                                         <i class="fa fa-skype"></i>
+        //                                     </a>
+        //                                 </li>
+        //                                 <li class="list-inline-item">
+        //                                     <a class="social-icon text-xs-center" target="_blank" href="#">
+        //                                         <i class="fa fa-google"></i>
+        //                                     </a>
+        //                                 </li>
+        //                             </ul>
+        //                         </div>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </div>
+        // }
+
     }, {
         key: 'getProjectsBySearch',
         value: function getProjectsBySearch() {
@@ -90582,6 +90721,36 @@ function matchDispatchToProps(dispatch) {
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Projects);
+
+//test() {
+//     fetch("http://www.behance.net/v2/projects?client_id=e1A607WbYauktG2el5XT2dbZriXROx4T&q=" + this.props.queryForSearch + "&page=" + this.props.activePage,
+//         {
+//             headers: {
+//                 // 'Content-Type': 'application/json',
+//                 // 'Authorization': 'Basic bnVsbDpudWxs',
+//                 // 'Host': 'www.behance.net',
+//                 // 'X-Target-URI': 'http://www.behance.net',
+//                 // 'Connection': 'Keep-Alive'
+//                 'Access-Control-Allow-Origin': '*://*/*',
+//                 'Access-Control-Allow-Credentials': 'true'
+//             },
+//             method: "GET"
+//         }).then((res) => { console.log(res) })//return res.json() })
+//     // .then((body) => { console.log(body.projects) })
+//     // .then((user) => {
+//     //     switch (JSON.stringify(user.name)) {
+//     //         case "null":
+//     //             this.props.changeFlag(false);
+//     //             break;
+//     //         case "trable with password":
+//     //             this.props.changeFlag(false);
+//     //             break;
+//     //         default:
+//     //             this.props.changeFlag(true);
+//     //             break;
+//     //     }
+//     // })
+// }
 
 /***/ }),
 
@@ -90715,6 +90884,10 @@ var Register = function (_Component) {
                     this.props.changeRegisterPage({ password: e.target.value });
                     console.log("password");
                     break;
+                case "password_confirm":
+                    this.props.changeRegisterPage({ password_confirm: e.target.value });
+                    console.log("password_confirm");
+                    break;
                 default:
                     break;
 
@@ -90723,7 +90896,7 @@ var Register = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { 'class': 'row' }, _react2.default.createElement('div', { 'class': 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { 'class': 'panel panel-login' }, _react2.default.createElement('div', { 'class': 'panel-body' }, _react2.default.createElement('div', { 'class': 'row' }, _react2.default.createElement('div', { 'class': 'col-lg-12' }, _react2.default.createElement('form', { id: 'register-form' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'username', tabindex: '1', onChange: this.handleChange, name: 'username', placeholder: 'Username', 'class': 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'truthname', tabindex: '2', onChange: this.handleChange, placeholder: 'Full name', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'email', id: 'email', tabindex: '3', onChange: this.handleChange, name: 'email', placeholder: 'Email Address', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password', tabindex: '4', onChange: this.handleChange, name: 'password', placeholder: 'Password', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password_confirm', tabindex: '5', name: 'password_confirm', placeholder: 'Password confirm', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('input', { type: 'submit', name: 'register-submit', tabindex: '6', id: 'register-submit', 'class': 'form-control btn btn-register', value: 'Register Now' })))))))))));
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { className: 'panel panel-login' }, _react2.default.createElement('div', { className: 'panel-body' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-12' }, _react2.default.createElement('form', { id: 'register-form' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'username', tabIndex: '1', onChange: this.handleChange, name: 'username', placeholder: 'Username', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'truthname', tabIndex: '2', onChange: this.handleChange, placeholder: 'Full name', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'email', id: 'email', tabIndex: '3', onChange: this.handleChange, name: 'email', placeholder: 'Email Address', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password', tabIndex: '4', onChange: this.handleChange, name: 'password', placeholder: 'Password', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password_confirm', tabIndex: '5', onChange: this.handleChange, name: 'password_confirm', placeholder: 'Password confirm', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('input', { type: 'submit', name: 'register-submit', tabIndex: '6', id: 'register-submit', className: 'form-control btn btn-register', value: 'Register Now' })))))))))));
         }
     }]);
 
@@ -90854,6 +91027,37 @@ exports.default = function () {
 
 /***/ }),
 
+/***/ "./src/client/app/reducers/change-login-page.js":
+/*!******************************************************!*\
+  !*** ./src/client/app/reducers/change-login-page.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { username: "", password: "" };
+    var action = arguments[1];
+
+    switch (action.type) {
+        case "CHANGE_LOGIN_PAGE":
+            if ("username" in action.payload) state.username = action.payload.username;
+            if ("password" in action.payload) state.password = action.payload.password;
+            return state;
+            break;
+        default:
+            return state;
+    }
+};
+
+/***/ }),
+
 /***/ "./src/client/app/reducers/change-query-for-search.js":
 /*!************************************************************!*\
   !*** ./src/client/app/reducers/change-query-for-search.js ***!
@@ -90898,7 +91102,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { username: "", password: "", name: "", email: "" };
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { username: "", password: "", name: "", email: "", password_confirm: "" };
     var action = arguments[1];
 
     switch (action.type) {
@@ -90907,6 +91111,7 @@ exports.default = function () {
             if ("password" in action.payload) state.password = action.payload.password;
             if ("name" in action.payload) state.name = action.payload.name;
             if ("email" in action.payload) state.email = action.payload.email;
+            if ("password_confirm" in action.payload) state.password_confirm = action.payload.password_confirm;
             return state;
             break;
         default:
@@ -90988,6 +91193,10 @@ var _changeRegisterPage = __webpack_require__(/*! ./change-register-page */ "./s
 
 var _changeRegisterPage2 = _interopRequireDefault(_changeRegisterPage);
 
+var _changeLoginPage = __webpack_require__(/*! ./change-login-page */ "./src/client/app/reducers/change-login-page.js");
+
+var _changeLoginPage2 = _interopRequireDefault(_changeLoginPage);
+
 var _changeFlag = __webpack_require__(/*! ./change-flag */ "./src/client/app/reducers/change-flag.js");
 
 var _changeFlag2 = _interopRequireDefault(_changeFlag);
@@ -91004,7 +91213,8 @@ var allReducers = (0, _redux.combineReducers)({
     activePage: _pageActive2.default,
     navLinks: _activeNavLink2.default,
     registerPage: _changeRegisterPage2.default,
-    changeFlag: _changeFlag2.default
+    loginPage: _changeLoginPage2.default,
+    flag: _changeFlag2.default
 
 });
 
