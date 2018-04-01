@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { changeQueryForSearch } from '../actions/index';
 import { changeActivePage } from '../actions/index';
 import Pagination from "react-js-pagination";
+import '../resources/projects.css';
 
 const PER_PAGE = 10;
 const RANGE_DISPLAYED = 10;
@@ -21,64 +22,40 @@ class Projects extends Component {
     }
     showProjectsList() {
         return this.props.projects.map((project) => {
-            return <li onClick={() => this.props.select(project)}
+            return <div className="col-xs-12 col-sm-6 col-md-4" onClick={() => this.props.select(project)}
                 key={project.id}>
                 {this.checkAuth(project)}
-            </li>;
+            </div>;
         })
     };
 
     checkAuth(project) {
         if (this.props.flag === true) {
             return <Link to={`/projects/${project.id}`}>{project.name}</Link>
-        } return <Link to={'/no_auth'}>{project.name}</Link>
+        } return <Link to={'/no_auth'}>{this.projectInfo(project)}</Link>
     }
 
     projectInfo(project) {
-        return <div className="col-xs-12 col-sm-6 col-md-4">
-            <div className="image-flip" ontouchstart="this.classList.toggle('hover');">
-                <div className="mainflip">
-                    <div className="frontside">
-                        <div className="card">
-                            <div className="card-body text-center">
-                                <p><img className=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image" /></p>
-                                <h4 className="card-title">Sunlimetech</h4>
-                                <p className="card-text">This is basic card with image on top, title, description and button.</p>
-                                <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="backside">
-                        <div className="card">
-                            <div className="card-body text-center mt-4">
-                                <h4 className="card-title">Sunlimetech</h4>
-                                <p className="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                {/* <ul className="list-inline">
-                                    <li className="list-inline-item">
-                                        <a className="social-icon text-xs-center" target="_blank" href="#">
-                                            <i className="fa fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li className="list-inline-item">
-                                        <a className="social-icon text-xs-center" target="_blank" href="#">
-                                            <i className="fa fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li className="list-inline-item">
-                                        <a className="social-icon text-xs-center" target="_blank" href="#">
-                                            <i className="fa fa-skype"></i>
-                                        </a>
-                                    </li>
-                                    <li className="list-inline-item">
-                                        <a className="social-icon text-xs-center" target="_blank" href="#">
-                                            <i className="fa fa-google"></i>
-                                        </a>
-                                    </li>
-                                </ul> */}
-                            </div>
+        return <div className="image-flip" onTouchStart={"this.classList.toggle('hover');"}>
+            <div className="mainflip">
+                <div className="frontside">
+                    <div className="card">
+                        <div className="card-body text-center">
+                            <p><img className=" img-fluid" src={project.covers.original} alt="card image" /></p>
+                            <h4 className="card-title">Sunlimetech</h4>
+                            <p className="card-text">This is basic card with image on top, title, description and button.</p>
+                            <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus">dghfgfjh</i></a>
                         </div>
                     </div>
                 </div>
+                {/* <div className="backside">
+                    <div className="card">
+                        <div className="card-body text-center mt-4">
+                            <h4 className="card-title">Sunlimetech</h4>
+                            <p className="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                        </div>
+                    </div>
+                </div> */}
             </div>
         </div>
     }
@@ -125,9 +102,13 @@ class Projects extends Component {
                         placeholder="search..." />
                     <button onClick={this.handleClick} type="submit">search</button>
                 </form>
-                <ol>
-                    {this.showProjectsList()}
-                </ol>
+                <section id="team" className="pb-5">
+                    <div className="container">
+                        <div className="row">
+                            {this.showProjectsList()}
+                        </div>
+                    </div>
+                </section>
                 <Pagination
                     hideDisabled
                     activePage={this.props.activePage}
