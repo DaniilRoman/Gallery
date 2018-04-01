@@ -1,5 +1,6 @@
-package app;
+package app.request;
 
+import app.entity.UserDTO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,7 +11,7 @@ public class SaveUserRequest {
     private String password;
     private String name;
     private String email;
-    SaveUserRequest(UserDTO user){
+    public SaveUserRequest(UserDTO user){
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.name = user.getName();

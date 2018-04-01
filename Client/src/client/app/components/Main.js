@@ -4,6 +4,7 @@ import LoginPage from '../containers/login-page';
 import { Switch, Route } from 'react-router-dom';
 import ProjectsRouter from './ProjectsRouter';
 import Register from '../containers/register-page';
+import NoAuth from "./NoAuth";
 
 const Main = () => (
     <div>
@@ -12,6 +13,7 @@ const Main = () => (
             <Route path='/projects' component={ProjectsRouter} />
             <Route path='/login' component={LoginPage}/>
             <Route path='/register' component={Register}/>
+            <Route path='/no_auth' component={NoAuth}/>
         </Switch>
     </div>
 );
