@@ -67,11 +67,14 @@ class Register extends Component {
                 this.props.changeRegisterPage({ password: e.target.value });
                 console.log("password");
                 break;
+            case "password_confirm":
+                this.props.changeRegisterPage({ password_confirm: e.target.value });
+                console.log("password_confirm");
+                break;
             default:
                 break;
 
         }
-
 
     }
 
@@ -86,28 +89,28 @@ class Register extends Component {
                                 <div className="col-lg-12">
                                     <form id="register-form" >
                                         <div className="form-group">
-                                            <input type="text" id="username" tabindex="1" onChange={this.handleChange} name="username" placeholder="Username" className="form-control" required />
+                                            <input type="text" id="username" tabIndex="1" onChange={this.handleChange} name="username" placeholder="Username" className="form-control" required />
                                         </div>
 
                                         <div className="form-group">
-                                            <input type="text" id="truthname" tabindex="2" onChange={this.handleChange} placeholder="Full name" className="form-control" required />
+                                            <input type="text" id="truthname" tabIndex="2" onChange={this.handleChange} placeholder="Full name" className="form-control" required />
                                         </div>
 
                                         <div className="form-group">
-                                            <input type="email" id="email" tabindex="3" onChange={this.handleChange} name="email" placeholder="Email Address" className="form-control" required />
+                                            <input type="email" id="email" tabIndex="3" onChange={this.handleChange} name="email" placeholder="Email Address" className="form-control" required />
                                         </div>
 
                                         <div className="form-group">
-                                            <input type="password" id="password" tabindex="4" onChange={this.handleChange} name="password" placeholder="Password" className="form-control" required />
+                                            <input type="password" id="password" tabIndex="4" onChange={this.handleChange} name="password" placeholder="Password" className="form-control" required />
                                         </div>
 
                                         <div className="form-group">
-                                            <input type="password" id="password_confirm" tabindex="5" name="password_confirm" placeholder="Password confirm" className="form-control" required />
+                                            <input type="password" id="password_confirm" tabIndex="5" onChange={this.handleChange} name="password_confirm" placeholder="Password confirm" className="form-control" required />
                                         </div>
 
                                         <div className="form-group">
                                             <div className="row">
-                                                <input type="submit" name="register-submit" tabindex="6" id="register-submit" className="form-control btn btn-register" value="Register Now" />
+                                                <input type="submit" name="register-submit" tabIndex="6" id="register-submit" className="form-control btn btn-register" value="Register Now" />
                                             </div>
                                         </div>
                                     </form>
