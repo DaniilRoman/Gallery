@@ -8,6 +8,8 @@ import { changeQueryForSearch } from '../actions/index';
 import { changeActivePage } from '../actions/index';
 import Pagination from "react-js-pagination";
 import '../resources/projects.css';
+import '../resources/search-input.css';
+
 
 const PER_PAGE = 10;
 const RANGE_DISPLAYED = 10;
@@ -36,19 +38,20 @@ class Projects extends Component {
     }
 
     projectInfo(project) {
-        return <div className="image-flip" onTouchStart={"this.classList.toggle('hover');"}>
-            <div className="mainflip">
-                <div className="frontside">
-                    <div className="card">
-                        <div className="card-body text-center">
-                            <p><img className=" img-fluid" src={project.covers.original} alt="card image" /></p>
-                            <h4 className="card-title">Sunlimetech</h4>
-                            <p className="card-text">This is basic card with image on top, title, description and button.</p>
-                            <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus">dghfgfjh</i></a>
-                        </div>
-                    </div>
+        return <div className="image-flip" >
+            {/* onTouchStart={"this.classList.toggle('hover');"}> */}
+            {/* <div className="mainflip"> */}
+            {/* <div className="frontside"> */}
+            <div className="card" style={{ height: '350px' }}>
+                <div className="card-body text-center">
+                    <p><img className=" img-fluid" src={project.covers.original} alt="card image" /></p>
+                    <h5 className="card-title">{project.name}</h5>
+                    {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
+                    {/* <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus">dghfgfjh</i></a> */}
                 </div>
-                {/* <div className="backside">
+            </div>
+            {/* </div> */}
+            {/* <div className="backside">
                     <div className="card">
                         <div className="card-body text-center mt-4">
                             <h4 className="card-title">Sunlimetech</h4>
@@ -56,7 +59,7 @@ class Projects extends Component {
                         </div>
                     </div>
                 </div> */}
-            </div>
+            {/* </div> */}
         </div>
     }
 
@@ -95,13 +98,35 @@ class Projects extends Component {
     render() {
         return (
             <div className="container">
-                <h2>Projects:</h2>
-                <form>
+                <br />
+                <h1 align='center' >Projects:</h1>
+                <br />
+                {/* <form>
                     <input value={this.props.queryForSearch}
                         onChange={this.handleChange} type="text"
                         placeholder="search..." />
                     <button onClick={this.handleClick} type="submit">search</button>
-                </form>
+                </form> */}
+
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-6">
+                            <div className="input-group">
+                                {/* <form id="custom-search-form" > */}
+                                <input value={this.props.queryForSearch} onChange={this.handleChange} type="text" id="search-query" className="form-control" placeholder="Search for..." />
+                                <span className="input-group-btn">
+                                    <button onClick={this.handleClick} className="btn btn-light" type="button">Go!</button>
+                                </span>
+                                {/* </form> */}
+                            </div>
+                        </div>
+                    </div>
+                </div><br />
+
+
+
+
+
                 <section id="team" className="pb-5">
                     <div className="container">
                         <div className="row">
