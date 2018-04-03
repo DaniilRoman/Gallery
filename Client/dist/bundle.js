@@ -26312,10 +26312,10 @@ utils.intFromLE = intFromLE;
 /*!********************************************!*\
   !*** ./node_modules/elliptic/package.json ***!
   \********************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, files, homepage, keywords, license, main, name, repository, scripts, version, default */
+/*! exports provided: _args, _development, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, author, bugs, dependencies, description, devDependencies, files, homepage, keywords, license, main, name, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_shasum":"cac9af8762c85836187003c8dfe193e5e2eae5df","_spec":"elliptic@^6.0.0","_where":"C:\\test\\JS_test\\TestWebpack\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"};
+module.exports = {"_args":[["elliptic@6.4.0","C:\\test\\JS_test\\Gallery\\Client"]],"_development":true,"_from":"elliptic@6.4.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"elliptic@6.4.0","name":"elliptic","escapedName":"elliptic","rawSpec":"6.4.0","saveSpec":null,"fetchSpec":"6.4.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_spec":"6.4.0","_where":"C:\\test\\JS_test\\Gallery\\Client","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"};
 
 /***/ }),
 
@@ -84605,10 +84605,10 @@ Store.prototype.getAllCookies = function(cb) {
 /*!************************************************!*\
   !*** ./node_modules/tough-cookie/package.json ***!
   \************************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, contributors, dependencies, deprecated, description, devDependencies, engines, files, homepage, keywords, license, main, name, repository, scripts, version, default */
+/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, author, bugs, contributors, dependencies, description, devDependencies, engines, files, homepage, keywords, license, main, name, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = {"_from":"tough-cookie@~2.3.0","_id":"tough-cookie@2.3.4","_inBundle":false,"_integrity":"sha512-TZ6TTfI5NtZnuyy/Kecv+CnoROnyXn2DN97LontgQpCwsX2XyLYCC0ENhYkehSOwAp8rTQKc/NUIF7BkQ5rKLA==","_location":"/tough-cookie","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"tough-cookie@~2.3.0","name":"tough-cookie","escapedName":"tough-cookie","rawSpec":"~2.3.0","saveSpec":null,"fetchSpec":"~2.3.0"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.4.tgz","_shasum":"ec60cee38ac675063ffc97a5c18970578ee83655","_spec":"tough-cookie@~2.3.0","_where":"C:\\test\\JS_test\\TestWebpack\\node_modules\\request","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"bundleDependencies":false,"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"deprecated":false,"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"engines":{"node":">=0.8"},"files":["lib"],"homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","name":"tough-cookie","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.4"};
+module.exports = {"_args":[["tough-cookie@2.3.4","C:\\test\\JS_test\\Gallery\\Client"]],"_from":"tough-cookie@2.3.4","_id":"tough-cookie@2.3.4","_inBundle":false,"_integrity":"sha512-TZ6TTfI5NtZnuyy/Kecv+CnoROnyXn2DN97LontgQpCwsX2XyLYCC0ENhYkehSOwAp8rTQKc/NUIF7BkQ5rKLA==","_location":"/tough-cookie","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"tough-cookie@2.3.4","name":"tough-cookie","escapedName":"tough-cookie","rawSpec":"2.3.4","saveSpec":null,"fetchSpec":"2.3.4"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.4.tgz","_spec":"2.3.4","_where":"C:\\test\\JS_test\\Gallery\\Client","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"engines":{"node":">=0.8"},"files":["lib"],"homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","name":"tough-cookie","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.4"};
 
 /***/ }),
 
@@ -90441,6 +90441,14 @@ var _behanceApi2 = _interopRequireDefault(_behanceApi);
 
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
+__webpack_require__(/*! ../resources/project-details.css */ "./src/client/app/resources/project-details.css");
+
+var _actions = __webpack_require__(/*! ../actions */ "./src/client/app/actions/index.js");
+
+var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
+
+var _fs = __webpack_require__(/*! fs */ "./node_modules/node-libs-browser/mock/empty.js");
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -90470,16 +90478,166 @@ var Details = function (_Component) {
         _classCallCheck(this, Details);
 
         return _possibleConstructorReturn(this, (Details.__proto__ || Object.getPrototypeOf(Details)).call(this, props));
+        // this.getProgectIngo = this.getProgectIngo.bind(this);
     }
 
     _createClass(Details, [{
+        key: 'getProgectIngo',
+        value: function getProgectIngo() {
+            var _this2 = this;
+
+            var id = this.props.project.id;
+            this.props.select(null);
+            this.props.Be.project(id, function (err, res, data) {
+                console.dir(data);_this2.props.select(data.project);_this2.props.changeFlag(false);
+            });
+            // fetch("https://www.behance.net/v2/projects/"+id+"?client_id=e1A607WbYauktG2el5XT2dbZriXROx4T",
+            // {
+            //     headers: {
+            //         // 'Content-Type': 'application/json',
+            //         // 'Access-Control-Allow-Origin': '*'
+            //     },
+            //     method: "GET",
+            // }) .then((res) => { console.log(res); return res.body })
+            // .then((body) => { console.log(body) })
+            // // .then((user) => { 
+            // //     switch (JSON.stringify(user.name)) {
+            // //         case "null":
+            // //             this.props.changeFlag(false);
+            // //             break;
+            // //         case "trable with password":
+            // //             this.props.changeFlag(false);
+            // //             break;
+            // //         default:
+            // //             this.props.changeFlag(true);
+            // //             break;
+            // //     }})
+        }
+    }, {
+        key: 'getRender',
+        value: function getRender() {
+            var render = "";
+            if (!this.props.flag) {
+                render = this.props.project.modules[0].text;
+                this.props.changeFlag(true);
+            }
+            return render;
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            // this.props.select(null);
+            this.getProgectIngo();
+        }
+    }, {
         key: 'render',
         value: function render() {
             if (!this.props.project) {
                 return _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('p', null, "\u0422\u0430\u043A\u043E\u0433\u043E \u043F\u0440\u043E\u0435\u043A\u0442\u0430 \u043D\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442"), _react2.default.createElement(_reactRouterDom.Link, { to: '/' }, 'Back'));
             }
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('h2', null, this.props.project.name), _react2.default.createElement('img', { width: '300px', src: this.props.project.covers.original }), _react2.default.createElement('br', null), _react2.default.createElement('p', null, this.props.project.fields[0]), _react2.default.createElement(_reactRouterDom.Link, { to: '/' }, 'Back'));
+            return _react2.default.createElement('div', { className: 'container' }, this.getRender());
         }
+
+        // render() {
+        //     return (<div id="demo" className="carousel slide" data-ride="carousel">
+
+        //         <ul className="carousel-indicators">
+        //             <li data-target="#demo" data-slide-to="0" className="active"></li>
+        //             <li data-target="#demo" data-slide-to="1"></li>
+        //             <li data-target="#demo" data-slide-to="2"></li>
+        //         </ul>
+
+        //         <div className="carousel-inner">
+        //             <div className="carousel-item active">
+        //                 {/* <img src="http://placehold.it/770x300&text=five" alt="Chicago" /> */}
+        //                 <img src="http://placehold.it/770x300&text=four" alt="Los Angeles" />
+        //             </div>
+        //             <div className="carousel-item">
+        //                 <img src="http://placehold.it/770x300&text=five" alt="Chicago" />
+        //             </div>
+        //             <div className="carousel-item">
+        //                 <img src="http://placehold.it/770x300&text=six" alt="New York" />
+        //             </div>
+        //         </div>
+
+        //         <a className="carousel-control-prev" href="#demo" data-slide="prev">
+        //             <span className="carousel-control-prev-icon"></span>
+        //         </a>
+        //         <a className="carousel-control-next" href="#demo" data-slide="next">
+        //             <span className="carousel-control-next-icon"></span>
+        //         </a>
+
+        //     </div>)
+        // }
+
+
+        // render() {
+        //     return (<div className="container">
+        //         <div id="main_area">
+        //             <div className="row">
+        //                 <div className="col-xs-12" id="slider">
+        //                     <div className="row">
+        //                         <div className="col-sm-8" id="carousel-bounding-box">
+        //                             <div className="carousel slide" id="myCarousel">
+        //                                 <div className="carousel-inner">
+        //                                     <div className="active item" data-slide-number="0">
+        //                                         {/* <img src={project.covers[115]} /></div> */}
+        //                                         <img src="http://placehold.it/770x300&text=four" /></div>
+
+        //                                     <div className="item" data-slide-number="1">
+        //                                         {/* <img src={project.covers[202]} /></div> */}
+        //                                         <img src="http://placehold.it/770x300&text=four" /></div>
+
+        //                                     <div className="item" data-slide-number="2">
+        //                                         {/* <img src={project.covers[230]} /></div> */}
+        //                                         <img src="http://placehold.it/770x300&text=four" /></div>
+
+        //                                     <div className="item" data-slide-number="3">
+        //                                         <img src="http://placehold.it/770x300&text=four" /></div>
+
+        //                                     <div className="item" data-slide-number="4">
+        //                                         <img src="http://placehold.it/770x300&text=five" /></div>
+
+        //                                     <div className="item" data-slide-number="5">
+        //                                         <img src="http://placehold.it/770x300&text=six" /></div>
+        //                                 </div>
+        //                                 <a className="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        //                                     <span className="glyphicon glyphicon-chevron-left"></span>
+        //                                 </a>
+        //                                 <a className="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        //                                     <span className="glyphicon glyphicon-chevron-right"></span>
+        //                                 </a>
+        //                             </div>
+        //                         </div>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </div>
+        //     )
+        // }
+
+
+        // render() {
+        //     if (!this.props.project) {
+        //         return (
+        //             <div>
+        //                 <h3>Details:</h3>
+        //                 <p>Такого проекта не существует</p>
+        //                 <Link to='/'>Back</Link>
+        //             </div>);
+        //     }
+        //     return (
+        //         <div className="container">
+        //             <h3>Details:</h3>
+        //             <h2>{this.props.project.name}</h2>
+        //             <img width="300px" src={this.props.project.covers.original} /><br />
+        //             <p>{this.props.project.fields[0]}</p>
+        //             <Link to='/'>Back</Link>
+        //         </div>
+        //     );
+        // }
+
     }]);
 
     return Details;
@@ -90487,11 +90645,19 @@ var Details = function (_Component) {
 
 function mapStateToProps(state) {
     return {
-        project: state.active
+        project: state.active,
+        Be: state.BehanceAPI,
+        flag: state.flag
     };
 }
+function matchDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        select: _actions.select,
+        changeFlag: _actions.changeFlag
+    }, dispatch);
+}
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Details);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Details);
 
 /***/ }),
 
@@ -90536,6 +90702,8 @@ var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_module
 var _reactJsPagination = __webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js");
 
 var _reactJsPagination2 = _interopRequireDefault(_reactJsPagination);
+
+__webpack_require__(/*! ../resources/projects.css */ "./src/client/app/resources/projects.css");
 
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
@@ -90583,7 +90751,7 @@ var Projects = function (_Component) {
             var _this2 = this;
 
             return this.props.projects.map(function (project) {
-                return _react2.default.createElement('li', { onClick: function onClick() {
+                return _react2.default.createElement('div', { className: 'col-xs-12 col-sm-6 col-md-4', onClick: function onClick() {
                         return _this2.props.select(project);
                     },
                     key: project.id }, _this2.checkAuth(project));
@@ -90592,60 +90760,15 @@ var Projects = function (_Component) {
     }, {
         key: 'checkAuth',
         value: function checkAuth(project) {
-            if (this.props.flag === true) {
-                return _react2.default.createElement(_reactRouterDom.Link, { to: '/projects/' + project.id }, project.name);
-            }return _react2.default.createElement(_reactRouterDom.Link, { to: '/no_auth' }, project.name);
+            if (this.props.flag) {
+                return _react2.default.createElement(_reactRouterDom.Link, { to: '/projects/' + project.id }, this.projectInfo(project));
+            } else return _react2.default.createElement(_reactRouterDom.Link, { to: '/no_auth' }, this.projectInfo(project));
         }
-
-        // projectInfo(project) {
-        //     return <div class="col-xs-12 col-sm-6 col-md-4">
-        //         <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-        //             <div class="mainflip">
-        //                 <div class="frontside">
-        //                     <div class="card">
-        //                         <div class="card-body text-center">
-        //                             <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image" /></p>
-        //                             <h4 class="card-title">Sunlimetech</h4>
-        //                             <p class="card-text">This is basic card with image on top, title, description and button.</p>
-        //                             <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //                 <div class="backside">
-        //                     <div class="card">
-        //                         <div class="card-body text-center mt-4">
-        //                             <h4 class="card-title">Sunlimetech</h4>
-        //                             <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-        //                             <ul class="list-inline">
-        //                                 <li class="list-inline-item">
-        //                                     <a class="social-icon text-xs-center" target="_blank" href="#">
-        //                                         <i class="fa fa-facebook"></i>
-        //                                     </a>
-        //                                 </li>
-        //                                 <li class="list-inline-item">
-        //                                     <a class="social-icon text-xs-center" target="_blank" href="#">
-        //                                         <i class="fa fa-twitter"></i>
-        //                                     </a>
-        //                                 </li>
-        //                                 <li class="list-inline-item">
-        //                                     <a class="social-icon text-xs-center" target="_blank" href="#">
-        //                                         <i class="fa fa-skype"></i>
-        //                                     </a>
-        //                                 </li>
-        //                                 <li class="list-inline-item">
-        //                                     <a class="social-icon text-xs-center" target="_blank" href="#">
-        //                                         <i class="fa fa-google"></i>
-        //                                     </a>
-        //                                 </li>
-        //                             </ul>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // }
-
+    }, {
+        key: 'projectInfo',
+        value: function projectInfo(project) {
+            return _react2.default.createElement('div', { className: 'image-flip', onTouchStart: "this.classList.toggle('hover');" }, _react2.default.createElement('div', { className: 'mainflip' }, _react2.default.createElement('div', { className: 'frontside' }, _react2.default.createElement('div', { className: 'card' }, _react2.default.createElement('div', { className: 'card-body text-center' }, _react2.default.createElement('p', null, _react2.default.createElement('img', { className: ' img-fluid', src: project.covers[404], alt: 'card image' })), _react2.default.createElement('h6', { className: 'card-title' }, project.name), _react2.default.createElement('p', { className: 'card-text' }, project.fields[0], '|', project.fields[1], '|', project.fields[2]))))));
+        }
     }, {
         key: 'getProjectsBySearch',
         value: function getProjectsBySearch() {
@@ -90688,7 +90811,7 @@ var Projects = function (_Component) {
         value: function render() {
             return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h2', null, 'Projects:'), _react2.default.createElement('form', null, _react2.default.createElement('input', { value: this.props.queryForSearch,
                 onChange: this.handleChange, type: 'text',
-                placeholder: 'search...' }), _react2.default.createElement('button', { onClick: this.handleClick, type: 'submit' }, 'search')), _react2.default.createElement('ol', null, this.showProjectsList()), _react2.default.createElement(_reactJsPagination2.default, {
+                placeholder: 'search...' }), _react2.default.createElement('button', { onClick: this.handleClick, type: 'submit' }, 'search')), _react2.default.createElement('section', { id: 'team', className: 'pb-5' }, _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, this.showProjectsList()))), _react2.default.createElement(_reactJsPagination2.default, {
                 hideDisabled: true,
                 activePage: this.props.activePage,
                 itemsCountPerPage: PER_PAGE,
@@ -90707,7 +90830,8 @@ function mapStateToProps(state) {
         projects: state.projects,
         Be: state.BehanceAPI,
         queryForSearch: state.queryForSearch,
-        activePage: state.activePage
+        activePage: state.activePage,
+        flag: state.flag
     };
 }
 
@@ -91013,7 +91137,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
     var action = arguments[1];
 
     switch (action.type) {
@@ -91367,6 +91491,44 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, "body {\r\n    padding-top: 90px;\r\n}\r\n.panel-login {\r\n\tborder-color: #ccc;\r\n\t-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);\r\n\t-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);\r\n\tbox-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);\r\n}\r\n.panel-login>.panel-heading {\r\n\tcolor: #00415d;\r\n\tbackground-color: #fff;\r\n\tborder-color: #fff;\r\n\ttext-align:center;\r\n}\r\n.panel-login>.panel-heading a{\r\n\ttext-decoration: none;\r\n\tcolor: #666;\r\n\tfont-weight: bold;\r\n\tfont-size: 15px;\r\n\t-webkit-transition: all 0.1s linear;\r\n\t-moz-transition: all 0.1s linear;\r\n\ttransition: all 0.1s linear;\r\n}\r\n.panel-login>.panel-heading a.active{\r\n\tcolor: #029f5b;\r\n\tfont-size: 18px;\r\n}\r\n.panel-login>.panel-heading hr{\r\n\tmargin-top: 10px;\r\n\tmargin-bottom: 0px;\r\n\tclear: both;\r\n\tborder: 0;\r\n\theight: 1px;\r\n\tbackground-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));\r\n\tbackground-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));\r\n\tbackground-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));\r\n\tbackground-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));\r\n}\r\n.panel-login input[type=\"text\"],.panel-login input[type=\"email\"],.panel-login input[type=\"password\"] {\r\n\theight: 45px;\r\n\tborder: 1px solid #ddd;\r\n\tfont-size: 16px;\r\n\t-webkit-transition: all 0.1s linear;\r\n\t-moz-transition: all 0.1s linear;\r\n\ttransition: all 0.1s linear;\r\n}\r\n.panel-login input:hover,\r\n.panel-login input:focus {\r\n\toutline:none;\r\n\t-webkit-box-shadow: none;\r\n\t-moz-box-shadow: none;\r\n\tbox-shadow: none;\r\n\tborder-color: #ccc;\r\n}\r\n.btn-login {\r\n\tbackground-color: #59B2E0;\r\n\toutline: none;\r\n\tcolor: #fff;\r\n\tfont-size: 14px;\r\n\theight: auto;\r\n\tfont-weight: normal;\r\n\tpadding: 14px 0;\r\n\ttext-transform: uppercase;\r\n\tborder-color: #59B2E6;\r\n}\r\n.btn-login:hover,\r\n.btn-login:focus {\r\n\tcolor: #fff;\r\n\tbackground-color: #53A3CD;\r\n\tborder-color: #53A3CD;\r\n}\r\n.forgot-password {\r\n\ttext-decoration: underline;\r\n\tcolor: #888;\r\n}\r\n.forgot-password:hover,\r\n.forgot-password:focus {\r\n\ttext-decoration: underline;\r\n\tcolor: #666;\r\n}\r\n\r\n.btn-register {\r\n\tbackground-color: #1CB94E;\r\n\toutline: none;\r\n\tcolor: #fff;\r\n\tfont-size: 14px;\r\n\theight: auto;\r\n\tfont-weight: normal;\r\n\tpadding: 14px 0;\r\n\ttext-transform: uppercase;\r\n\tborder-color: #1CB94A;\r\n}\r\n.btn-register:hover,\r\n.btn-register:focus {\r\n\tcolor: #fff;\r\n\tbackground-color: #1CA347;\r\n\tborder-color: #1CA347;\r\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./src/client/app/resources/project-details.css":
+/*!******************************************************!*\
+  !*** ./src/client/app/resources/project-details.css ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".hide-bullets {\r\n    list-style:none;\r\n    margin-left: -40px;\r\n    margin-top:20px;\r\n    }", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./src/client/app/resources/projects.css":
+/*!***********************************************!*\
+  !*** ./src/client/app/resources/projects.css ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+exports.push([module.i, "@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);", ""]);
+
+// module
+exports.push([module.i, " /* FontAwesome for working BootSnippet :>  */\r\n#team {\r\n    background: #eee !important;\r\n}\r\n\r\n.btn-primary:hover,\r\n.btn-primary:focus {\r\n    background-color: #108d6f;\r\n    border-color: #108d6f;\r\n    box-shadow: none;\r\n    outline: none;\r\n}\r\n\r\n.btn-primary {\r\n    color: #fff;\r\n    background-color: #007b5e;\r\n    border-color: #007b5e;\r\n}\r\n\r\nsection {\r\n    padding: 60px 0;\r\n}\r\n\r\nsection .section-title {\r\n    text-align: center;\r\n    color: #007b5e;\r\n    margin-bottom: 50px;\r\n    text-transform: uppercase;\r\n}\r\n\r\n#team .card {\r\n    border: none;\r\n    background: #ffffff;\r\n}\r\n\r\n.image-flip:hover .backside,\r\n.image-flip.hover .backside {\r\n    -webkit-transform: rotateY(0deg);\r\n    -moz-transform: rotateY(0deg);\r\n    -o-transform: rotateY(0deg);\r\n    -ms-transform: rotateY(0deg);\r\n    transform: rotateY(0deg);\r\n    border-radius: .25rem;\r\n}\r\n\r\n.image-flip:hover .frontside,\r\n.image-flip.hover .frontside {\r\n    -webkit-transform: rotateY(180deg);\r\n    -moz-transform: rotateY(180deg);\r\n    -o-transform: rotateY(180deg);\r\n    transform: rotateY(180deg);\r\n}\r\n\r\n.mainflip {\r\n    -webkit-transition: 1s;\r\n    -webkit-transform-style: preserve-3d;\r\n    -ms-transition: 1s;\r\n    -moz-transition: 1s;\r\n    -moz-transform: perspective(1000px);\r\n    -moz-transform-style: preserve-3d;\r\n    -ms-transform-style: preserve-3d;\r\n    transition: 1s;\r\n    transform-style: preserve-3d;\r\n    position: relative;\r\n}\r\n\r\n.frontside {\r\n    position: relative;\r\n    -webkit-transform: rotateY(0deg);\r\n    -ms-transform: rotateY(0deg);\r\n    z-index: 2;\r\n    margin-bottom: 30px;\r\n}\r\n\r\n.backside {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    background: white;\r\n    -webkit-transform: rotateY(-180deg);\r\n    -moz-transform: rotateY(-180deg);\r\n    -o-transform: rotateY(-180deg);\r\n    -ms-transform: rotateY(-180deg);\r\n    transform: rotateY(-180deg);\r\n    -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);\r\n    -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);\r\n    box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);\r\n}\r\n\r\n.frontside,\r\n.backside {\r\n    -webkit-backface-visibility: hidden;\r\n    -moz-backface-visibility: hidden;\r\n    -ms-backface-visibility: hidden;\r\n    backface-visibility: hidden;\r\n    -webkit-transition: 1s;\r\n    -webkit-transform-style: preserve-3d;\r\n    -moz-transition: 1s;\r\n    -moz-transform-style: preserve-3d;\r\n    -o-transition: 1s;\r\n    -o-transform-style: preserve-3d;\r\n    -ms-transition: 1s;\r\n    -ms-transform-style: preserve-3d;\r\n    transition: 1s;\r\n    transform-style: preserve-3d;\r\n}\r\n\r\n.frontside .card,\r\n.backside .card {\r\n    min-height: 312px;\r\n}\r\n\r\n.backside .card a {\r\n    font-size: 18px;\r\n    color: #007b5e !important;\r\n}\r\n\r\n.frontside .card .card-title,\r\n.backside .card .card-title {\r\n    color: #007b5e !important;\r\n}\r\n\r\n.frontside .card .card-body img {\r\n    width: 120px;\r\n    height: 120px;\r\n    border-radius: 50%;\r\n}", ""]);
 
 // exports
 

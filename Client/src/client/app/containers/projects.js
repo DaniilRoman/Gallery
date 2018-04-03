@@ -32,9 +32,9 @@ class Projects extends Component {
     };
 
     checkAuth(project) {
-        if (this.props.flag === true) {
-            return <Link to={`/projects/${project.id}`}>{project.name}</Link>
-        } return <Link to={'/no_auth'}>{this.projectInfo(project)}</Link>
+        if (this.props.flag) {
+            return <Link to={`/projects/${project.id}`}>{this.projectInfo(project)}</Link>
+        } else return <Link to={'/no_auth'}>{this.projectInfo(project)}</Link>
     }
 
     projectInfo(project) {
@@ -152,7 +152,8 @@ function mapStateToProps(state) {
         projects: state.projects,
         Be: state.BehanceAPI,
         queryForSearch: state.queryForSearch,
-        activePage: state.activePage
+        activePage: state.activePage,
+        flag: state.flag
     };
 }
 
