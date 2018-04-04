@@ -9,7 +9,6 @@ import { changeActivePage } from '../actions/index';
 import Pagination from "react-js-pagination";
 import '../resources/projects.css';
 import '../resources/search-input.css';
-import '../resources/img.css';
 
 
 const PER_PAGE = 10;
@@ -39,16 +38,30 @@ class Projects extends Component {
     }
 
     projectInfo(project) {
+<<<<<<< HEAD
         return <div className="image-flip" >
             {/* onTouchStart={"this.classList.toggle('hover');"}> */}
             {/* <div className="mainflip"> */}
             {/* <div className="frontside"> */}
             <div className="card" style={{ height: '350px' }}>
                 <div className="card-body text-center">
-                    <div className="img_wrap" ><img className=" img-fluid" src={project.covers.original} alt="card image" /></div>
+                    <p><img className=" img-fluid" src={project.covers.original} alt="card image" /></p>
                     <h5 className="card-title">{project.name}</h5>
                     {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
                     {/* <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus">dghfgfjh</i></a> */}
+=======
+        return <div className="image-flip" onTouchStart={"this.classList.toggle('hover');"}>
+            <div className="mainflip">
+                <div className="frontside">
+                    <div className="card">
+                        <div className="card-body text-center">
+                            <p><img className=" img-fluid" src={project.covers[404]} alt="card image" /></p>
+                            <h6 className="card-title">{project.name}</h6>
+                            <p className="card-text">{project.fields[0]}|{project.fields[1]}|{project.fields[2]}</p>
+                            {/* <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus">dghfgfjh</i></a> */}
+                        </div>
+                    </div>
+>>>>>>> test: project-details fix
                 </div>
             </div>
             {/* </div> */}

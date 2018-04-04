@@ -90482,8 +90482,8 @@ var Details = function (_Component) {
     }
 
     _createClass(Details, [{
-        key: 'getProgectIngo',
-        value: function getProgectIngo() {
+        key: 'getProgectInfo',
+        value: function getProgectInfo() {
             var _this2 = this;
 
             var id = this.props.project.id;
@@ -90518,24 +90518,30 @@ var Details = function (_Component) {
         value: function getRender() {
             var render = "";
             if (!this.props.flag) {
-                render = this.props.project.modules[0].text;
                 this.props.changeFlag(true);
+                return this.props.project.modules[0].embed;
             }
             return render;
         }
     }, {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
             // this.props.select(null);
-            this.getProgectIngo();
+            this.getProgectInfo();
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            this.props.changeFlag(true);
         }
     }, {
         key: 'render',
         value: function render() {
-            if (!this.props.project) {
+            //   if (!this.props.project) {
+            if (this.props.flag) {
                 return _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('p', null, "\u0422\u0430\u043A\u043E\u0433\u043E \u043F\u0440\u043E\u0435\u043A\u0442\u0430 \u043D\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442"), _react2.default.createElement(_reactRouterDom.Link, { to: '/' }, 'Back'));
             }
-            return _react2.default.createElement('div', { className: 'container' }, this.getRender());
+            if (this.props.project.modules[0].type === 'embed') return _react2.default.createElement('div', { className: 'container', dangerouslySetInnerHTML: { __html: this.props.project.modules[0].embed } });
         }
 
         // render() {
@@ -90705,6 +90711,10 @@ var _reactJsPagination2 = _interopRequireDefault(_reactJsPagination);
 
 __webpack_require__(/*! ../resources/projects.css */ "./src/client/app/resources/projects.css");
 
+__webpack_require__(/*! ../resources/search-input.css */ "./src/client/app/resources/search-input.css");
+
+__webpack_require__(/*! ../resources/img.css */ "./src/client/app/resources/img.css");
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -90767,7 +90777,7 @@ var Projects = function (_Component) {
     }, {
         key: 'projectInfo',
         value: function projectInfo(project) {
-            return _react2.default.createElement('div', { className: 'image-flip', onTouchStart: "this.classList.toggle('hover');" }, _react2.default.createElement('div', { className: 'mainflip' }, _react2.default.createElement('div', { className: 'frontside' }, _react2.default.createElement('div', { className: 'card' }, _react2.default.createElement('div', { className: 'card-body text-center' }, _react2.default.createElement('p', null, _react2.default.createElement('img', { className: ' img-fluid', src: project.covers[404], alt: 'card image' })), _react2.default.createElement('h6', { className: 'card-title' }, project.name), _react2.default.createElement('p', { className: 'card-text' }, project.fields[0], '|', project.fields[1], '|', project.fields[2]))))));
+            return _react2.default.createElement('div', { className: 'image-flip' }, _react2.default.createElement('div', { className: 'card', style: { height: '350px' } }, _react2.default.createElement('div', { className: 'card-body text-center' }, _react2.default.createElement('div', { className: 'img_wrap' }, _react2.default.createElement('img', { className: ' img-fluid', src: project.covers.original, alt: 'card image' })), _react2.default.createElement('h5', { className: 'card-title' }, project.name))));
         }
     }, {
         key: 'getProjectsBySearch',
@@ -90809,9 +90819,7 @@ var Projects = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h2', null, 'Projects:'), _react2.default.createElement('form', null, _react2.default.createElement('input', { value: this.props.queryForSearch,
-                onChange: this.handleChange, type: 'text',
-                placeholder: 'search...' }), _react2.default.createElement('button', { onClick: this.handleClick, type: 'submit' }, 'search')), _react2.default.createElement('section', { id: 'team', className: 'pb-5' }, _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, this.showProjectsList()))), _react2.default.createElement(_reactJsPagination2.default, {
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('br', null), _react2.default.createElement('h1', { align: 'center' }, 'Projects:'), _react2.default.createElement('br', null), _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-6' }, _react2.default.createElement('div', { className: 'input-group' }, _react2.default.createElement('input', { value: this.props.queryForSearch, onChange: this.handleChange, type: 'text', id: 'search-query', className: 'form-control', placeholder: 'Search for...' }), _react2.default.createElement('span', { className: 'input-group-btn' }, _react2.default.createElement('button', { onClick: this.handleClick, className: 'btn btn-light', type: 'button' }, 'Go!')))))), _react2.default.createElement('br', null), _react2.default.createElement('section', { id: 'team', className: 'pb-5' }, _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, this.showProjectsList()))), _react2.default.createElement(_reactJsPagination2.default, {
                 hideDisabled: true,
                 activePage: this.props.activePage,
                 itemsCountPerPage: PER_PAGE,
@@ -91478,6 +91486,25 @@ exports.default = function () {
 
 /***/ }),
 
+/***/ "./src/client/app/resources/img.css":
+/*!******************************************!*\
+  !*** ./src/client/app/resources/img.css ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".img_wrap {\r\n    width: 300px;\r\n    height: 300px;\r\n    border-style: solid;\r\n  }\r\n  \r\n  .img_wrap img {\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n    object-position: 0 0;\r\n  }", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./src/client/app/resources/login-register.css":
 /*!*****************************************************!*\
   !*** ./src/client/app/resources/login-register.css ***!
@@ -91529,6 +91556,25 @@ exports.push([module.i, "@import url(https://maxcdn.bootstrapcdn.com/font-awesom
 
 // module
 exports.push([module.i, " /* FontAwesome for working BootSnippet :>  */\r\n#team {\r\n    background: #eee !important;\r\n}\r\n\r\n.btn-primary:hover,\r\n.btn-primary:focus {\r\n    background-color: #108d6f;\r\n    border-color: #108d6f;\r\n    box-shadow: none;\r\n    outline: none;\r\n}\r\n\r\n.btn-primary {\r\n    color: #fff;\r\n    background-color: #007b5e;\r\n    border-color: #007b5e;\r\n}\r\n\r\nsection {\r\n    padding: 60px 0;\r\n}\r\n\r\nsection .section-title {\r\n    text-align: center;\r\n    color: #007b5e;\r\n    margin-bottom: 50px;\r\n    text-transform: uppercase;\r\n}\r\n\r\n#team .card {\r\n    border: none;\r\n    background: #ffffff;\r\n}\r\n\r\n.image-flip:hover .backside,\r\n.image-flip.hover .backside {\r\n    -webkit-transform: rotateY(0deg);\r\n    -moz-transform: rotateY(0deg);\r\n    -o-transform: rotateY(0deg);\r\n    -ms-transform: rotateY(0deg);\r\n    transform: rotateY(0deg);\r\n    border-radius: .25rem;\r\n}\r\n\r\n.image-flip:hover .frontside,\r\n.image-flip.hover .frontside {\r\n    -webkit-transform: rotateY(180deg);\r\n    -moz-transform: rotateY(180deg);\r\n    -o-transform: rotateY(180deg);\r\n    transform: rotateY(180deg);\r\n}\r\n\r\n.mainflip {\r\n    -webkit-transition: 1s;\r\n    -webkit-transform-style: preserve-3d;\r\n    -ms-transition: 1s;\r\n    -moz-transition: 1s;\r\n    -moz-transform: perspective(1000px);\r\n    -moz-transform-style: preserve-3d;\r\n    -ms-transform-style: preserve-3d;\r\n    transition: 1s;\r\n    transform-style: preserve-3d;\r\n    position: relative;\r\n}\r\n\r\n.frontside {\r\n    position: relative;\r\n    -webkit-transform: rotateY(0deg);\r\n    -ms-transform: rotateY(0deg);\r\n    z-index: 2;\r\n    margin-bottom: 30px;\r\n}\r\n\r\n.backside {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    background: white;\r\n    -webkit-transform: rotateY(-180deg);\r\n    -moz-transform: rotateY(-180deg);\r\n    -o-transform: rotateY(-180deg);\r\n    -ms-transform: rotateY(-180deg);\r\n    transform: rotateY(-180deg);\r\n    -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);\r\n    -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);\r\n    box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);\r\n}\r\n\r\n.frontside,\r\n.backside {\r\n    -webkit-backface-visibility: hidden;\r\n    -moz-backface-visibility: hidden;\r\n    -ms-backface-visibility: hidden;\r\n    backface-visibility: hidden;\r\n    -webkit-transition: 1s;\r\n    -webkit-transform-style: preserve-3d;\r\n    -moz-transition: 1s;\r\n    -moz-transform-style: preserve-3d;\r\n    -o-transition: 1s;\r\n    -o-transform-style: preserve-3d;\r\n    -ms-transition: 1s;\r\n    -ms-transform-style: preserve-3d;\r\n    transition: 1s;\r\n    transform-style: preserve-3d;\r\n}\r\n\r\n.frontside .card,\r\n.backside .card {\r\n    min-height: 312px;\r\n}\r\n\r\n.backside .card a {\r\n    font-size: 18px;\r\n    color: #007b5e !important;\r\n}\r\n\r\n.frontside .card .card-title,\r\n.backside .card .card-title {\r\n    color: #007b5e !important;\r\n}\r\n\r\n.frontside .card .card-body img {\r\n    width: 120px;\r\n    height: 120px;\r\n    border-radius: 50%;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./src/client/app/resources/search-input.css":
+/*!***************************************************!*\
+  !*** ./src/client/app/resources/search-input.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "    #custom-search-form {\r\n        margin:0;\r\n        margin-top: 5px;\r\n        padding: 0;\r\n    }\r\n \r\n    #custom-search-form #search-query {\r\n        padding-right: 3px;\r\n        padding-right: 4px \\9;\r\n        padding-left: 3px;\r\n        padding-left: 4px \\9;\r\n \r\n        margin-bottom: 0;\r\n        -webkit-border-radius: 3px;\r\n        -moz-border-radius: 3px;\r\n        border-radius: 3px;\r\n        -webkit-transition: width  0.2s ease-in-out;\r\n    -moz-transition:width  0.2s ease-in-out;\r\n    -o-transition: width  0.2s ease-in-out;\r\n    transition: width  0.2s ease-in-out;\r\n    }\r\n \r\n    #custom-search-form button {\r\n        border: 0;\r\n        background: none;\r\n        padding: 2px 5px;\r\n        margin-top: 2px;\r\n        position: relative;\r\n        left: -28px;\r\n        margin-bottom: 0;\r\n        -webkit-border-radius: 3px;\r\n        -moz-border-radius: 3px;\r\n        border-radius: 3px;\r\n    }\r\n \r\n    #search-query:focus + button {\r\n        z-index: 3;   \r\n    }   \r\n    #search-query:focus{\r\n        width: 260px;\r\n    }   \r\n", ""]);
 
 // exports
 
