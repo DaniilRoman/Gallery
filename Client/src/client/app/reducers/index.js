@@ -8,6 +8,9 @@ import navLinks from "./active-nav-link";
 import registerPage from './change-register-page';
 import loginPage from "./change-login-page";
 import changeFlag from './change-flag';
+import changeImagesIndex from './images-index';
+import changeCountImages from './change-count-images';
+import changeImageArray from './change-image-array';
 
 const allReducers = combineReducers({
     projects: ChangeProjects,
@@ -18,7 +21,10 @@ const allReducers = combineReducers({
     navLinks: navLinks,
     registerPage: registerPage,
     loginPage:loginPage,
-    flag: changeFlag
+    flag: changeFlag,
+    index: changeImagesIndex,
+    count: changeCountImages,
+    imageArray: changeImageArray
 
 });
 

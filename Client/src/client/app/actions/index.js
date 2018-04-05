@@ -52,9 +52,23 @@ export const changeFlag = (flag) => {
   }
 }
 
-export const changeImageClasses = (imageClasses) => {
+export const changeImageArray = (imageArray) => {
   return {
-    type: "CHANGE_IMAGE_CLASSES",
-    payload: imageClasses
+    type: "CHANGE_IMAGE_ARRAY",
+    payload: imageArray
+  }
+}
+
+export const changeImagesIndex = (imagesIndex) => {
+  return {
+    type: "CHANGE_INDEX_IMAGES",
+    payload: imagesIndex
+  }
+}
+
+export const changeCountImages = (count) => {
+  return {
+    type: "CHANGE_COUNT_IMAGES",
+    payload: count
   }
 }

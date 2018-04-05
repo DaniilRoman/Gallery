@@ -6,6 +6,7 @@ import '../resources/project-details.css';
 import { select } from '../actions';
 import { bindActionCreators } from 'redux';
 import { changeActiveNavLink } from '../actions/index';
+import { changeImagesIndex } from '../actions/index';
 import { changeFlag } from '../actions';
 import { rename } from 'fs';
 import Modules from '../containers/project-modules';
@@ -63,6 +64,7 @@ class Details extends Component {
     }
     componentWillUnmount() {
         this.props.changeFlag(true);
+        this.props.changeImagesIndex(0);
     }
     render() {
         //   if (!this.props.project) {
@@ -74,7 +76,7 @@ class Details extends Component {
                     <Link to='/'>Back</Link>
                 </div>);
         }
-        else return (<Modules modules={this.props.project.modules}/>);
+        else return (<div><h3 align="center">{this.props.project.name}</h3><Modules modules={this.props.project.modules}/></div>);
             {/* <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                 <ol className="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
@@ -222,7 +224,8 @@ function matchDispatchToProps(dispatch) {
         {
             select: select,
             changeFlag: changeFlag,
-            changeActiveNavLink: changeActiveNavLink
+            changeActiveNavLink: changeActiveNavLink,
+            changeImagesIndex: changeImagesIndex
         }, dispatch)
 }
 
