@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import '../resources/project-details.css';
 import { select } from '../actions';
 import { bindActionCreators } from 'redux';
+import { changeActiveNavLink } from '../actions/index';
 import { changeFlag } from '../actions';
 import { rename } from 'fs';
 import Modules from '../containers/project-modules';
@@ -57,6 +58,7 @@ class Details extends Component {
 
     componentWillMount() {
         // this.props.select(null);
+        this.props.changeActiveNavLink(["nav-link", "nav-link", "nav-link"]);
         this.getProgectInfo();
     }
     componentWillUnmount() {
@@ -67,13 +69,12 @@ class Details extends Component {
         if (this.props.flag) {
             return (
                 <div>
-                    <h3>Details:</h3>
-                    <p>Project dont load yet</p>
+                    {/* <h3>Details:</h3> */}
+                    <h3 align='center' >Project dont load yet:</h3>
                     <Link to='/'>Back</Link>
                 </div>);
         }
         else return (<Modules modules={this.props.project.modules}/>);
-        //if(this.props.project.modules[0].type==='embed')return (<div className="container" dangerouslySetInnerHTML={{ __html: this.props.project.modules[0].embed }}> </div>)
             {/* <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                 <ol className="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
@@ -100,7 +101,6 @@ class Details extends Component {
                     <span className="sr-only">Next</span>
                 </a>
             </div> */}
-            {/* {this.props.project.modules[0].embed} */}
     }
 
 
@@ -221,7 +221,8 @@ function matchDispatchToProps(dispatch) {
     return bindActionCreators(
         {
             select: select,
-            changeFlag: changeFlag
+            changeFlag: changeFlag,
+            changeActiveNavLink: changeActiveNavLink
         }, dispatch)
 }
 

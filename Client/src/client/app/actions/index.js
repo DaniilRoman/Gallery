@@ -51,3 +51,10 @@ export const changeFlag = (flag) => {
     payload: flag
   }
 }
+
+export const changeImageClasses = (imageClasses) => {
+  return {
+    type: "CHANGE_IMAGE_CLASSES",
+    payload: imageClasses
+  }
+}
