@@ -63501,6 +63501,613 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-infinite-scroll-component/lib/index.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-infinite-scroll-component/lib/index.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+	else {}
+})(this, function(__WEBPACK_EXTERNAL_MODULE_7__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _propTypes = __webpack_require__(5);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
+	var _utilsThrottle = __webpack_require__(1);
+
+	var _utilsThrottle2 = _interopRequireDefault(_utilsThrottle);
+
+	var InfiniteScroll = (function (_Component) {
+	  _inherits(InfiniteScroll, _Component);
+
+	  function InfiniteScroll(props) {
+	    _classCallCheck(this, InfiniteScroll);
+
+	    _get(Object.getPrototypeOf(InfiniteScroll.prototype), 'constructor', this).call(this);
+	    this.state = {
+	      showLoader: false,
+	      lastScrollTop: 0,
+	      actionTriggered: false,
+	      pullToRefreshThresholdBreached: false
+	    };
+	    // variables to keep track of pull down behaviour
+	    this.startY = 0;
+	    this.currentY = 0;
+	    this.dragging = false;
+	    // will be populated in componentDidMount
+	    // based on the height of the pull down element
+	    this.maxPullDownDistance = 0;
+
+	    this.onScrollListener = this.onScrollListener.bind(this);
+	    this.throttledOnScrollListener = (0, _utilsThrottle2['default'])(this.onScrollListener, 150).bind(this);
+	    this.onStart = this.onStart.bind(this);
+	    this.onMove = this.onMove.bind(this);
+	    this.onEnd = this.onEnd.bind(this);
+	  }
+
+	  _createClass(InfiniteScroll, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.el = this.props.height ? this._infScroll : this.props.scrollableTarget || window;
+	      this.el.addEventListener('scroll', this.throttledOnScrollListener);
+
+	      if (typeof this.props.initialScrollY === 'number' && this.el.scrollHeight > this.props.initialScrollY) {
+	        this.el.scrollTo(0, this.props.initialScrollY);
+	      }
+
+	      if (this.props.pullDownToRefresh) {
+	        this.el.addEventListener('touchstart', this.onStart);
+	        this.el.addEventListener('touchmove', this.onMove);
+	        this.el.addEventListener('touchend', this.onEnd);
+
+	        this.el.addEventListener('mousedown', this.onStart);
+	        this.el.addEventListener('mousemove', this.onMove);
+	        this.el.addEventListener('mouseup', this.onEnd);
+
+	        // get BCR of pullDown element to position it above
+	        this.maxPullDownDistance = this._pullDown.firstChild.getBoundingClientRect().height;
+	        this.forceUpdate();
+
+	        if (typeof this.props.refreshFunction !== 'function') {
+	          throw new Error('Mandatory prop "refreshFunction" missing.\n          Pull Down To Refresh functionality will not work\n          as expected. Check README.md for usage\'');
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      this.el.removeEventListener('scroll', this.throttledOnScrollListener);
+
+	      if (this.props.pullDownToRefresh) {
+	        this.el.removeEventListener('touchstart', this.onStart);
+	        this.el.removeEventListener('touchmove', this.onMove);
+	        this.el.removeEventListener('touchend', this.onEnd);
+
+	        this.el.removeEventListener('mousedown', this.onStart);
+	        this.el.removeEventListener('mousemove', this.onMove);
+	        this.el.removeEventListener('mouseup', this.onEnd);
+	      }
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(props) {
+
+	      // do nothing when dataLength is unchanged
+	      if (this.props.dataLength === props.dataLength) return;
+
+	      // update state when new data was sent in
+	      this.setState({
+	        showLoader: false,
+	        actionTriggered: false,
+	        pullToRefreshThresholdBreached: false
+	      });
+	    }
+	  }, {
+	    key: 'onStart',
+	    value: function onStart(evt) {
+	      if (this.state.lastScrollTop) return;
+
+	      this.dragging = true;
+	      this.startY = evt.pageY || evt.touches[0].pageY;
+	      this.currentY = this.startY;
+
+	      this._infScroll.style.willChange = 'transform';
+	      this._infScroll.style.transition = 'transform 0.2s cubic-bezier(0,0,0.31,1)';
+	    }
+	  }, {
+	    key: 'onMove',
+	    value: function onMove(evt) {
+	      if (!this.dragging) return;
+	      this.currentY = evt.pageY || evt.touches[0].pageY;
+
+	      // user is scrolling down to up
+	      if (this.currentY < this.startY) return;
+
+	      if (this.currentY - this.startY >= this.props.pullDownToRefreshThreshold) {
+	        this.setState({
+	          pullToRefreshThresholdBreached: true
+	        });
+	      }
+
+	      // so you can drag upto 1.5 times of the maxPullDownDistance
+	      if (this.currentY - this.startY > this.maxPullDownDistance * 1.5) return;
+
+	      this._infScroll.style.overflow = 'visible';
+	      this._infScroll.style.transform = 'translate3d(0px, ' + (this.currentY - this.startY) + 'px, 0px)';
+	    }
+	  }, {
+	    key: 'onEnd',
+	    value: function onEnd(evt) {
+	      var _this = this;
+
+	      this.startY = 0;
+	      this.currentY = 0;
+
+	      this.dragging = false;
+
+	      if (this.state.pullToRefreshThresholdBreached) {
+	        this.props.refreshFunction && this.props.refreshFunction();
+	      }
+
+	      requestAnimationFrame(function () {
+	        _this._infScroll.style.overflow = 'auto';
+	        _this._infScroll.style.transform = 'none';
+	        _this._infScroll.style.willChange = 'none';
+	      });
+	    }
+	  }, {
+	    key: 'isElementAtBottom',
+	    value: function isElementAtBottom(target) {
+	      var scrollThreshold = arguments.length <= 1 || arguments[1] === undefined ? 0.8 : arguments[1];
+
+	      var clientHeight = target === document.body || target === document.documentElement ? window.screen.availHeight : target.clientHeight;
+
+	      return target.scrollTop + clientHeight >= scrollThreshold * target.scrollHeight;
+	    }
+	  }, {
+	    key: 'onScrollListener',
+	    value: function onScrollListener(event) {
+	      var _this2 = this;
+
+	      if (typeof this.props.onScroll === 'function') {
+	        // Execute this callback in next tick so that it does not affect the
+	        // functionality of the library.
+	        setTimeout(function () {
+	          return _this2.props.onScroll(event);
+	        }, 0);
+	      }
+
+	      var target = this.props.height || this.props.scrollableTarget ? event.target : document.documentElement.scrollTop ? document.documentElement : document.body;
+
+	      // return immediately if the action has already been triggered,
+	      // prevents multiple triggers.
+	      if (this.state.actionTriggered) return;
+
+	      var atBottom = this.isElementAtBottom(target, this.props.scrollThreshold);
+
+	      // call the `next` function in the props to trigger the next data fetch
+	      if (atBottom && this.props.hasMore) {
+	        this.setState({ actionTriggered: true, showLoader: true });
+	        this.props.next();
+	      }
+	      this.setState({ lastScrollTop: target.scrollTop });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+
+	      var style = _extends({
+	        height: this.props.height || 'auto',
+	        overflow: 'auto',
+	        WebkitOverflowScrolling: 'touch'
+	      }, this.props.style);
+	      var hasChildren = this.props.hasChildren || !!(this.props.children && this.props.children.length);
+
+	      // because heighted infiniteScroll visualy breaks
+	      // on drag down as overflow becomes visible
+	      var outerDivStyle = this.props.pullDownToRefresh && this.props.height ? { overflow: 'auto' } : {};
+	      return _react2['default'].createElement(
+	        'div',
+	        { style: outerDivStyle },
+	        _react2['default'].createElement(
+	          'div',
+	          {
+	            className: 'infinite-scroll-component',
+	            ref: function (infScroll) {
+	              return _this3._infScroll = infScroll;
+	            },
+	            style: style
+	          },
+	          this.props.pullDownToRefresh && _react2['default'].createElement(
+	            'div',
+	            {
+	              style: { position: 'relative' },
+	              ref: function (pullDown) {
+	                return _this3._pullDown = pullDown;
+	              }
+	            },
+	            _react2['default'].createElement(
+	              'div',
+	              { style: {
+	                  position: 'absolute',
+	                  left: 0,
+	                  right: 0,
+	                  top: -1 * this.maxPullDownDistance
+	                } },
+	              !this.state.pullToRefreshThresholdBreached && this.props.pullDownToRefreshContent,
+	              this.state.pullToRefreshThresholdBreached && this.props.releaseToRefreshContent
+	            )
+	          ),
+	          this.props.children,
+	          !this.state.showLoader && !hasChildren && this.props.hasMore && this.props.loader,
+	          this.state.showLoader && this.props.hasMore && this.props.loader,
+	          !this.props.hasMore && this.props.endMessage
+	        )
+	      );
+	    }
+	  }]);
+
+	  return InfiniteScroll;
+	})(_react.Component);
+
+	exports['default'] = InfiniteScroll;
+
+	InfiniteScroll.defaultProps = {
+	  pullDownToRefreshContent: _react2['default'].createElement(
+	    'h3',
+	    null,
+	    'Pull down to refresh'
+	  ),
+	  releaseToRefreshContent: _react2['default'].createElement(
+	    'h3',
+	    null,
+	    'Release to refresh'
+	  ),
+	  pullDownToRefreshThreshold: 100,
+	  disableBrowserPullToRefresh: true
+	};
+
+	InfiniteScroll.propTypes = {
+	  next: _propTypes2['default'].func,
+	  hasMore: _propTypes2['default'].bool,
+	  children: _propTypes2['default'].node,
+	  loader: _propTypes2['default'].node.isRequired,
+	  scrollThreshold: _propTypes2['default'].number,
+	  endMessage: _propTypes2['default'].node,
+	  style: _propTypes2['default'].object,
+	  height: _propTypes2['default'].number,
+	  scrollableTarget: _propTypes2['default'].node,
+	  hasChildren: _propTypes2['default'].bool,
+	  pullDownToRefresh: _propTypes2['default'].bool,
+	  pullDownToRefreshContent: _propTypes2['default'].node,
+	  releaseToRefreshContent: _propTypes2['default'].node,
+	  pullDownToRefreshThreshold: _propTypes2['default'].number,
+	  refreshFunction: _propTypes2['default'].func,
+	  onScroll: _propTypes2['default'].func,
+	  dataLength: _propTypes2['default'].number.isRequired
+	};
+	module.exports = exports['default'];
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+	// https://remysharp.com/2010/07/21/throttling-function-calls
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports["default"] = throttle;
+
+	function throttle(fn, threshhold, scope) {
+	  threshhold || (threshhold = 250);
+	  var last, deferTimer;
+	  return function () {
+	    var context = scope || this;
+
+	    var now = +new Date(),
+	        args = arguments;
+	    if (last && now < last + threshhold) {
+	      // hold on to it
+	      clearTimeout(deferTimer);
+	      deferTimer = setTimeout(function () {
+	        last = now;
+	        fn.apply(context, args);
+	      }, threshhold);
+	    } else {
+	      last = now;
+	      fn.apply(context, args);
+	    }
+	  };
+	}
+
+	module.exports = exports["default"];
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 *
+	 * 
+	 */
+
+	function makeEmptyFunction(arg) {
+	  return function () {
+	    return arg;
+	  };
+	}
+
+	/**
+	 * This function accepts and discards inputs; it has no side effects. This is
+	 * primarily useful idiomatically for overridable function endpoints which
+	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+	 */
+	var emptyFunction = function emptyFunction() {};
+
+	emptyFunction.thatReturns = makeEmptyFunction;
+	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+	emptyFunction.thatReturnsThis = function () {
+	  return this;
+	};
+	emptyFunction.thatReturnsArgument = function (arg) {
+	  return arg;
+	};
+
+	module.exports = emptyFunction;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 *
+	 */
+
+	'use strict';
+
+	/**
+	 * Use invariant() to assert state which your program assumes to be true.
+	 *
+	 * Provide sprintf-style format (only %s is supported) and arguments
+	 * to provide information about what broke and what you were
+	 * expecting.
+	 *
+	 * The invariant message will be stripped in production, but the invariant
+	 * will remain to ensure logic does not differ in production.
+	 */
+
+	var validateFormat = function validateFormat(format) {};
+
+	if (false) {}
+
+	function invariant(condition, format, a, b, c, d, e, f) {
+	  validateFormat(format);
+
+	  if (!condition) {
+	    var error;
+	    if (format === undefined) {
+	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+	    } else {
+	      var args = [a, b, c, d, e, f];
+	      var argIndex = 0;
+	      error = new Error(format.replace(/%s/g, function () {
+	        return args[argIndex++];
+	      }));
+	      error.name = 'Invariant Violation';
+	    }
+
+	    error.framesToPop = 1; // we don't care about invariant's own frame
+	    throw error;
+	  }
+	}
+
+	module.exports = invariant;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+
+	'use strict';
+
+	var emptyFunction = __webpack_require__(2);
+	var invariant = __webpack_require__(3);
+	var ReactPropTypesSecret = __webpack_require__(6);
+
+	module.exports = function() {
+	  function shim(props, propName, componentName, location, propFullName, secret) {
+	    if (secret === ReactPropTypesSecret) {
+	      // It is still safe when called from React.
+	      return;
+	    }
+	    invariant(
+	      false,
+	      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+	      'Use PropTypes.checkPropTypes() to call them. ' +
+	      'Read more at http://fb.me/use-check-prop-types'
+	    );
+	  };
+	  shim.isRequired = shim;
+	  function getShim() {
+	    return shim;
+	  };
+	  // Important!
+	  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+	  var ReactPropTypes = {
+	    array: shim,
+	    bool: shim,
+	    func: shim,
+	    number: shim,
+	    object: shim,
+	    string: shim,
+	    symbol: shim,
+
+	    any: shim,
+	    arrayOf: getShim,
+	    element: shim,
+	    instanceOf: getShim,
+	    node: shim,
+	    objectOf: getShim,
+	    oneOf: getShim,
+	    oneOfType: getShim,
+	    shape: getShim
+	  };
+
+	  ReactPropTypes.checkPropTypes = emptyFunction;
+	  ReactPropTypes.PropTypes = ReactPropTypes;
+
+	  return ReactPropTypes;
+	};
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+
+	if (false) { var throwOnDirectAccess, isValidElement, REACT_ELEMENT_TYPE; } else {
+	  // By explicitly using `prop-types` you are opting into new production behavior.
+	  // http://fb.me/prop-types-in-prod
+	  module.exports = __webpack_require__(4)();
+	}
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+	/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+
+	'use strict';
+
+	var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+	module.exports = ReactPropTypesSecret;
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_7__;
+
+/***/ })
+/******/ ])
+});
+;
+
+/***/ }),
+
 /***/ "./node_modules/react-js-pagination/dist/Page.js":
 /*!*******************************************************!*\
   !*** ./node_modules/react-js-pagination/dist/Page.js ***!
@@ -89883,6 +90490,27 @@ var changeFlag = exports.changeFlag = function changeFlag(flag) {
   };
 };
 
+var changeImageArray = exports.changeImageArray = function changeImageArray(imageArray) {
+  return {
+    type: "CHANGE_IMAGE_ARRAY",
+    payload: imageArray
+  };
+};
+
+var changeImagesIndex = exports.changeImagesIndex = function changeImagesIndex(imagesIndex) {
+  return {
+    type: "CHANGE_INDEX_IMAGES",
+    payload: imagesIndex
+  };
+};
+
+var changeCountImages = exports.changeCountImages = function changeCountImages(count) {
+  return {
+    type: "CHANGE_COUNT_IMAGES",
+    payload: count
+  };
+};
+
 /***/ }),
 
 /***/ "./src/client/app/components/App.js":
@@ -89994,6 +90622,102 @@ exports.default = Header;
 
 /***/ }),
 
+/***/ "./src/client/app/components/IncorectPassword.js":
+/*!*******************************************************!*\
+  !*** ./src/client/app/components/IncorectPassword.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+var IncorectPassword = function IncorectPassword() {
+    return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h3', null, 'Incorect password'));
+};
+
+exports.default = IncorectPassword;
+
+/***/ }),
+
+/***/ "./src/client/app/components/IncorectUsername.js":
+/*!*******************************************************!*\
+  !*** ./src/client/app/components/IncorectUsername.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+var IncorectUsername = function IncorectUsername() {
+    return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h3', null, 'Incorect username'));
+};
+
+exports.default = IncorectUsername;
+
+/***/ }),
+
+/***/ "./src/client/app/components/Login.js":
+/*!********************************************!*\
+  !*** ./src/client/app/components/Login.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+var Login = function Login() {
+    return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h3', null, 'Login successful'));
+};
+
+exports.default = Login;
+
+/***/ }),
+
 /***/ "./src/client/app/components/Main.js":
 /*!*******************************************!*\
   !*** ./src/client/app/components/Main.js ***!
@@ -90034,12 +90758,28 @@ var _NoAuth = __webpack_require__(/*! ./NoAuth */ "./src/client/app/components/N
 
 var _NoAuth2 = _interopRequireDefault(_NoAuth);
 
+var _Login = __webpack_require__(/*! ./Login */ "./src/client/app/components/Login.js");
+
+var _Login2 = _interopRequireDefault(_Login);
+
+var _RegisterSuccessful = __webpack_require__(/*! ./RegisterSuccessful */ "./src/client/app/components/RegisterSuccessful.js");
+
+var _RegisterSuccessful2 = _interopRequireDefault(_RegisterSuccessful);
+
+var _IncorectPassword = __webpack_require__(/*! ./IncorectPassword */ "./src/client/app/components/IncorectPassword.js");
+
+var _IncorectPassword2 = _interopRequireDefault(_IncorectPassword);
+
+var _IncorectUsername = __webpack_require__(/*! ./IncorectUsername */ "./src/client/app/components/IncorectUsername.js");
+
+var _IncorectUsername2 = _interopRequireDefault(_IncorectUsername);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
 
 var Main = function Main() {
-    return _react2.default.createElement('div', null, _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects', component: _ProjectsRouter2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _loginPage2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _registerPage2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/no_auth', component: _NoAuth2.default })));
+    return _react2.default.createElement('div', null, _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects', component: _ProjectsRouter2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _loginPage2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _registerPage2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/no_auth', component: _NoAuth2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/login_successful', component: _Login2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/register_successful', component: _RegisterSuccessful2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/username_incorect', component: _IncorectUsername2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/password_incorect', component: _IncorectPassword2.default })));
 };
 
 exports.default = Main;
@@ -90114,6 +90854,38 @@ var ProjectsRouter = function ProjectsRouter() {
   return _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/projects', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects/:id', component: _projectDetails2.default }));
 };
 exports.default = ProjectsRouter;
+
+/***/ }),
+
+/***/ "./src/client/app/components/RegisterSuccessful.js":
+/*!*********************************************************!*\
+  !*** ./src/client/app/components/RegisterSuccessful.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+var RegisterSuccessful = function RegisterSuccessful() {
+    return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h3', null, 'Register successful'));
+};
+
+exports.default = RegisterSuccessful;
 
 /***/ }),
 
@@ -90252,7 +91024,7 @@ var LoginPage = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { className: 'panel panel-login' }, _react2.default.createElement('div', { className: 'panel-body' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-12' }, _react2.default.createElement('form', { id: 'login-form', style: { display: 'block' } }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', onChange: this.handleChange, id: 'username', tabIndex: '1', type: 'text', placeholder: 'Enter Username', name: 'uname', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', onChange: this.handleChange, id: 'password', tabIndex: '2', type: 'password', placeholder: 'Enter Password', name: 'psw', required: true })), _react2.default.createElement('div', { className: 'form-group text-center' }, _react2.default.createElement('input', { className: '', type: 'checkbox', tabIndex: '4', name: 'remember' }), _react2.default.createElement('label', { htmlFor: 'remember' }, 'Remember me')), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-sm-6 col-sm-offset-3' }, _react2.default.createElement('input', { type: 'submit', name: 'login-submit', onClick: this.handleClick, id: 'login-submit', tabIndex: '3', className: 'form-control btn btn-login', value: 'Log In' })))), _react2.default.createElement('span', { className: 'psw' }, _react2.default.createElement(_reactRouterDom.Link, { to: '/register' }, 'Dont register?'))))))))));
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { className: 'panel panel-login' }, _react2.default.createElement('div', { className: 'panel-body' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-12' }, _react2.default.createElement('form', { id: 'login-form', style: { display: 'block' } }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', onChange: this.handleChange, id: 'username', tabIndex: '1', type: 'text', placeholder: 'Enter Username', name: 'uname', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', onChange: this.handleChange, id: 'password', tabIndex: '2', type: 'password', placeholder: 'Enter Password', name: 'psw', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('input', { type: 'submit', name: 'login-submit', onClick: this.handleClick, id: 'login-submit', tabIndex: '3', className: 'form-control btn btn-login', value: 'Log In' }))), _react2.default.createElement('span', { align: 'center', className: 'psw' }, _react2.default.createElement(_reactRouterDom.Link, { to: '/register' }, 'Dont register?'))))))))));
         }
     }]);
 
@@ -90441,6 +91213,20 @@ var _behanceApi2 = _interopRequireDefault(_behanceApi);
 
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
+__webpack_require__(/*! ../resources/project-details.css */ "./src/client/app/resources/project-details.css");
+
+var _actions = __webpack_require__(/*! ../actions */ "./src/client/app/actions/index.js");
+
+var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
+
+var _index = __webpack_require__(/*! ../actions/index */ "./src/client/app/actions/index.js");
+
+var _fs = __webpack_require__(/*! fs */ "./node_modules/node-libs-browser/mock/empty.js");
+
+var _projectModules = __webpack_require__(/*! ../containers/project-modules */ "./src/client/app/containers/project-modules.js");
+
+var _projectModules2 = _interopRequireDefault(_projectModules);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -90473,12 +91259,47 @@ var Details = function (_Component) {
     }
 
     _createClass(Details, [{
+        key: 'getProgectInfo',
+        value: function getProgectInfo() {
+            var _this2 = this;
+
+            // let id = this.props.project.id;
+            var id = this.props.match.params.id;
+            console.log("id:::::::" + id);
+            this.props.select(null);
+            this.props.Be.project(id, function (err, res, data) {
+                console.dir(data);_this2.props.select(data.project);_this2.props.changeFlag(false);
+            });
+        }
+    }, {
+        key: 'getRender',
+        value: function getRender() {
+            var render = "";
+            if (!this.props.flag) {
+                this.props.changeFlag(true);
+                return this.props.project.modules[0].embed;
+            }
+            return render;
+        }
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            console.log("WillMount");
+            this.props.changeActiveNavLink(["nav-link", "nav-link", "nav-link"]);
+            this.getProgectInfo();
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            this.props.changeFlag(true);
+            this.props.changeImagesIndex(0);
+        }
+    }, {
         key: 'render',
         value: function render() {
-            if (!this.props.project) {
-                return _react2.default.createElement('div', null, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('p', null, "\u0422\u0430\u043A\u043E\u0433\u043E \u043F\u0440\u043E\u0435\u043A\u0442\u0430 \u043D\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442"), _react2.default.createElement(_reactRouterDom.Link, { to: '/' }, 'Back'));
-            }
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h3', null, 'Details:'), _react2.default.createElement('h2', null, this.props.project.name), _react2.default.createElement('img', { width: '300px', src: this.props.project.covers.original }), _react2.default.createElement('br', null), _react2.default.createElement('p', null, this.props.project.fields[0]), _react2.default.createElement(_reactRouterDom.Link, { to: '/' }, 'Back'));
+            if (this.props.flag) {
+                return _react2.default.createElement('div', null, _react2.default.createElement('h3', { align: 'center' }, 'Project dont load yet:'), _react2.default.createElement(_reactRouterDom.Link, { to: '/' }, 'Back'));
+            } else return _react2.default.createElement('div', null, _react2.default.createElement('h3', { align: 'center' }, this.props.project.name), _react2.default.createElement(_projectModules2.default, { modules: this.props.project.modules }));
         }
     }]);
 
@@ -90487,11 +91308,222 @@ var Details = function (_Component) {
 
 function mapStateToProps(state) {
     return {
-        project: state.active
+        project: state.active,
+        Be: state.BehanceAPI,
+        flag: state.flag
+    };
+}
+function matchDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        select: _actions.select,
+        changeFlag: _actions.changeFlag,
+        changeActiveNavLink: _index.changeActiveNavLink,
+        changeImagesIndex: _index.changeImagesIndex
+    }, dispatch);
+}
+
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Details));
+
+/***/ }),
+
+/***/ "./src/client/app/containers/project-modules.js":
+/*!******************************************************!*\
+  !*** ./src/client/app/containers/project-modules.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () {
+    function defineProperties(target, props) {
+        for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+        }
+    }return function (Constructor, protoProps, staticProps) {
+        if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+    };
+}();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _index = __webpack_require__(/*! ../actions/index */ "./src/client/app/actions/index.js");
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+    }
+}
+
+function _possibleConstructorReturn(self, call) {
+    if (!self) {
+        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+        throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+    }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+// import { changeActiveNavLink } from '../actions/index';
+
+// import { Link } from 'react-router-dom';
+
+
+var Modules = function (_Component) {
+    _inherits(Modules, _Component);
+
+    function Modules(props) {
+        _classCallCheck(this, Modules);
+
+        var _this = _possibleConstructorReturn(this, (Modules.__proto__ || Object.getPrototypeOf(Modules)).call(this, props));
+
+        _this.handleSwitch = _this.handleSwitch.bind(_this);
+        _this.handlePrevClick = _this.handlePrevClick.bind(_this);
+        _this.handleNextClick = _this.handleNextClick.bind(_this);
+
+        return _this;
+    }
+
+    _createClass(Modules, [{
+        key: 'handleSwitch',
+        value: function handleSwitch(_module, index) {
+            switch (_module.type) {
+                case "text":
+                    return _react2.default.createElement('div', { key: index, align: 'center', className: 'container', dangerouslySetInnerHTML: { __html: _module.text } });
+                    break;
+                case "embed":
+                    return _react2.default.createElement('div', { key: index, align: 'center', className: 'container', dangerouslySetInnerHTML: { __html: _module.embed } });
+                    break;
+                default:
+                    break;
+
+            }
+        }
+    }, {
+        key: 'showModules',
+        value: function showModules() {
+            var _this2 = this;
+
+            return this.props.modules.map(function (_module, index) {
+                return _this2.handleSwitch(_module, index);
+            });
+        }
+    }, {
+        key: 'createImagesArray',
+        value: function createImagesArray() {
+            var tmp = [];
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = this.props.modules[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var _module = _step.value;
+
+                    if (_module.type == "image") {
+                        tmp.push(_module);
+                    }
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+
+            this.props.changeImageArray(tmp);
+        }
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.createImagesArray();
+        }
+    }, {
+        key: 'getImages',
+        value: function getImages() {
+            var _this3 = this;
+
+            if (this.props.imageArray != []) return this.props.imageArray.map(function (_module, index) {
+                if (_module.type == "image") {
+                    _this3.props.changeCountImages(index);
+                    return _react2.default.createElement('div', { style: { height: _module.height, width: _module.width }, key: index, className: index == _this3.props.activeIndex ? "carousel-item active" : "carousel-item" }, _react2.default.createElement('img', { style: { height: _module.height, width: _module.width }, className: 'd-block img-fluid', src: _module.src }), _react2.default.createElement('a', { className: 'carousel-control-prev', onClick: _this3.handlePrevClick, href: '#carouselExampleIndicators', role: 'button', 'data-slide': 'prev' }, _react2.default.createElement('span', { className: 'carousel-control-prev-icon', 'aria-hidden': 'true' }), _react2.default.createElement('span', { className: 'sr-only' }, 'Previous')), _react2.default.createElement('a', { className: 'carousel-control-next', onClick: _this3.handleNextClick, href: '#carouselExampleIndicators', role: 'button', 'data-slide': 'next' }, _react2.default.createElement('span', { className: 'carousel-control-next-icon', 'aria-hidden': 'true' }), _react2.default.createElement('span', { className: 'sr-only' }, 'Next')));
+                }
+            });
+        }
+    }, {
+        key: 'handlePrevClick',
+        value: function handlePrevClick(e) {
+            e.preventDefault();
+            if (this.props.activeIndex == 0) {
+                this.props.changeImagesIndex(this.props.count);
+            } else {
+                this.props.changeImagesIndex(this.props.activeIndex - 1);
+            }
+        }
+    }, {
+        key: 'handleNextClick',
+        value: function handleNextClick(e) {
+            e.preventDefault();
+            if (this.props.activeIndex == this.props.count) {
+                this.props.changeImagesIndex(0);
+            } else {
+                this.props.changeImagesIndex(this.props.activeIndex + 1);
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { align: 'center', id: 'carouselExampleIndicators', className: 'carousel slide', 'data-ride': 'carousel' }, _react2.default.createElement('div', { className: 'carousel-inner', role: 'listbox' }, this.getImages())), this.showModules());
+        }
+    }]);
+
+    return Modules;
+}(_react.Component);
+
+function mapStateToProps(state) {
+    return {
+        activeIndex: state.index,
+        count: state.count,
+        imageArray: state.imageArray
     };
 }
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Details);
+function matchDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        changeImagesIndex: _index.changeImagesIndex,
+        changeCountImages: _index.changeCountImages,
+        changeImageArray: _index.changeImageArray
+    }, dispatch);
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Modules);
 
 /***/ }),
 
@@ -90537,6 +91569,14 @@ var _reactJsPagination = __webpack_require__(/*! react-js-pagination */ "./node_
 
 var _reactJsPagination2 = _interopRequireDefault(_reactJsPagination);
 
+__webpack_require__(/*! ../resources/projects.css */ "./src/client/app/resources/projects.css");
+
+__webpack_require__(/*! ../resources/search-input.css */ "./src/client/app/resources/search-input.css");
+
+var _reactInfiniteScrollComponent = __webpack_require__(/*! react-infinite-scroll-component */ "./node_modules/react-infinite-scroll-component/lib/index.js");
+
+var _reactInfiniteScrollComponent2 = _interopRequireDefault(_reactInfiniteScrollComponent);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -90559,10 +91599,6 @@ function _inherits(subClass, superClass) {
     }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
-var PER_PAGE = 10;
-var RANGE_DISPLAYED = 10;
-var TOTAL_COUNT = 100;
-
 var Projects = function (_Component) {
     _inherits(Projects, _Component);
 
@@ -90573,7 +91609,8 @@ var Projects = function (_Component) {
 
         _this.handleChange = _this.handleChange.bind(_this);
         _this.handleClick = _this.handleClick.bind(_this);
-        _this.handlePageChange = _this.handlePageChange.bind(_this);
+        _this.getProjectsBySearch = _this.getProjectsBySearch.bind(_this);
+        _this.showProjectsList = _this.showProjectsList.bind(_this);
         return _this;
     }
 
@@ -90583,7 +91620,7 @@ var Projects = function (_Component) {
             var _this2 = this;
 
             return this.props.projects.map(function (project) {
-                return _react2.default.createElement('li', { onClick: function onClick() {
+                return _react2.default.createElement('div', { className: 'col-xs-12 col-sm-6 col-md-4', onClick: function onClick() {
                         return _this2.props.select(project);
                     },
                     key: project.id }, _this2.checkAuth(project));
@@ -90593,64 +91630,21 @@ var Projects = function (_Component) {
         key: 'checkAuth',
         value: function checkAuth(project) {
             if (this.props.flag === true) {
-                return _react2.default.createElement(_reactRouterDom.Link, { to: '/projects/' + project.id }, project.name);
-            }return _react2.default.createElement(_reactRouterDom.Link, { to: '/no_auth' }, project.name);
+                return _react2.default.createElement(_reactRouterDom.Link, { to: '/projects/' + project.id }, this.projectInfo(project));
+            }return _react2.default.createElement(_reactRouterDom.Link, { to: '/no_auth' }, this.projectInfo(project));
         }
-
-        // projectInfo(project) {
-        //     return <div class="col-xs-12 col-sm-6 col-md-4">
-        //         <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-        //             <div class="mainflip">
-        //                 <div class="frontside">
-        //                     <div class="card">
-        //                         <div class="card-body text-center">
-        //                             <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_06.jpg" alt="card image" /></p>
-        //                             <h4 class="card-title">Sunlimetech</h4>
-        //                             <p class="card-text">This is basic card with image on top, title, description and button.</p>
-        //                             <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //                 <div class="backside">
-        //                     <div class="card">
-        //                         <div class="card-body text-center mt-4">
-        //                             <h4 class="card-title">Sunlimetech</h4>
-        //                             <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-        //                             <ul class="list-inline">
-        //                                 <li class="list-inline-item">
-        //                                     <a class="social-icon text-xs-center" target="_blank" href="#">
-        //                                         <i class="fa fa-facebook"></i>
-        //                                     </a>
-        //                                 </li>
-        //                                 <li class="list-inline-item">
-        //                                     <a class="social-icon text-xs-center" target="_blank" href="#">
-        //                                         <i class="fa fa-twitter"></i>
-        //                                     </a>
-        //                                 </li>
-        //                                 <li class="list-inline-item">
-        //                                     <a class="social-icon text-xs-center" target="_blank" href="#">
-        //                                         <i class="fa fa-skype"></i>
-        //                                     </a>
-        //                                 </li>
-        //                                 <li class="list-inline-item">
-        //                                     <a class="social-icon text-xs-center" target="_blank" href="#">
-        //                                         <i class="fa fa-google"></i>
-        //                                     </a>
-        //                                 </li>
-        //                             </ul>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // }
-
+    }, {
+        key: 'projectInfo',
+        value: function projectInfo(project) {
+            return _react2.default.createElement('div', { className: 'image-flip' }, _react2.default.createElement('div', { className: 'card', style: { height: '330px' } }, _react2.default.createElement('div', { className: 'card-body text-center' }, _react2.default.createElement('p', null, _react2.default.createElement('img', { className: ' img-fluid', src: project.covers[404], alt: 'card image' })), _react2.default.createElement('h6', { className: 'card-title' }, project.name))));
+        }
     }, {
         key: 'getProjectsBySearch',
         value: function getProjectsBySearch() {
             var _this3 = this;
 
+            var page = this.props.activePage;
+            this.props.changeActivePage(page + 1);
             this.props.Be.projects({
                 q: this.props.queryForSearch,
                 page: this.props.activePage
@@ -90673,12 +91667,6 @@ var Projects = function (_Component) {
             this.props.changeQueryForSearch(e.target.value);
         }
     }, {
-        key: 'handlePageChange',
-        value: function handlePageChange(pageNumber) {
-            this.props.changeActivePage(pageNumber);
-            this.getProjectsBySearch();
-        }
-    }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
             this.getProjectsBySearch();
@@ -90686,16 +91674,17 @@ var Projects = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h2', null, 'Projects:'), _react2.default.createElement('form', null, _react2.default.createElement('input', { value: this.props.queryForSearch,
-                onChange: this.handleChange, type: 'text',
-                placeholder: 'search...' }), _react2.default.createElement('button', { onClick: this.handleClick, type: 'submit' }, 'search')), _react2.default.createElement('ol', null, this.showProjectsList()), _react2.default.createElement(_reactJsPagination2.default, {
-                hideDisabled: true,
-                activePage: this.props.activePage,
-                itemsCountPerPage: PER_PAGE,
-                totalItemsCount: TOTAL_COUNT,
-                pageRangeDisplayed: RANGE_DISPLAYED,
-                onChange: this.handlePageChange
-            }));
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('br', null), _react2.default.createElement('h1', { align: 'center' }, 'Projects:'), _react2.default.createElement('br', null), _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-6' }, _react2.default.createElement('div', { className: 'input-group' }, _react2.default.createElement('input', { value: this.props.queryForSearch, onChange: this.handleChange, type: 'text', id: 'search-query', className: 'form-control', placeholder: 'Search for...' }), _react2.default.createElement('span', { className: 'input-group-btn' }, _react2.default.createElement('button', { onClick: this.handleClick, className: 'btn btn-light', type: 'button' }, 'Go!')))))), _react2.default.createElement('br', null), _react2.default.createElement(_reactInfiniteScrollComponent2.default, {
+                pullDownToRefresh: true,
+                dataLength: this.props.projects.length //This is important field to render the next data
+                , pullDownToRefreshContent: _react2.default.createElement('h3', { style: { textAlign: 'center' } }, "\u2193 Pull down to refresh"),
+                releaseToRefreshContent: _react2.default.createElement('h3', { style: { textAlign: 'center' } }, "\u2191 Release to refresh"),
+                refreshFunction: this.showProjectsList,
+                next: this.getProjectsBySearch,
+                hasMore: true,
+                loader: _react2.default.createElement('h4', null, 'Loading...')
+                // children={this.showProjectsList()}
+                , endMessage: _react2.default.createElement('p', { style: { textAlign: 'center' } }, _react2.default.createElement('b', null, 'Yay! You have seen it all')) }, _react2.default.createElement('section', { id: 'team', className: 'pb-5' }, _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, this.showProjectsList())))));
         }
     }]);
 
@@ -90707,7 +91696,8 @@ function mapStateToProps(state) {
         projects: state.projects,
         Be: state.BehanceAPI,
         queryForSearch: state.queryForSearch,
-        activePage: state.activePage
+        activePage: state.activePage,
+        flag: state.flag
     };
 }
 
@@ -90720,37 +91710,7 @@ function matchDispatchToProps(dispatch) {
     }, dispatch);
 }
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Projects);
-
-//test() {
-//     fetch("http://www.behance.net/v2/projects?client_id=e1A607WbYauktG2el5XT2dbZriXROx4T&q=" + this.props.queryForSearch + "&page=" + this.props.activePage,
-//         {
-//             headers: {
-//                 // 'Content-Type': 'application/json',
-//                 // 'Authorization': 'Basic bnVsbDpudWxs',
-//                 // 'Host': 'www.behance.net',
-//                 // 'X-Target-URI': 'http://www.behance.net',
-//                 // 'Connection': 'Keep-Alive'
-//                 'Access-Control-Allow-Origin': '*://*/*',
-//                 'Access-Control-Allow-Credentials': 'true'
-//             },
-//             method: "GET"
-//         }).then((res) => { console.log(res) })//return res.json() })
-//     // .then((body) => { console.log(body.projects) })
-//     // .then((user) => {
-//     //     switch (JSON.stringify(user.name)) {
-//     //         case "null":
-//     //             this.props.changeFlag(false);
-//     //             break;
-//     //         case "trable with password":
-//     //             this.props.changeFlag(false);
-//     //             break;
-//     //         default:
-//     //             this.props.changeFlag(true);
-//     //             break;
-//     //     }
-//     // })
-// }
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Projects));
 
 /***/ }),
 
@@ -90896,7 +91856,7 @@ var Register = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { className: 'panel panel-login' }, _react2.default.createElement('div', { className: 'panel-body' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-12' }, _react2.default.createElement('form', { id: 'register-form' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'username', tabIndex: '1', onChange: this.handleChange, name: 'username', placeholder: 'Username', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'truthname', tabIndex: '2', onChange: this.handleChange, placeholder: 'Full name', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'email', id: 'email', tabIndex: '3', onChange: this.handleChange, name: 'email', placeholder: 'Email Address', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password', tabIndex: '4', onChange: this.handleChange, name: 'password', placeholder: 'Password', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password_confirm', tabIndex: '5', onChange: this.handleChange, name: 'password_confirm', placeholder: 'Password confirm', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('input', { type: 'submit', name: 'register-submit', tabIndex: '6', id: 'register-submit', className: 'form-control btn btn-register', value: 'Register Now' })))))))))));
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { className: 'panel panel-login' }, _react2.default.createElement('div', { className: 'panel-body' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-12' }, _react2.default.createElement('form', { id: 'register-form' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'username', tabIndex: '1', onChange: this.handleChange, name: 'username', placeholder: 'Username', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'truthname', tabIndex: '2', onChange: this.handleChange, placeholder: 'Full name', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'email', id: 'email', tabIndex: '3', onChange: this.handleChange, name: 'email', placeholder: 'Email Address', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password', tabIndex: '4', onChange: this.handleChange, name: 'password', placeholder: 'Password', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password_confirm', tabIndex: '5', onChange: this.handleChange, name: 'password_confirm', placeholder: 'Password confirm', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('input', { type: 'submit', name: 'register-submit', onClick: this.handleClick, tabIndex: '6', id: 'register-submit', className: 'form-control btn btn-register', value: 'Register Now' })))))))))));
         }
     }]);
 
@@ -90998,6 +91958,35 @@ exports.default = function () {
 
 /***/ }),
 
+/***/ "./src/client/app/reducers/change-count-images.js":
+/*!********************************************************!*\
+  !*** ./src/client/app/reducers/change-count-images.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var action = arguments[1];
+
+    switch (action.type) {
+        case "CHANGE_COUNT_IMAGES":
+            return action.payload;
+            break;
+        default:
+            return state;
+    }
+};
+
+/***/ }),
+
 /***/ "./src/client/app/reducers/change-flag.js":
 /*!************************************************!*\
   !*** ./src/client/app/reducers/change-flag.js ***!
@@ -91013,11 +92002,40 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
     var action = arguments[1];
 
     switch (action.type) {
         case "CHANGE_FLAG":
+            return action.payload;
+            break;
+        default:
+            return state;
+    }
+};
+
+/***/ }),
+
+/***/ "./src/client/app/reducers/change-image-array.js":
+/*!*******************************************************!*\
+  !*** ./src/client/app/reducers/change-image-array.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var action = arguments[1];
+
+    switch (action.type) {
+        case "CHANGE_IMAGE_ARRAY":
             return action.payload;
             break;
         default:
@@ -91149,6 +92167,35 @@ function _interopRequireDefault(obj) {
 
 /***/ }),
 
+/***/ "./src/client/app/reducers/images-index.js":
+/*!*************************************************!*\
+  !*** ./src/client/app/reducers/images-index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var action = arguments[1];
+
+    switch (action.type) {
+        case "CHANGE_INDEX_IMAGES":
+            return action.payload;
+            break;
+        default:
+            return state;
+    }
+};
+
+/***/ }),
+
 /***/ "./src/client/app/reducers/index.js":
 /*!******************************************!*\
   !*** ./src/client/app/reducers/index.js ***!
@@ -91201,6 +92248,18 @@ var _changeFlag = __webpack_require__(/*! ./change-flag */ "./src/client/app/red
 
 var _changeFlag2 = _interopRequireDefault(_changeFlag);
 
+var _imagesIndex = __webpack_require__(/*! ./images-index */ "./src/client/app/reducers/images-index.js");
+
+var _imagesIndex2 = _interopRequireDefault(_imagesIndex);
+
+var _changeCountImages = __webpack_require__(/*! ./change-count-images */ "./src/client/app/reducers/change-count-images.js");
+
+var _changeCountImages2 = _interopRequireDefault(_changeCountImages);
+
+var _changeImageArray = __webpack_require__(/*! ./change-image-array */ "./src/client/app/reducers/change-image-array.js");
+
+var _changeImageArray2 = _interopRequireDefault(_changeImageArray);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -91214,7 +92273,10 @@ var allReducers = (0, _redux.combineReducers)({
     navLinks: _activeNavLink2.default,
     registerPage: _changeRegisterPage2.default,
     loginPage: _changeLoginPage2.default,
-    flag: _changeFlag2.default
+    flag: _changeFlag2.default,
+    index: _imagesIndex2.default,
+    count: _changeCountImages2.default,
+    imageArray: _changeImageArray2.default
 
 });
 
@@ -91345,7 +92407,7 @@ exports.default = function () {
 
     switch (action.type) {
         case "CHANGE_PROJECTS":
-            return action.payload;
+            return state.concat(action.payload);
             break;
         default:
             return state;
@@ -91367,6 +92429,63 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, "body {\r\n    padding-top: 90px;\r\n}\r\n.panel-login {\r\n\tborder-color: #ccc;\r\n\t-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);\r\n\t-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);\r\n\tbox-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);\r\n}\r\n.panel-login>.panel-heading {\r\n\tcolor: #00415d;\r\n\tbackground-color: #fff;\r\n\tborder-color: #fff;\r\n\ttext-align:center;\r\n}\r\n.panel-login>.panel-heading a{\r\n\ttext-decoration: none;\r\n\tcolor: #666;\r\n\tfont-weight: bold;\r\n\tfont-size: 15px;\r\n\t-webkit-transition: all 0.1s linear;\r\n\t-moz-transition: all 0.1s linear;\r\n\ttransition: all 0.1s linear;\r\n}\r\n.panel-login>.panel-heading a.active{\r\n\tcolor: #029f5b;\r\n\tfont-size: 18px;\r\n}\r\n.panel-login>.panel-heading hr{\r\n\tmargin-top: 10px;\r\n\tmargin-bottom: 0px;\r\n\tclear: both;\r\n\tborder: 0;\r\n\theight: 1px;\r\n\tbackground-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));\r\n\tbackground-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));\r\n\tbackground-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));\r\n\tbackground-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));\r\n}\r\n.panel-login input[type=\"text\"],.panel-login input[type=\"email\"],.panel-login input[type=\"password\"] {\r\n\theight: 45px;\r\n\tborder: 1px solid #ddd;\r\n\tfont-size: 16px;\r\n\t-webkit-transition: all 0.1s linear;\r\n\t-moz-transition: all 0.1s linear;\r\n\ttransition: all 0.1s linear;\r\n}\r\n.panel-login input:hover,\r\n.panel-login input:focus {\r\n\toutline:none;\r\n\t-webkit-box-shadow: none;\r\n\t-moz-box-shadow: none;\r\n\tbox-shadow: none;\r\n\tborder-color: #ccc;\r\n}\r\n.btn-login {\r\n\tbackground-color: #59B2E0;\r\n\toutline: none;\r\n\tcolor: #fff;\r\n\tfont-size: 14px;\r\n\theight: auto;\r\n\tfont-weight: normal;\r\n\tpadding: 14px 0;\r\n\ttext-transform: uppercase;\r\n\tborder-color: #59B2E6;\r\n}\r\n.btn-login:hover,\r\n.btn-login:focus {\r\n\tcolor: #fff;\r\n\tbackground-color: #53A3CD;\r\n\tborder-color: #53A3CD;\r\n}\r\n.forgot-password {\r\n\ttext-decoration: underline;\r\n\tcolor: #888;\r\n}\r\n.forgot-password:hover,\r\n.forgot-password:focus {\r\n\ttext-decoration: underline;\r\n\tcolor: #666;\r\n}\r\n\r\n.btn-register {\r\n\tbackground-color: #1CB94E;\r\n\toutline: none;\r\n\tcolor: #fff;\r\n\tfont-size: 14px;\r\n\theight: auto;\r\n\tfont-weight: normal;\r\n\tpadding: 14px 0;\r\n\ttext-transform: uppercase;\r\n\tborder-color: #1CB94A;\r\n}\r\n.btn-register:hover,\r\n.btn-register:focus {\r\n\tcolor: #fff;\r\n\tbackground-color: #1CA347;\r\n\tborder-color: #1CA347;\r\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./src/client/app/resources/project-details.css":
+/*!******************************************************!*\
+  !*** ./src/client/app/resources/project-details.css ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".hide-bullets {\r\n    list-style:none;\r\n    margin-left: -40px;\r\n    margin-top:20px;\r\n    }", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./src/client/app/resources/projects.css":
+/*!***********************************************!*\
+  !*** ./src/client/app/resources/projects.css ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+exports.push([module.i, "@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);", ""]);
+
+// module
+exports.push([module.i, " /* FontAwesome for working BootSnippet :>  */\r\n#team {\r\n    background: #eee !important;\r\n}\r\n\r\n.btn-primary:hover,\r\n.btn-primary:focus {\r\n    background-color: #108d6f;\r\n    border-color: #108d6f;\r\n    box-shadow: none;\r\n    outline: none;\r\n}\r\n\r\n.btn-primary {\r\n    color: #fff;\r\n    background-color: #007b5e;\r\n    border-color: #007b5e;\r\n}\r\n\r\nsection {\r\n    padding: 60px 0;\r\n}\r\n\r\nsection .section-title {\r\n    text-align: center;\r\n    color: #007b5e;\r\n    margin-bottom: 50px;\r\n    text-transform: uppercase;\r\n}\r\n\r\n#team .card {\r\n    border: none;\r\n    background: #ffffff;\r\n}\r\n\r\n.image-flip:hover .backside,\r\n.image-flip.hover .backside {\r\n    -webkit-transform: rotateY(0deg);\r\n    -moz-transform: rotateY(0deg);\r\n    -o-transform: rotateY(0deg);\r\n    -ms-transform: rotateY(0deg);\r\n    transform: rotateY(0deg);\r\n    border-radius: .25rem;\r\n}\r\n\r\n.image-flip:hover .frontside,\r\n.image-flip.hover .frontside {\r\n    -webkit-transform: rotateY(180deg);\r\n    -moz-transform: rotateY(180deg);\r\n    -o-transform: rotateY(180deg);\r\n    transform: rotateY(180deg);\r\n}\r\n\r\n.mainflip {\r\n    -webkit-transition: 1s;\r\n    -webkit-transform-style: preserve-3d;\r\n    -ms-transition: 1s;\r\n    -moz-transition: 1s;\r\n    -moz-transform: perspective(1000px);\r\n    -moz-transform-style: preserve-3d;\r\n    -ms-transform-style: preserve-3d;\r\n    transition: 1s;\r\n    transform-style: preserve-3d;\r\n    position: relative;\r\n}\r\n\r\n.frontside {\r\n    position: relative;\r\n    -webkit-transform: rotateY(0deg);\r\n    -ms-transform: rotateY(0deg);\r\n    z-index: 2;\r\n    margin-bottom: 30px;\r\n}\r\n\r\n.backside {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    background: white;\r\n    -webkit-transform: rotateY(-180deg);\r\n    -moz-transform: rotateY(-180deg);\r\n    -o-transform: rotateY(-180deg);\r\n    -ms-transform: rotateY(-180deg);\r\n    transform: rotateY(-180deg);\r\n    -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);\r\n    -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);\r\n    box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);\r\n}\r\n\r\n.frontside,\r\n.backside {\r\n    -webkit-backface-visibility: hidden;\r\n    -moz-backface-visibility: hidden;\r\n    -ms-backface-visibility: hidden;\r\n    backface-visibility: hidden;\r\n    -webkit-transition: 1s;\r\n    -webkit-transform-style: preserve-3d;\r\n    -moz-transition: 1s;\r\n    -moz-transform-style: preserve-3d;\r\n    -o-transition: 1s;\r\n    -o-transform-style: preserve-3d;\r\n    -ms-transition: 1s;\r\n    -ms-transform-style: preserve-3d;\r\n    transition: 1s;\r\n    transform-style: preserve-3d;\r\n}\r\n\r\n.frontside .card,\r\n.backside .card {\r\n    min-height: 312px;\r\n}\r\n\r\n.backside .card a {\r\n    font-size: 18px;\r\n    color: #007b5e !important;\r\n}\r\n\r\n.frontside .card .card-title,\r\n.backside .card .card-title {\r\n    color: #007b5e !important;\r\n}\r\n\r\n.frontside .card .card-body img {\r\n    width: 120px;\r\n    height: 120px;\r\n    border-radius: 50%;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./src/client/app/resources/search-input.css":
+/*!***************************************************!*\
+  !*** ./src/client/app/resources/search-input.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "    #custom-search-form {\r\n        margin:0;\r\n        margin-top: 5px;\r\n        padding: 0;\r\n    }\r\n \r\n    #custom-search-form #search-query {\r\n        padding-right: 3px;\r\n        padding-right: 4px \\9;\r\n        padding-left: 3px;\r\n        padding-left: 4px \\9;\r\n \r\n        margin-bottom: 0;\r\n        -webkit-border-radius: 3px;\r\n        -moz-border-radius: 3px;\r\n        border-radius: 3px;\r\n        -webkit-transition: width  0.2s ease-in-out;\r\n    -moz-transition:width  0.2s ease-in-out;\r\n    -o-transition: width  0.2s ease-in-out;\r\n    transition: width  0.2s ease-in-out;\r\n    }\r\n \r\n    #custom-search-form button {\r\n        border: 0;\r\n        background: none;\r\n        padding: 2px 5px;\r\n        margin-top: 2px;\r\n        position: relative;\r\n        left: -28px;\r\n        margin-bottom: 0;\r\n        -webkit-border-radius: 3px;\r\n        -moz-border-radius: 3px;\r\n        border-radius: 3px;\r\n    }\r\n \r\n    #search-query:focus + button {\r\n        z-index: 3;   \r\n    }   \r\n    #search-query:focus{\r\n        width: 260px;\r\n    }   \r\n", ""]);
 
 // exports
 
