@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { select } from '../actions/index';
-import { changeProjects } from '../actions/index';
-import { Link } from 'react-router-dom';
-import { changeQueryForSearch } from '../actions/index';
-import { changeActivePage } from '../actions/index';
+import { withRouter, Link } from 'react-router-dom';
+import { changeQueryForSearch, changeActivePage, newProjects, select, changeProjects } from '../actions/index';
 import Pagination from "react-js-pagination";
 import '../resources/projects.css';
 import '../resources/search-input.css';
-import '../resources/img.css';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 
-const PER_PAGE = 10;
-const RANGE_DISPLAYED = 10;
-const TOTAL_COUNT = 100;
 
 class Projects extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
-        this.handlePageChange = this.handlePageChange.bind(this);
+        this.getProjectsBySearch = this.getProjectsBySearch.bind(this);
+        this.showProjectsList = this.showProjectsList.bind(this);
+        this.nextProjects = this.nextProjects.bind(this);
     }
+
     showProjectsList() {
         return this.props.projects.map((project) => {
             return <div className="col-xs-12 col-sm-6 col-md-4" onClick={() => this.props.select(project)}
@@ -33,44 +30,43 @@ class Projects extends Component {
     };
 
     checkAuth(project) {
-        if (this.props.flag) {
+        if (this.props.flag === true) {
             return <Link to={`/projects/${project.id}`}>{this.projectInfo(project)}</Link>
-        } else return <Link to={'/no_auth'}>{this.projectInfo(project)}</Link>
+        } return <Link to={'/no_auth'}>{this.projectInfo(project)}</Link>
     }
 
     projectInfo(project) {
         return <div className="image-flip" >
-            {/* onTouchStart={"this.classList.toggle('hover');"}> */}
-            {/* <div className="mainflip"> */}
-            {/* <div className="frontside"> */}
-            <div className="card" style={{ height: '350px' }}>
+            <div className="card" style={{ height: '330px' }}>
                 <div className="card-body text-center">
-                    <div className="img_wrap" ><img className=" img-fluid" src={project.covers.original} alt="card image" /></div>
-                    <h5 className="card-title">{project.name}</h5>
-                    {/* <p className="card-text">This is basic card with image on top, title, description and button.</p> */}
-                    {/* <a href="#" className="btn btn-primary btn-sm"><i className="fa fa-plus">dghfgfjh</i></a> */}
+                    <p><img className=" img-fluid" src={project.covers[404]} alt="card image" /></p>
+                    <h6 className="card-title">{project.name}</h6>
                 </div>
             </div>
-            {/* </div> */}
-            {/* <div className="backside">
-                    <div className="card">
-                        <div className="card-body text-center mt-4">
-                            <h4 className="card-title">Sunlimetech</h4>
-                            <p className="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                        </div>
-                    </div>
-                </div> */}
-            {/* </div> */}
         </div>
     }
 
-    getProjectsBySearch() {
+    nextProjects(){
+        let page = this.props.activePage;
+        this.props.changeActivePage(page + 1);
         this.props.Be.projects({
             q: this.props.queryForSearch,
             page: this.props.activePage
         }, (err, res, data) => {
             if (err) throw err;
             this.props.changeProjects(JSON.parse(res.body).projects);
+            console.dir(JSON.parse(res.body).projects);
+        });
+    }
+    getProjectsBySearch() {
+        let page = 1;
+        this.props.changeActivePage(page);
+        this.props.Be.projects({
+            q: this.props.queryForSearch,
+            page: this.props.activePage
+        }, (err, res, data) => {
+            if (err) throw err;
+            this.props.newProjects(JSON.parse(res.body).projects);
             console.dir(JSON.parse(res.body).projects);
         });
     }
@@ -86,13 +82,9 @@ class Projects extends Component {
         this.props.changeQueryForSearch(e.target.value);
     }
 
-    handlePageChange(pageNumber) {
-        this.props.changeActivePage(pageNumber);
-        this.getProjectsBySearch();
-    }
 
     componentDidMount() {
-        this.getProjectsBySearch();
+        this.nextProjects();
     }
 
 
@@ -102,47 +94,46 @@ class Projects extends Component {
                 <br />
                 <h1 align='center' >Projects:</h1>
                 <br />
-                {/* <form>
-                    <input value={this.props.queryForSearch}
-                        onChange={this.handleChange} type="text"
-                        placeholder="search..." />
-                    <button onClick={this.handleClick} type="submit">search</button>
-                </form> */}
-
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="input-group">
-                                {/* <form id="custom-search-form" > */}
                                 <input value={this.props.queryForSearch} onChange={this.handleChange} type="text" id="search-query" className="form-control" placeholder="Search for..." />
                                 <span className="input-group-btn">
                                     <button onClick={this.handleClick} className="btn btn-light" type="button">Go!</button>
                                 </span>
-                                {/* </form> */}
                             </div>
                         </div>
                     </div>
                 </div><br />
 
-
-
-
-
-                <section id="team" className="pb-5">
-                    <div className="container">
-                        <div className="row">
-                            {this.showProjectsList()}
+                <InfiniteScroll
+                    pullDownToRefresh
+                    dataLength={this.props.projects.length} //This is important field to render the next data
+                    pullDownToRefreshContent={
+                        <h3 style={{ textAlign: 'center' }}>&#8595; Pull down to refresh</h3>
+                    }
+                    releaseToRefreshContent={
+                        <h3 style={{ textAlign: 'center' }}>&#8593; Release to refresh</h3>
+                    }
+                    refreshFunction={this.showProjectsList}
+                    next={this.nextProjects}
+                    hasMore={true}
+                    loader={<h4>Loading...</h4>}
+                    // children={this.showProjectsList()}
+                    endMessage={
+                        <p style={{ textAlign: 'center' }}>
+                            <b>Yay! You have seen it all</b>
+                        </p>
+                    }>
+                    <section id="team" className="pb-5">
+                        <div className="container">
+                            <div className="row">
+                                {this.showProjectsList()}
+                            </div>
                         </div>
-                    </div>
-                </section>
-                <Pagination
-                    hideDisabled
-                    activePage={this.props.activePage}
-                    itemsCountPerPage={PER_PAGE}
-                    totalItemsCount={TOTAL_COUNT}
-                    pageRangeDisplayed={RANGE_DISPLAYED}
-                    onChange={this.handlePageChange}
-                />
+                    </section>
+                </InfiniteScroll>
             </div>
         )
     }
@@ -164,65 +155,9 @@ function matchDispatchToProps(dispatch) {
             select: select,
             changeProjects: changeProjects,
             changeQueryForSearch: changeQueryForSearch,
-            changeActivePage: changeActivePage
+            changeActivePage: changeActivePage,
+            newProjects: newProjects
         }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Projects);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //test() {
-    //     fetch("http://www.behance.net/v2/projects?client_id=e1A607WbYauktG2el5XT2dbZriXROx4T&q=" + this.props.queryForSearch + "&page=" + this.props.activePage,
-    //         {
-    //             headers: {
-    //                 // 'Content-Type': 'application/json',
-    //                 // 'Authorization': 'Basic bnVsbDpudWxs',
-    //                 // 'Host': 'www.behance.net',
-    //                 // 'X-Target-URI': 'http://www.behance.net',
-    //                 // 'Connection': 'Keep-Alive'
-    //                 'Access-Control-Allow-Origin': '*://*/*',
-    //                 'Access-Control-Allow-Credentials': 'true'
-    //             },
-    //             method: "GET"
-    //         }).then((res) => { console.log(res) })//return res.json() })
-    //     // .then((body) => { console.log(body.projects) })
-    //     // .then((user) => {
-    //     //     switch (JSON.stringify(user.name)) {
-    //     //         case "null":
-    //     //             this.props.changeFlag(false);
-    //     //             break;
-    //     //         case "trable with password":
-    //     //             this.props.changeFlag(false);
-    //     //             break;
-    //     //         default:
-    //     //             this.props.changeFlag(true);
-    //     //             break;
-    //     //     }
-    //     // })
-    // }
+export default withRouter(connect(mapStateToProps, matchDispatchToProps)(Projects));

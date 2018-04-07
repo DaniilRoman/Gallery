@@ -26312,10 +26312,10 @@ utils.intFromLE = intFromLE;
 /*!********************************************!*\
   !*** ./node_modules/elliptic/package.json ***!
   \********************************************/
-/*! exports provided: _args, _development, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, author, bugs, dependencies, description, devDependencies, files, homepage, keywords, license, main, name, repository, scripts, version, default */
+/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, files, homepage, keywords, license, main, name, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = {"_args":[["elliptic@6.4.0","C:\\test\\JS_test\\Gallery\\Client"]],"_development":true,"_from":"elliptic@6.4.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"elliptic@6.4.0","name":"elliptic","escapedName":"elliptic","rawSpec":"6.4.0","saveSpec":null,"fetchSpec":"6.4.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_spec":"6.4.0","_where":"C:\\test\\JS_test\\Gallery\\Client","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"};
+module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.0","_inBundle":false,"_integrity":"sha1-ysmvh2LIWDYYcAPI3+GT5eLq5d8=","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz","_shasum":"cac9af8762c85836187003c8dfe193e5e2eae5df","_spec":"elliptic@^6.0.0","_where":"C:\\test\\JS_test\\TestWebpack\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.0"};
 
 /***/ }),
 
@@ -63501,349 +63501,610 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./node_modules/react-easy-swipe/lib/index.js":
-/*!****************************************************!*\
-  !*** ./node_modules/react-easy-swipe/lib/index.js ***!
-  \****************************************************/
+/***/ "./node_modules/react-infinite-scroll-component/lib/index.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-infinite-scroll-component/lib/index.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
-  if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! ./react-swipe */ "./node_modules/react-easy-swipe/lib/react-swipe.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else { var mod; }
-})(this, function (exports, _reactSwipe) {
-  'use strict';
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+	else {}
+})(this, function(__WEBPACK_EXTERNAL_MODULE_7__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
 
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
 
-  var _reactSwipe2 = _interopRequireDefault(_reactSwipe);
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
 
-  function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-      default: obj
-    };
-  }
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
 
-  exports.default = _reactSwipe2.default;
-});
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x2, _x3, _x4) { var _again = true; _function: while (_again) { var object = _x2, property = _x3, receiver = _x4; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x2 = parent; _x3 = property; _x4 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _propTypes = __webpack_require__(5);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
+	var _utilsThrottle = __webpack_require__(1);
+
+	var _utilsThrottle2 = _interopRequireDefault(_utilsThrottle);
+
+	var InfiniteScroll = (function (_Component) {
+	  _inherits(InfiniteScroll, _Component);
+
+	  function InfiniteScroll(props) {
+	    _classCallCheck(this, InfiniteScroll);
+
+	    _get(Object.getPrototypeOf(InfiniteScroll.prototype), 'constructor', this).call(this);
+	    this.state = {
+	      showLoader: false,
+	      lastScrollTop: 0,
+	      actionTriggered: false,
+	      pullToRefreshThresholdBreached: false
+	    };
+	    // variables to keep track of pull down behaviour
+	    this.startY = 0;
+	    this.currentY = 0;
+	    this.dragging = false;
+	    // will be populated in componentDidMount
+	    // based on the height of the pull down element
+	    this.maxPullDownDistance = 0;
+
+	    this.onScrollListener = this.onScrollListener.bind(this);
+	    this.throttledOnScrollListener = (0, _utilsThrottle2['default'])(this.onScrollListener, 150).bind(this);
+	    this.onStart = this.onStart.bind(this);
+	    this.onMove = this.onMove.bind(this);
+	    this.onEnd = this.onEnd.bind(this);
+	  }
+
+	  _createClass(InfiniteScroll, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.el = this.props.height ? this._infScroll : this.props.scrollableTarget || window;
+	      this.el.addEventListener('scroll', this.throttledOnScrollListener);
+
+	      if (typeof this.props.initialScrollY === 'number' && this.el.scrollHeight > this.props.initialScrollY) {
+	        this.el.scrollTo(0, this.props.initialScrollY);
+	      }
+
+	      if (this.props.pullDownToRefresh) {
+	        this.el.addEventListener('touchstart', this.onStart);
+	        this.el.addEventListener('touchmove', this.onMove);
+	        this.el.addEventListener('touchend', this.onEnd);
+
+	        this.el.addEventListener('mousedown', this.onStart);
+	        this.el.addEventListener('mousemove', this.onMove);
+	        this.el.addEventListener('mouseup', this.onEnd);
+
+	        // get BCR of pullDown element to position it above
+	        this.maxPullDownDistance = this._pullDown.firstChild.getBoundingClientRect().height;
+	        this.forceUpdate();
+
+	        if (typeof this.props.refreshFunction !== 'function') {
+	          throw new Error('Mandatory prop "refreshFunction" missing.\n          Pull Down To Refresh functionality will not work\n          as expected. Check README.md for usage\'');
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      this.el.removeEventListener('scroll', this.throttledOnScrollListener);
+
+	      if (this.props.pullDownToRefresh) {
+	        this.el.removeEventListener('touchstart', this.onStart);
+	        this.el.removeEventListener('touchmove', this.onMove);
+	        this.el.removeEventListener('touchend', this.onEnd);
+
+	        this.el.removeEventListener('mousedown', this.onStart);
+	        this.el.removeEventListener('mousemove', this.onMove);
+	        this.el.removeEventListener('mouseup', this.onEnd);
+	      }
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(props) {
+
+	      // do nothing when dataLength is unchanged
+	      if (this.props.dataLength === props.dataLength) return;
+
+	      // update state when new data was sent in
+	      this.setState({
+	        showLoader: false,
+	        actionTriggered: false,
+	        pullToRefreshThresholdBreached: false
+	      });
+	    }
+	  }, {
+	    key: 'onStart',
+	    value: function onStart(evt) {
+	      if (this.state.lastScrollTop) return;
+
+	      this.dragging = true;
+	      this.startY = evt.pageY || evt.touches[0].pageY;
+	      this.currentY = this.startY;
+
+	      this._infScroll.style.willChange = 'transform';
+	      this._infScroll.style.transition = 'transform 0.2s cubic-bezier(0,0,0.31,1)';
+	    }
+	  }, {
+	    key: 'onMove',
+	    value: function onMove(evt) {
+	      if (!this.dragging) return;
+	      this.currentY = evt.pageY || evt.touches[0].pageY;
+
+	      // user is scrolling down to up
+	      if (this.currentY < this.startY) return;
+
+	      if (this.currentY - this.startY >= this.props.pullDownToRefreshThreshold) {
+	        this.setState({
+	          pullToRefreshThresholdBreached: true
+	        });
+	      }
+
+	      // so you can drag upto 1.5 times of the maxPullDownDistance
+	      if (this.currentY - this.startY > this.maxPullDownDistance * 1.5) return;
+
+	      this._infScroll.style.overflow = 'visible';
+	      this._infScroll.style.transform = 'translate3d(0px, ' + (this.currentY - this.startY) + 'px, 0px)';
+	    }
+	  }, {
+	    key: 'onEnd',
+	    value: function onEnd(evt) {
+	      var _this = this;
+
+	      this.startY = 0;
+	      this.currentY = 0;
+
+	      this.dragging = false;
+
+	      if (this.state.pullToRefreshThresholdBreached) {
+	        this.props.refreshFunction && this.props.refreshFunction();
+	      }
+
+	      requestAnimationFrame(function () {
+	        _this._infScroll.style.overflow = 'auto';
+	        _this._infScroll.style.transform = 'none';
+	        _this._infScroll.style.willChange = 'none';
+	      });
+	    }
+	  }, {
+	    key: 'isElementAtBottom',
+	    value: function isElementAtBottom(target) {
+	      var scrollThreshold = arguments.length <= 1 || arguments[1] === undefined ? 0.8 : arguments[1];
+
+	      var clientHeight = target === document.body || target === document.documentElement ? window.screen.availHeight : target.clientHeight;
+
+	      return target.scrollTop + clientHeight >= scrollThreshold * target.scrollHeight;
+	    }
+	  }, {
+	    key: 'onScrollListener',
+	    value: function onScrollListener(event) {
+	      var _this2 = this;
+
+	      if (typeof this.props.onScroll === 'function') {
+	        // Execute this callback in next tick so that it does not affect the
+	        // functionality of the library.
+	        setTimeout(function () {
+	          return _this2.props.onScroll(event);
+	        }, 0);
+	      }
+
+	      var target = this.props.height || this.props.scrollableTarget ? event.target : document.documentElement.scrollTop ? document.documentElement : document.body;
+
+	      // return immediately if the action has already been triggered,
+	      // prevents multiple triggers.
+	      if (this.state.actionTriggered) return;
+
+	      var atBottom = this.isElementAtBottom(target, this.props.scrollThreshold);
+
+	      // call the `next` function in the props to trigger the next data fetch
+	      if (atBottom && this.props.hasMore) {
+	        this.setState({ actionTriggered: true, showLoader: true });
+	        this.props.next();
+	      }
+	      this.setState({ lastScrollTop: target.scrollTop });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this3 = this;
+
+	      var style = _extends({
+	        height: this.props.height || 'auto',
+	        overflow: 'auto',
+	        WebkitOverflowScrolling: 'touch'
+	      }, this.props.style);
+	      var hasChildren = this.props.hasChildren || !!(this.props.children && this.props.children.length);
+
+	      // because heighted infiniteScroll visualy breaks
+	      // on drag down as overflow becomes visible
+	      var outerDivStyle = this.props.pullDownToRefresh && this.props.height ? { overflow: 'auto' } : {};
+	      return _react2['default'].createElement(
+	        'div',
+	        { style: outerDivStyle },
+	        _react2['default'].createElement(
+	          'div',
+	          {
+	            className: 'infinite-scroll-component',
+	            ref: function (infScroll) {
+	              return _this3._infScroll = infScroll;
+	            },
+	            style: style
+	          },
+	          this.props.pullDownToRefresh && _react2['default'].createElement(
+	            'div',
+	            {
+	              style: { position: 'relative' },
+	              ref: function (pullDown) {
+	                return _this3._pullDown = pullDown;
+	              }
+	            },
+	            _react2['default'].createElement(
+	              'div',
+	              { style: {
+	                  position: 'absolute',
+	                  left: 0,
+	                  right: 0,
+	                  top: -1 * this.maxPullDownDistance
+	                } },
+	              !this.state.pullToRefreshThresholdBreached && this.props.pullDownToRefreshContent,
+	              this.state.pullToRefreshThresholdBreached && this.props.releaseToRefreshContent
+	            )
+	          ),
+	          this.props.children,
+	          !this.state.showLoader && !hasChildren && this.props.hasMore && this.props.loader,
+	          this.state.showLoader && this.props.hasMore && this.props.loader,
+	          !this.props.hasMore && this.props.endMessage
+	        )
+	      );
+	    }
+	  }]);
+
+	  return InfiniteScroll;
+	})(_react.Component);
+
+	exports['default'] = InfiniteScroll;
+
+	InfiniteScroll.defaultProps = {
+	  pullDownToRefreshContent: _react2['default'].createElement(
+	    'h3',
+	    null,
+	    'Pull down to refresh'
+	  ),
+	  releaseToRefreshContent: _react2['default'].createElement(
+	    'h3',
+	    null,
+	    'Release to refresh'
+	  ),
+	  pullDownToRefreshThreshold: 100,
+	  disableBrowserPullToRefresh: true
+	};
+
+	InfiniteScroll.propTypes = {
+	  next: _propTypes2['default'].func,
+	  hasMore: _propTypes2['default'].bool,
+	  children: _propTypes2['default'].node,
+	  loader: _propTypes2['default'].node.isRequired,
+	  scrollThreshold: _propTypes2['default'].number,
+	  endMessage: _propTypes2['default'].node,
+	  style: _propTypes2['default'].object,
+	  height: _propTypes2['default'].number,
+	  scrollableTarget: _propTypes2['default'].node,
+	  hasChildren: _propTypes2['default'].bool,
+	  pullDownToRefresh: _propTypes2['default'].bool,
+	  pullDownToRefreshContent: _propTypes2['default'].node,
+	  releaseToRefreshContent: _propTypes2['default'].node,
+	  pullDownToRefreshThreshold: _propTypes2['default'].number,
+	  refreshFunction: _propTypes2['default'].func,
+	  onScroll: _propTypes2['default'].func,
+	  dataLength: _propTypes2['default'].number.isRequired
+	};
+	module.exports = exports['default'];
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports) {
 
-/***/ "./node_modules/react-easy-swipe/lib/react-swipe.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/react-easy-swipe/lib/react-swipe.js ***!
-  \**********************************************************/
-/*! no static exports found */
+	// https://remysharp.com/2010/07/21/throttling-function-calls
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports["default"] = throttle;
+
+	function throttle(fn, threshhold, scope) {
+	  threshhold || (threshhold = 250);
+	  var last, deferTimer;
+	  return function () {
+	    var context = scope || this;
+
+	    var now = +new Date(),
+	        args = arguments;
+	    if (last && now < last + threshhold) {
+	      // hold on to it
+	      clearTimeout(deferTimer);
+	      deferTimer = setTimeout(function () {
+	        last = now;
+	        fn.apply(context, args);
+	      }, threshhold);
+	    } else {
+	      last = now;
+	      fn.apply(context, args);
+	    }
+	  };
+	}
+
+	module.exports = exports["default"];
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 *
+	 * 
+	 */
+
+	function makeEmptyFunction(arg) {
+	  return function () {
+	    return arg;
+	  };
+	}
+
+	/**
+	 * This function accepts and discards inputs; it has no side effects. This is
+	 * primarily useful idiomatically for overridable function endpoints which
+	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+	 */
+	var emptyFunction = function emptyFunction() {};
+
+	emptyFunction.thatReturns = makeEmptyFunction;
+	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+	emptyFunction.thatReturnsThis = function () {
+	  return this;
+	};
+	emptyFunction.thatReturnsArgument = function (arg) {
+	  return arg;
+	};
+
+	module.exports = emptyFunction;
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
-  if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else { var mod; }
-})(this, function (exports, _react, _propTypes) {
-  'use strict';
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 *
+	 * This source code is licensed under the MIT license found in the
+	 * LICENSE file in the root directory of this source tree.
+	 *
+	 */
 
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.setHasSupportToCaptureOption = setHasSupportToCaptureOption;
+	'use strict';
 
-  var _react2 = _interopRequireDefault(_react);
+	/**
+	 * Use invariant() to assert state which your program assumes to be true.
+	 *
+	 * Provide sprintf-style format (only %s is supported) and arguments
+	 * to provide information about what broke and what you were
+	 * expecting.
+	 *
+	 * The invariant message will be stripped in production, but the invariant
+	 * will remain to ensure logic does not differ in production.
+	 */
 
-  var _propTypes2 = _interopRequireDefault(_propTypes);
+	var validateFormat = function validateFormat(format) {};
 
-  function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-      default: obj
-    };
-  }
+	if (false) {}
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+	function invariant(condition, format, a, b, c, d, e, f) {
+	  validateFormat(format);
 
-  var _createClass = function () {
-    function defineProperties(target, props) {
-      for (var i = 0; i < props.length; i++) {
-        var descriptor = props[i];
-        descriptor.enumerable = descriptor.enumerable || false;
-        descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, descriptor.key, descriptor);
-      }
-    }
+	  if (!condition) {
+	    var error;
+	    if (format === undefined) {
+	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+	    } else {
+	      var args = [a, b, c, d, e, f];
+	      var argIndex = 0;
+	      error = new Error(format.replace(/%s/g, function () {
+	        return args[argIndex++];
+	      }));
+	      error.name = 'Invariant Violation';
+	    }
 
-    return function (Constructor, protoProps, staticProps) {
-      if (protoProps) defineProperties(Constructor.prototype, protoProps);
-      if (staticProps) defineProperties(Constructor, staticProps);
-      return Constructor;
-    };
-  }();
+	    error.framesToPop = 1; // we don't care about invariant's own frame
+	    throw error;
+	  }
+	}
 
-  function _possibleConstructorReturn(self, call) {
-    if (!self) {
-      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    }
+	module.exports = invariant;
 
-    return call && (typeof call === "object" || typeof call === "function") ? call : self;
-  }
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
 
-  function _inherits(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) {
-      throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-    }
+	/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
 
-    subClass.prototype = Object.create(superClass && superClass.prototype, {
-      constructor: {
-        value: subClass,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-  }
+	'use strict';
 
-  var supportsCaptureOption = false;
-  function setHasSupportToCaptureOption(hasSupport) {
-    supportsCaptureOption = hasSupport;
-  }
+	var emptyFunction = __webpack_require__(2);
+	var invariant = __webpack_require__(3);
+	var ReactPropTypesSecret = __webpack_require__(6);
 
-  try {
-    addEventListener("test", null, Object.defineProperty({}, 'capture', { get: function get() {
-        setHasSupportToCaptureOption(true);
-      } }));
-  } catch (e) {}
+	module.exports = function() {
+	  function shim(props, propName, componentName, location, propFullName, secret) {
+	    if (secret === ReactPropTypesSecret) {
+	      // It is still safe when called from React.
+	      return;
+	    }
+	    invariant(
+	      false,
+	      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+	      'Use PropTypes.checkPropTypes() to call them. ' +
+	      'Read more at http://fb.me/use-check-prop-types'
+	    );
+	  };
+	  shim.isRequired = shim;
+	  function getShim() {
+	    return shim;
+	  };
+	  // Important!
+	  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+	  var ReactPropTypes = {
+	    array: shim,
+	    bool: shim,
+	    func: shim,
+	    number: shim,
+	    object: shim,
+	    string: shim,
+	    symbol: shim,
 
-  function getSafeEventHandlerOpts() {
-    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { capture: true };
+	    any: shim,
+	    arrayOf: getShim,
+	    element: shim,
+	    instanceOf: getShim,
+	    node: shim,
+	    objectOf: getShim,
+	    oneOf: getShim,
+	    oneOfType: getShim,
+	    shape: getShim
+	  };
 
-    return supportsCaptureOption ? options : options.capture;
-  }
+	  ReactPropTypes.checkPropTypes = emptyFunction;
+	  ReactPropTypes.PropTypes = ReactPropTypes;
 
-  /**
-   * [getPosition returns a position element that works for mouse or touch events]
-   * @param  {[Event]} event [the received event]
-   * @return {[Object]}      [x and y coords]
-   */
-  function getPosition(event) {
-    if ('touches' in event) {
-      var _event$touches$ = event.touches[0],
-          pageX = _event$touches$.pageX,
-          pageY = _event$touches$.pageY;
-
-      return { x: pageX, y: pageY };
-    }
-
-    var screenX = event.screenX,
-        screenY = event.screenY;
-
-    return { x: screenX, y: screenY };
-  }
-
-  var ReactSwipe = function (_Component) {
-    _inherits(ReactSwipe, _Component);
-
-    function ReactSwipe() {
-      var _ref;
-
-      _classCallCheck(this, ReactSwipe);
-
-      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      var _this = _possibleConstructorReturn(this, (_ref = ReactSwipe.__proto__ || Object.getPrototypeOf(ReactSwipe)).call.apply(_ref, [this].concat(args)));
-
-      _this._handleSwipeStart = _this._handleSwipeStart.bind(_this);
-      _this._handleSwipeMove = _this._handleSwipeMove.bind(_this);
-      _this._handleSwipeEnd = _this._handleSwipeEnd.bind(_this);
-
-      _this._onMouseDown = _this._onMouseDown.bind(_this);
-      _this._onMouseMove = _this._onMouseMove.bind(_this);
-      _this._onMouseUp = _this._onMouseUp.bind(_this);
-      return _this;
-    }
-
-    _createClass(ReactSwipe, [{
-      key: 'componentDidMount',
-      value: function componentDidMount() {
-        if (this.swiper) {
-          this.swiper.addEventListener('touchmove', this._handleSwipeMove, getSafeEventHandlerOpts({
-            capture: true,
-            passive: false
-          }));
-        }
-      }
-    }, {
-      key: 'componentWillUnmount',
-      value: function componentWillUnmount() {
-        if (this.swiper) {
-          this.swiper.removeEventListener('touchmove', this._handleSwipeMove, getSafeEventHandlerOpts({
-            capture: true,
-            passive: false
-          }));
-        }
-      }
-    }, {
-      key: '_onMouseDown',
-      value: function _onMouseDown(event) {
-        if (!this.props.allowMouseEvents) {
-          return;
-        }
-
-        this.mouseDown = true;
-
-        document.addEventListener('mouseup', this._onMouseUp);
-        document.addEventListener('mousemove', this._onMouseMove);
-
-        this._handleSwipeStart(event);
-      }
-    }, {
-      key: '_onMouseMove',
-      value: function _onMouseMove(event) {
-        if (!this.mouseDown) {
-          return;
-        }
-
-        this._handleSwipeMove(event);
-      }
-    }, {
-      key: '_onMouseUp',
-      value: function _onMouseUp(event) {
-        this.mouseDown = false;
-
-        document.removeEventListener('mouseup', this._onMouseUp);
-        document.removeEventListener('mousemove', this._onMouseMove);
-
-        this._handleSwipeEnd(event);
-      }
-    }, {
-      key: '_handleSwipeStart',
-      value: function _handleSwipeStart(event) {
-        var _getPosition = getPosition(event),
-            x = _getPosition.x,
-            y = _getPosition.y;
-
-        this.moveStart = { x: x, y: y };
-        this.props.onSwipeStart(event);
-      }
-    }, {
-      key: '_handleSwipeMove',
-      value: function _handleSwipeMove(event) {
-        var _getPosition2 = getPosition(event),
-            x = _getPosition2.x,
-            y = _getPosition2.y;
-
-        var deltaX = x - this.moveStart.x;
-        var deltaY = y - this.moveStart.y;
-        this.moving = true;
-
-        // handling the responsability of cancelling the scroll to
-        // the component handling the event
-        var shouldPreventDefault = this.props.onSwipeMove({
-          x: deltaX,
-          y: deltaY
-        }, event);
-
-        if (shouldPreventDefault) {
-          event.preventDefault();
-        }
-
-        this.movePosition = { deltaX: deltaX, deltaY: deltaY };
-      }
-    }, {
-      key: '_handleSwipeEnd',
-      value: function _handleSwipeEnd(event) {
-        this.props.onSwipeEnd(event);
-
-        var tolerance = this.props.tolerance;
+	  return ReactPropTypes;
+	};
 
 
-        if (this.moving) {
-          if (this.movePosition.deltaX < -tolerance) {
-            this.props.onSwipeLeft(1, event);
-          } else if (this.movePosition.deltaX > tolerance) {
-            this.props.onSwipeRight(1, event);
-          }
-          if (this.movePosition.deltaY < -tolerance) {
-            this.props.onSwipeUp(1, event);
-          } else if (this.movePosition.deltaY > tolerance) {
-            this.props.onSwipeDown(1, event);
-          }
-        }
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
 
-        this.moveStart = null;
-        this.moving = false;
-        this.movePosition = null;
-      }
-    }, {
-      key: 'render',
-      value: function render() {
-        var _this2 = this;
+	/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
 
-        return _react2.default.createElement(
-          this.props.tagName,
-          {
-            ref: function ref(node) {
-              return _this2.swiper = node;
-            },
-            onMouseDown: this._onMouseDown,
-            onTouchStart: this._handleSwipeStart,
-            onTouchEnd: this._handleSwipeEnd,
-            className: this.props.className,
-            style: this.props.style
-          },
-          this.props.children
-        );
-      }
-    }]);
+	if (false) { var throwOnDirectAccess, isValidElement, REACT_ELEMENT_TYPE; } else {
+	  // By explicitly using `prop-types` you are opting into new production behavior.
+	  // http://fb.me/prop-types-in-prod
+	  module.exports = __webpack_require__(4)();
+	}
 
-    return ReactSwipe;
-  }(_react.Component);
 
-  ReactSwipe.displayName = 'ReactSwipe';
-  ReactSwipe.propTypes = {
-    tagName: _propTypes2.default.string,
-    className: _propTypes2.default.string,
-    style: _propTypes2.default.object,
-    children: _propTypes2.default.node,
-    allowMouseEvents: _propTypes2.default.bool,
-    onSwipeUp: _propTypes2.default.func,
-    onSwipeDown: _propTypes2.default.func,
-    onSwipeLeft: _propTypes2.default.func,
-    onSwipeRight: _propTypes2.default.func,
-    onSwipeStart: _propTypes2.default.func,
-    onSwipeMove: _propTypes2.default.func,
-    onSwipeEnd: _propTypes2.default.func,
-    tolerance: _propTypes2.default.number.isRequired
-  };
-  ReactSwipe.defaultProps = {
-    tagName: 'div',
-    allowMouseEvents: false,
-    onSwipeUp: function onSwipeUp() {},
-    onSwipeDown: function onSwipeDown() {},
-    onSwipeLeft: function onSwipeLeft() {},
-    onSwipeRight: function onSwipeRight() {},
-    onSwipeStart: function onSwipeStart() {},
-    onSwipeMove: function onSwipeMove() {},
-    onSwipeEnd: function onSwipeEnd() {},
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
 
-    tolerance: 0
-  };
-  exports.default = ReactSwipe;
+	/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+
+	'use strict';
+
+	var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+	module.exports = ReactPropTypesSecret;
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_7__;
+
+/***/ })
+/******/ ])
 });
+;
 
 /***/ }),
 
@@ -65013,1272 +65274,6 @@ function warning(message) {
   } catch (e) {}
   /* eslint-enable no-empty */
 }
-
-/***/ }),
-
-/***/ "./node_modules/react-responsive-carousel/lib/CSSTranslate.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/react-responsive-carousel/lib/CSSTranslate.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-exports.default = function (position, axis) {
-    var positionCss = axis === 'horizontal' ? [position, 0, 0] : [0, position, 0];
-    var transitionProp = 'translate3d';
-
-    var translatedPosition = '(' + positionCss.join(',') + ')';
-
-    return transitionProp + translatedPosition;
-};
-
-/***/ }),
-
-/***/ "./node_modules/react-responsive-carousel/lib/components/Carousel.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/react-responsive-carousel/lib/components/Carousel.js ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _cssClasses = __webpack_require__(/*! ../cssClasses */ "./node_modules/react-responsive-carousel/lib/cssClasses.js");
-
-var _cssClasses2 = _interopRequireDefault(_cssClasses);
-
-var _CSSTranslate = __webpack_require__(/*! ../CSSTranslate */ "./node_modules/react-responsive-carousel/lib/CSSTranslate.js");
-
-var _CSSTranslate2 = _interopRequireDefault(_CSSTranslate);
-
-var _reactEasySwipe = __webpack_require__(/*! react-easy-swipe */ "./node_modules/react-easy-swipe/lib/index.js");
-
-var _reactEasySwipe2 = _interopRequireDefault(_reactEasySwipe);
-
-var _Thumbs = __webpack_require__(/*! ./Thumbs */ "./node_modules/react-responsive-carousel/lib/components/Thumbs.js");
-
-var _Thumbs2 = _interopRequireDefault(_Thumbs);
-
-var _customPropTypes = __webpack_require__(/*! ../customPropTypes */ "./node_modules/react-responsive-carousel/lib/customPropTypes.js");
-
-var customPropTypes = _interopRequireWildcard(_customPropTypes);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var noop = function noop() {};
-
-var defaultStatusFormatter = function defaultStatusFormatter(current, total) {
-    return current + ' of ' + total;
-};
-
-var Carousel = function (_Component) {
-    _inherits(Carousel, _Component);
-
-    function Carousel(props) {
-        _classCallCheck(this, Carousel);
-
-        var _this = _possibleConstructorReturn(this, (Carousel.__proto__ || Object.getPrototypeOf(Carousel)).call(this, props));
-
-        _this.autoPlay = function () {
-            if (!_this.props.autoPlay) {
-                return;
-            }
-
-            clearTimeout(_this.timer);
-            _this.timer = setTimeout(function () {
-                _this.increment();
-            }, _this.props.interval);
-        };
-
-        _this.clearAutoPlay = function () {
-            if (!_this.props.autoPlay) {
-                return;
-            }
-
-            clearTimeout(_this.timer);
-        };
-
-        _this.resetAutoPlay = function () {
-            _this.clearAutoPlay();
-            _this.autoPlay();
-        };
-
-        _this.stopOnHover = function () {
-            _this.setState({ isMouseEntered: true });
-            _this.clearAutoPlay();
-        };
-
-        _this.startOnLeave = function () {
-            _this.setState({ isMouseEntered: false });
-            _this.autoPlay();
-        };
-
-        _this.navigateWithKeyboard = function (e) {
-            var axis = _this.props.axis;
-
-            var isHorizontal = axis === 'horizontal';
-            var keyNames = {
-                ArrowUp: 38,
-                ArrowRight: 39,
-                ArrowDown: 40,
-                ArrowLeft: 37
-            };
-
-            var nextKey = isHorizontal ? keyNames.ArrowRight : keyNames.ArrowDown;
-            var prevKey = isHorizontal ? keyNames.ArrowLeft : keyNames.ArrowUp;
-
-            if (nextKey === e.keyCode) {
-                _this.increment();
-            } else if (prevKey === e.keyCode) {
-                _this.decrement();
-            }
-        };
-
-        _this.updateSizes = function () {
-            if (!_this.state.initialized) {
-                return;
-            }
-
-            var isHorizontal = _this.props.axis === 'horizontal';
-            var firstItem = _this.refs.item0;
-            var itemSize = isHorizontal ? firstItem.clientWidth : firstItem.clientHeight;
-
-            _this.setState({
-                itemSize: itemSize,
-                wrapperSize: isHorizontal ? itemSize * _this.props.children.length : itemSize
-            });
-
-            if (_this.refs.thumbs) {
-                _this.refs.thumbs.updateSizes();
-            }
-        };
-
-        _this.setMountState = function () {
-            _this.setState({ hasMount: true });
-            _this.updateSizes();
-        };
-
-        _this.handleClickItem = function (index, item) {
-            if (_this.state.cancelClick) {
-                _this.setState({
-                    cancelClick: false
-                });
-
-                return;
-            }
-
-            _this.props.onClickItem(index, item);
-
-            if (index !== _this.state.selectedItem) {
-                _this.setState({
-                    selectedItem: index
-                });
-            }
-        };
-
-        _this.handleOnChange = function (index, item) {
-            _this.props.onChange(index, item);
-        };
-
-        _this.handleClickThumb = function (index, item) {
-            _this.props.onClickThumb(index, item);
-
-            _this.selectItem({
-                selectedItem: index
-            });
-        };
-
-        _this.onSwipeStart = function () {
-            _this.setState({
-                swiping: true
-            });
-            _this.clearAutoPlay();
-        };
-
-        _this.onSwipeEnd = function () {
-            _this.resetPosition();
-            _this.setState({
-                swiping: false
-            });
-            _this.autoPlay();
-        };
-
-        _this.onSwipeMove = function (delta) {
-            var isHorizontal = _this.props.axis === 'horizontal';
-
-            var initialBoundry = 0;
-
-            var currentPosition = _this.getPosition(_this.state.selectedItem);
-            var finalBoundry = _this.getPosition(_this.props.children.length - 1);
-
-            var axisDelta = isHorizontal ? delta.x : delta.y;
-            var handledDelta = axisDelta;
-
-            // prevent user from swiping left out of boundaries
-            if (currentPosition === initialBoundry && axisDelta > 0) {
-                handledDelta = 0;
-            }
-
-            // prevent user from swiping right out of boundaries
-            if (currentPosition === finalBoundry && axisDelta < 0) {
-                handledDelta = 0;
-            }
-
-            var position = currentPosition + 100 / (_this.state.itemSize / handledDelta) + '%';
-
-            _this.setPosition(position);
-
-            // allows scroll if the swipe was within the tolerance
-            var hasMoved = Math.abs(axisDelta) > _this.props.swipeScrollTolerance;
-
-            if (hasMoved && !_this.state.cancelClick) {
-                _this.setState({
-                    cancelClick: true
-                });
-            }
-
-            return hasMoved;
-        };
-
-        _this.resetPosition = function () {
-            var currentPosition = _this.getPosition(_this.state.selectedItem) + '%';
-            _this.setPosition(currentPosition);
-        };
-
-        _this.setPosition = function (position) {
-            var list = _reactDom2.default.findDOMNode(_this.list);
-            ['WebkitTransform', 'MozTransform', 'MsTransform', 'OTransform', 'transform', 'msTransform'].forEach(function (prop) {
-                list.style[prop] = (0, _CSSTranslate2.default)(position, _this.props.axis);
-            });
-        };
-
-        _this.decrement = function (positions) {
-            _this.moveTo(_this.state.selectedItem - (typeof positions === 'Number' ? positions : 1));
-        };
-
-        _this.increment = function (positions) {
-            _this.moveTo(_this.state.selectedItem + (typeof positions === 'Number' ? positions : 1));
-        };
-
-        _this.moveTo = function (position) {
-            var lastPosition = _this.props.children.length - 1;
-
-            if (position < 0) {
-                position = _this.props.infiniteLoop ? lastPosition : 0;
-            }
-
-            if (position > lastPosition) {
-                position = _this.props.infiniteLoop ? 0 : lastPosition;
-            }
-
-            _this.selectItem({
-                // if it's not a slider, we don't need to set position here
-                selectedItem: position
-            });
-
-            // don't reset auto play when stop on hover is enabled, doing so will trigger a call to auto play more than once
-            // and will result in the interval function not being cleared correctly.
-            if (_this.props.autoPlay && _this.state.isMouseEntered === false) {
-                _this.resetAutoPlay();
-            }
-        };
-
-        _this.changeItem = function (e) {
-            var newIndex = e.target.value;
-
-            _this.selectItem({
-                selectedItem: newIndex
-            });
-        };
-
-        _this.selectItem = function (state) {
-            _this.setState(state);
-            _this.handleOnChange(state.selectedItem, _this.props.children[state.selectedItem]);
-        };
-
-        _this.getInitialImage = function () {
-            var selectedItem = _this.props.selectedItem;
-            var item = _this.refs['item' + selectedItem];
-            var images = item && item.getElementsByTagName('img');
-            return images && images[selectedItem];
-        };
-
-        _this.getVariableImageHeight = function (position) {
-            var item = _this.refs['item' + position];
-            var images = item && item.getElementsByTagName('img');
-            if (_this.state.hasMount && images.length > 0) {
-                var image = images[0];
-
-                if (!image.complete) {
-                    // if the image is still loading, the size won't be available so we trigger a new render after it's done
-                    var onImageLoad = function onImageLoad() {
-                        _this.forceUpdate();
-                        image.removeEventListener('load', onImageLoad);
-                    };
-
-                    image.addEventListener('load', onImageLoad);
-                }
-
-                var height = image.clientHeight;
-                return height > 0 ? height : null;
-            }
-
-            return null;
-        };
-
-        _this.state = {
-            initialized: false,
-            selectedItem: props.selectedItem,
-            hasMount: false,
-            isMouseEntered: false
-        };
-        return _this;
-    }
-
-    _createClass(Carousel, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            if (!this.props.children) {
-                return;
-            }
-
-            this.setupCarousel();
-        }
-    }, {
-        key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(nextProps) {
-            if (nextProps.selectedItem !== this.state.selectedItem) {
-                this.updateSizes();
-                this.moveTo(nextProps.selectedItem);
-            }
-
-            if (nextProps.autoPlay !== this.props.autoPlay) {
-                if (nextProps.autoPlay) {
-                    this.setupAutoPlay();
-                } else {
-                    this.destroyAutoPlay();
-                }
-            }
-        }
-    }, {
-        key: 'componentDidUpdate',
-        value: function componentDidUpdate(prevProps) {
-            if (!prevProps.children && this.props.children && !this.state.initialized) {
-                this.setupCarousel();
-            }
-        }
-    }, {
-        key: 'componentWillUnmount',
-        value: function componentWillUnmount() {
-            this.destroyCarousel();
-        }
-    }, {
-        key: 'setupCarousel',
-        value: function setupCarousel() {
-            this.bindEvents();
-
-            if (this.props.autoPlay) {
-                this.setupAutoPlay();
-            }
-
-            this.setState({
-                initialized: true
-            });
-
-            var initialImage = this.getInitialImage();
-            if (initialImage) {
-                // if it's a carousel of images, we set the mount state after the first image is loaded
-                initialImage.addEventListener('load', this.setMountState);
-            } else {
-                this.setMountState();
-            }
-        }
-    }, {
-        key: 'destroyCarousel',
-        value: function destroyCarousel() {
-            if (this.state.initialized) {
-                this.unbindEvents();
-                this.destroyAutoPlay();
-            }
-        }
-    }, {
-        key: 'setupAutoPlay',
-        value: function setupAutoPlay() {
-            this.autoPlay();
-            var carouselWrapper = this.refs['carouselWrapper'];
-
-            if (this.props.stopOnHover && carouselWrapper) {
-                carouselWrapper.addEventListener('mouseenter', this.stopOnHover);
-                carouselWrapper.addEventListener('mouseleave', this.startOnLeave);
-            }
-        }
-    }, {
-        key: 'destroyAutoPlay',
-        value: function destroyAutoPlay() {
-            this.clearAutoPlay();
-            var carouselWrapper = this.refs['carouselWrapper'];
-
-            if (this.props.stopOnHover && carouselWrapper) {
-                carouselWrapper.removeEventListener('mouseenter', this.stopOnHover);
-                carouselWrapper.removeEventListener('mouseleave', this.startOnLeave);
-            }
-        }
-    }, {
-        key: 'bindEvents',
-        value: function bindEvents() {
-            // as the widths are calculated, we need to resize
-            // the carousel when the window is resized
-            window.addEventListener("resize", this.updateSizes);
-            // issue #2 - image loading smaller
-            window.addEventListener("DOMContentLoaded", this.updateSizes);
-
-            if (this.props.useKeyboardArrows) {
-                document.addEventListener("keydown", this.navigateWithKeyboard);
-            }
-        }
-    }, {
-        key: 'unbindEvents',
-        value: function unbindEvents() {
-            // removing listeners
-            window.removeEventListener("resize", this.updateSizes);
-            window.removeEventListener("DOMContentLoaded", this.updateSizes);
-
-            var initialImage = this.getInitialImage();
-            if (initialImage) {
-                initialImage.removeEventListener("load", this.setMountState);
-            }
-
-            if (this.props.useKeyboardArrows) {
-                document.removeEventListener("keydown", this.navigateWithKeyboard);
-            }
-        }
-    }, {
-        key: 'getPosition',
-        value: function getPosition(index) {
-            if (this.props.centerMode && this.props.axis === 'horizontal') {
-                var currentPosition = -index * this.props.centerSlidePercentage;
-                var lastPosition = this.props.children.length - 1;
-
-                if (index && index !== lastPosition) {
-                    currentPosition += (100 - this.props.centerSlidePercentage) / 2;
-                } else if (index === lastPosition) {
-                    currentPosition += 100 - this.props.centerSlidePercentage;
-                }
-
-                return currentPosition;
-            }
-
-            return -index * 100;
-        }
-    }, {
-        key: 'renderItems',
-        value: function renderItems() {
-            var _this2 = this;
-
-            return _react2.default.Children.map(this.props.children, function (item, index) {
-                var itemClass = _cssClasses2.default.ITEM(true, index === _this2.state.selectedItem);
-                var slideProps = {
-                    ref: 'item' + index,
-                    key: 'itemKey' + index,
-                    className: _cssClasses2.default.ITEM(true, index === _this2.state.selectedItem),
-                    onClick: _this2.handleClickItem.bind(_this2, index, item)
-                };
-
-                if (_this2.props.centerMode && _this2.props.axis === 'horizontal') {
-                    slideProps.style = {
-                        minWidth: _this2.props.centerSlidePercentage + '%'
-                    };
-                }
-
-                return _react2.default.createElement(
-                    'li',
-                    slideProps,
-                    item
-                );
-            });
-        }
-    }, {
-        key: 'renderControls',
-        value: function renderControls() {
-            var _this3 = this;
-
-            if (!this.props.showIndicators) {
-                return null;
-            }
-
-            return _react2.default.createElement(
-                'ul',
-                { className: 'control-dots' },
-                _react2.default.Children.map(this.props.children, function (item, index) {
-                    return _react2.default.createElement('li', { className: _cssClasses2.default.DOT(index === _this3.state.selectedItem), onClick: _this3.changeItem, value: index, key: index });
-                })
-            );
-        }
-    }, {
-        key: 'renderStatus',
-        value: function renderStatus() {
-            if (!this.props.showStatus) {
-                return null;
-            }
-
-            return _react2.default.createElement(
-                'p',
-                { className: 'carousel-status' },
-                this.props.statusFormatter(this.state.selectedItem + 1, this.props.children.length)
-            );
-        }
-    }, {
-        key: 'renderThumbs',
-        value: function renderThumbs() {
-            if (!this.props.showThumbs || this.props.children.length === 0) {
-                return null;
-            }
-
-            return _react2.default.createElement(
-                _Thumbs2.default,
-                { ref: 'thumbs', onSelectItem: this.handleClickThumb, selectedItem: this.state.selectedItem, transitionTime: this.props.transitionTime, thumbWidth: this.props.thumbWidth },
-                this.props.children
-            );
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this4 = this;
-
-            if (!this.props.children || this.props.children.length === 0) {
-                return null;
-            }
-
-            var itemsLength = this.props.children.length;
-
-            var isHorizontal = this.props.axis === 'horizontal';
-
-            var canShowArrows = this.props.showArrows && itemsLength > 1;
-
-            // show left arrow?
-            var hasPrev = canShowArrows && (this.state.selectedItem > 0 || this.props.infiniteLoop);
-            // show right arrow
-            var hasNext = canShowArrows && (this.state.selectedItem < itemsLength - 1 || this.props.infiniteLoop);
-            // obj to hold the transformations and styles
-            var itemListStyles = {};
-
-            var currentPosition = this.getPosition(this.state.selectedItem);
-
-            // if 3d is available, let's take advantage of the performance of transform
-            var transformProp = (0, _CSSTranslate2.default)(currentPosition + '%', this.props.axis);
-
-            var transitionTime = this.props.transitionTime + 'ms';
-
-            itemListStyles = {
-                'WebkitTransform': transformProp,
-                'MozTransform': transformProp,
-                'MsTransform': transformProp,
-                'OTransform': transformProp,
-                'transform': transformProp,
-                'msTransform': transformProp
-            };
-
-            if (!this.state.swiping) {
-                itemListStyles = _extends({}, itemListStyles, {
-                    'WebkitTransitionDuration': transitionTime,
-                    'MozTransitionDuration': transitionTime,
-                    'MsTransitionDuration': transitionTime,
-                    'OTransitionDuration': transitionTime,
-                    'transitionDuration': transitionTime,
-                    'msTransitionDuration': transitionTime
-                });
-            }
-
-            var swiperProps = {
-                selectedItem: this.state.selectedItem,
-                className: _cssClasses2.default.SLIDER(true, this.state.swiping),
-                onSwipeMove: this.onSwipeMove,
-                onSwipeStart: this.onSwipeStart,
-                onSwipeEnd: this.onSwipeEnd,
-                style: itemListStyles,
-                tolerance: this.props.swipeScrollTolerance
-            };
-
-            var containerStyles = {};
-
-            if (isHorizontal) {
-                swiperProps.onSwipeLeft = this.increment;
-                swiperProps.onSwipeRight = this.decrement;
-
-                if (this.props.dynamicHeight) {
-                    var itemHeight = this.getVariableImageHeight(this.state.selectedItem);
-                    swiperProps.style.height = itemHeight || 'auto';
-                    containerStyles.height = itemHeight || 'auto';
-                }
-            } else {
-                swiperProps.onSwipeUp = this.props.verticalSwipe === 'natural' ? this.increment : this.decrement;
-                swiperProps.onSwipeDown = this.props.verticalSwipe === 'natural' ? this.decrement : this.increment;
-                swiperProps.style.height = this.state.itemSize;
-                containerStyles.height = this.state.itemSize;
-            }
-            return _react2.default.createElement(
-                'div',
-                { className: this.props.className, ref: 'carouselWrapper' },
-                _react2.default.createElement(
-                    'div',
-                    { className: _cssClasses2.default.CAROUSEL(true), style: { width: this.props.width } },
-                    _react2.default.createElement('button', { type: 'button', className: _cssClasses2.default.ARROW_PREV(!hasPrev), onClick: this.decrement }),
-                    _react2.default.createElement(
-                        'div',
-                        { className: _cssClasses2.default.WRAPPER(true, this.props.axis), style: containerStyles, ref: 'itemsWrapper' },
-                        this.props.swipeable ? _react2.default.createElement(
-                            _reactEasySwipe2.default,
-                            _extends({
-                                tagName: 'ul',
-                                ref: function ref(c) {
-                                    return _this4.list = c;
-                                }
-                            }, swiperProps, {
-                                allowMouseEvents: this.props.emulateTouch }),
-                            this.renderItems()
-                        ) : _react2.default.createElement(
-                            'ul',
-                            {
-                                className: _cssClasses2.default.SLIDER(true, this.state.swiping),
-                                style: itemListStyles },
-                            this.renderItems()
-                        )
-                    ),
-                    _react2.default.createElement('button', { type: 'button', className: _cssClasses2.default.ARROW_NEXT(!hasNext), onClick: this.increment }),
-                    this.renderControls(),
-                    this.renderStatus()
-                ),
-                this.renderThumbs()
-            );
-        }
-    }]);
-
-    return Carousel;
-}(_react.Component);
-
-Carousel.displayName = 'Carousel';
-Carousel.propTypes = {
-    className: _propTypes2.default.string,
-    children: _propTypes2.default.node,
-    showArrows: _propTypes2.default.bool,
-    showStatus: _propTypes2.default.bool,
-    showIndicators: _propTypes2.default.bool,
-    infiniteLoop: _propTypes2.default.bool,
-    showThumbs: _propTypes2.default.bool,
-    thumbWidth: _propTypes2.default.number,
-    selectedItem: _propTypes2.default.number,
-    onClickItem: _propTypes2.default.func.isRequired,
-    onClickThumb: _propTypes2.default.func.isRequired,
-    onChange: _propTypes2.default.func.isRequired,
-    axis: _propTypes2.default.oneOf(['horizontal', 'vertical']),
-    verticalSwipe: _propTypes2.default.oneOf(['natural', 'standard']),
-    width: customPropTypes.unit,
-    useKeyboardArrows: _propTypes2.default.bool,
-    autoPlay: _propTypes2.default.bool,
-    stopOnHover: _propTypes2.default.bool,
-    interval: _propTypes2.default.number,
-    transitionTime: _propTypes2.default.number,
-    swipeScrollTolerance: _propTypes2.default.number,
-    swipeable: _propTypes2.default.bool,
-    dynamicHeight: _propTypes2.default.bool,
-    emulateTouch: _propTypes2.default.bool,
-    statusFormatter: _propTypes2.default.func.isRequired,
-    centerMode: _propTypes2.default.bool,
-    centerSlidePercentage: _propTypes2.default.number
-};
-Carousel.defaultProps = {
-    showIndicators: true,
-    showArrows: true,
-    showStatus: true,
-    showThumbs: true,
-    infiniteLoop: false,
-    selectedItem: 0,
-    axis: 'horizontal',
-    verticalSwipe: 'standard',
-    width: '100%',
-    useKeyboardArrows: false,
-    autoPlay: false,
-    stopOnHover: true,
-    interval: 3000,
-    transitionTime: 350,
-    swipeScrollTolerance: 5,
-    swipeable: true,
-    dynamicHeight: false,
-    emulateTouch: false,
-    onClickItem: noop,
-    onClickThumb: noop,
-    onChange: noop,
-    statusFormatter: defaultStatusFormatter,
-    centerMode: false,
-    centerSlidePercentage: 80
-};
-exports.default = Carousel;
-
-/***/ }),
-
-/***/ "./node_modules/react-responsive-carousel/lib/components/Thumbs.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/react-responsive-carousel/lib/components/Thumbs.js ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _cssClasses = __webpack_require__(/*! ../cssClasses */ "./node_modules/react-responsive-carousel/lib/cssClasses.js");
-
-var _cssClasses2 = _interopRequireDefault(_cssClasses);
-
-var _dimensions = __webpack_require__(/*! ../dimensions */ "./node_modules/react-responsive-carousel/lib/dimensions.js");
-
-var _CSSTranslate = __webpack_require__(/*! ../CSSTranslate */ "./node_modules/react-responsive-carousel/lib/CSSTranslate.js");
-
-var _CSSTranslate2 = _interopRequireDefault(_CSSTranslate);
-
-var _reactEasySwipe = __webpack_require__(/*! react-easy-swipe */ "./node_modules/react-easy-swipe/lib/index.js");
-
-var _reactEasySwipe2 = _interopRequireDefault(_reactEasySwipe);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Thumbs = function (_Component) {
-    _inherits(Thumbs, _Component);
-
-    function Thumbs(props) {
-        _classCallCheck(this, Thumbs);
-
-        var _this = _possibleConstructorReturn(this, (Thumbs.__proto__ || Object.getPrototypeOf(Thumbs)).call(this, props));
-
-        _this.updateSizes = function () {
-            if (!_this.props.children || !_this.refs.itemsWrapper) {
-                return;
-            }
-
-            var total = _this.props.children.length;
-            var wrapperSize = _this.refs.itemsWrapper.clientWidth;
-            var itemSize = _this.props.thumbWidth ? _this.props.thumbWidth : (0, _dimensions.outerWidth)(_this.refs.thumb0);
-            var visibleItems = Math.floor(wrapperSize / itemSize);
-            var lastPosition = total - visibleItems;
-            var showArrows = visibleItems < total;
-            _this.setState({
-                itemSize: itemSize,
-                visibleItems: visibleItems,
-                firstItem: showArrows ? _this.getFirstItem(_this.props.selectedItem) : 0,
-                lastPosition: lastPosition,
-                showArrows: showArrows
-            });
-        };
-
-        _this.setMountState = function () {
-            _this.setState({ hasMount: true });
-            _this.updateSizes();
-        };
-
-        _this.handleClickItem = function (index, item) {
-            var handler = _this.props.onSelectItem;
-
-            if (typeof handler === 'function') {
-                handler(index, item);
-            }
-        };
-
-        _this.onSwipeStart = function () {
-            _this.setState({
-                swiping: true
-            });
-        };
-
-        _this.onSwipeEnd = function () {
-            _this.setState({
-                swiping: false
-            });
-        };
-
-        _this.onSwipeMove = function (deltaX) {
-            var leftBoundry = 0;
-
-            var currentPosition = -_this.state.firstItem * _this.state.itemSize;
-            var lastLeftBoundry = -_this.state.visibleItems * _this.state.itemSize;
-
-            // prevent user from swiping left out of boundaries
-            if (currentPosition === leftBoundry && deltaX > 0) {
-                deltaX = 0;
-            }
-
-            // prevent user from swiping right out of boundaries
-            if (currentPosition === lastLeftBoundry && deltaX < 0) {
-                deltaX = 0;
-            }
-
-            var position = currentPosition + 100 / (wrapperSize / deltaX) + '%';
-
-            // if 3d isn't available we will use left to move
-            ['WebkitTransform', 'MozTransform', 'MsTransform', 'OTransform', 'transform', 'msTransform'].forEach(function (prop) {
-                list.style[prop] = (0, _CSSTranslate2.default)(position, _this.props.axis);
-            });
-        };
-
-        _this.slideRight = function (positions) {
-            _this.moveTo(_this.state.firstItem - (typeof positions === 'Number' ? positions : 1));
-        };
-
-        _this.slideLeft = function (positions) {
-            _this.moveTo(_this.state.firstItem + (typeof positions === 'Number' ? positions : 1));
-        };
-
-        _this.moveTo = function (position) {
-            // position can't be lower than 0
-            position = position < 0 ? 0 : position;
-            // position can't be higher than last postion
-            position = position >= _this.lastPosition ? _this.lastPosition : position;
-
-            _this.setState({
-                firstItem: position,
-                // if it's not a slider, we don't need to set position here
-                selectedItem: _this.state.selectedItem
-            });
-        };
-
-        _this.state = {
-            selectedItem: props.selectedItem,
-            hasMount: false,
-            firstItem: 0,
-            itemSize: null,
-            visibleItems: 0,
-            lastPosition: 0,
-            showArrows: false,
-            images: _this.getImages()
-        };
-        return _this;
-    }
-
-    _createClass(Thumbs, [{
-        key: 'componentDidMount',
-        value: function componentDidMount(nextProps) {
-            this.setupThumbs();
-        }
-    }, {
-        key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(props, state) {
-            if (props.selectedItem !== this.state.selectedItem) {
-                this.setState({
-                    selectedItem: props.selectedItem,
-                    firstItem: this.getFirstItem(props.selectedItem)
-                });
-            }
-            if (props.children !== this.props.children) {
-                this.setState({
-                    images: this.getImages()
-                });
-            }
-        }
-    }, {
-        key: 'componentDidUpdate',
-        value: function componentDidUpdate(prevProps) {
-            if (this.props.children === prevProps.children) {
-                return;
-            }
-
-            // This will capture any size changes for arrow adjustments etc.
-            // usually in the same render cycle so we don't see any flickers
-            this.updateSizes();
-        }
-    }, {
-        key: 'componentWillUnmount',
-        value: function componentWillUnmount() {
-            this.destroyThumbs();
-        }
-    }, {
-        key: 'setupThumbs',
-        value: function setupThumbs() {
-            // as the widths are calculated, we need to resize
-            // the carousel when the window is resized
-            window.addEventListener("resize", this.updateSizes);
-            // issue #2 - image loading smaller
-            window.addEventListener("DOMContentLoaded", this.updateSizes);
-
-            // when the component is rendered we need to calculate
-            // the container size to adjust the responsive behaviour
-            this.updateSizes();
-        }
-    }, {
-        key: 'destroyThumbs',
-        value: function destroyThumbs() {
-            // removing listeners
-            window.removeEventListener("resize", this.updateSizes);
-            window.removeEventListener("DOMContentLoaded", this.updateSizes);
-        }
-    }, {
-        key: 'getImages',
-        value: function getImages() {
-            var images = _react2.default.Children.map(this.props.children, function (item, index) {
-                var img = item;
-
-                // if the item is not an image, try to find the first image in the item's children.
-                if (item.type !== "img") {
-                    img = _react2.default.Children.toArray(item.props.children).filter(function (children) {
-                        return children.type === "img";
-                    })[0];
-                }
-
-                if (!img || img.length === 0) {
-                    return null;
-                }
-
-                return img;
-            });
-
-            if (images.filter(function (image) {
-                return image !== null;
-            }).length === 0) {
-                console.warn('No images found! Can\'t build the thumb list without images. If you don\'t need thumbs, set showThumbs={false} in the Carousel. Note that it\'s not possible to get images rendered inside custom components. More info at https://github.com/leandrowd/react-responsive-carousel/blob/master/TROUBLESHOOTING.md');
-
-                return null;
-            }
-
-            return images;
-        }
-    }, {
-        key: 'getFirstItem',
-        value: function getFirstItem(selectedItem) {
-            var firstItem = selectedItem;
-
-            if (selectedItem >= this.state.lastPosition) {
-                firstItem = this.state.lastPosition;
-            }
-
-            if (selectedItem < this.state.firstItem + this.state.visibleItems) {
-                firstItem = this.state.firstItem;
-            }
-
-            if (selectedItem < this.state.firstItem) {
-                firstItem = selectedItem;
-            }
-
-            return firstItem;
-        }
-    }, {
-        key: 'renderItems',
-        value: function renderItems() {
-            var _this2 = this;
-
-            return this.state.images.map(function (img, index) {
-                var itemClass = _cssClasses2.default.ITEM(false, index === _this2.state.selectedItem && _this2.state.hasMount);
-
-                var thumbProps = {
-                    key: index,
-                    ref: 'thumb' + index,
-                    className: itemClass,
-                    onClick: _this2.handleClickItem.bind(_this2, index, _this2.props.children[index])
-                };
-
-                if (index === 0) {
-                    img = _react2.default.cloneElement(img, {
-                        onLoad: _this2.setMountState
-                    });
-                }
-
-                return _react2.default.createElement(
-                    'li',
-                    thumbProps,
-                    img
-                );
-            });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this3 = this;
-
-            if (!this.props.children) {
-                return null;
-            }
-
-            // show left arrow?
-            var hasPrev = this.state.showArrows && this.state.firstItem > 0;
-            // show right arrow
-            var hasNext = this.state.showArrows && this.state.firstItem < this.state.lastPosition;
-            // obj to hold the transformations and styles
-            var itemListStyles = {};
-
-            var currentPosition = -this.state.firstItem * this.state.itemSize + 'px';
-
-            var transformProp = (0, _CSSTranslate2.default)(currentPosition, this.props.axis);
-
-            var transitionTime = this.props.transitionTime + 'ms';
-
-            itemListStyles = {
-                'WebkitTransform': transformProp,
-                'MozTransform': transformProp,
-                'MsTransform': transformProp,
-                'OTransform': transformProp,
-                'transform': transformProp,
-                'msTransform': transformProp,
-                'WebkitTransitionDuration': transitionTime,
-                'MozTransitionDuration': transitionTime,
-                'MsTransitionDuration': transitionTime,
-                'OTransitionDuration': transitionTime,
-                'transitionDuration': transitionTime,
-                'msTransitionDuration': transitionTime
-            };
-
-            return _react2.default.createElement(
-                'div',
-                { className: _cssClasses2.default.CAROUSEL(false) },
-                _react2.default.createElement(
-                    'div',
-                    { className: _cssClasses2.default.WRAPPER(false), ref: 'itemsWrapper' },
-                    _react2.default.createElement('button', { type: 'button', className: _cssClasses2.default.ARROW_PREV(!hasPrev), onClick: this.slideRight }),
-                    _react2.default.createElement(
-                        _reactEasySwipe2.default,
-                        { tagName: 'ul',
-                            selectedItem: this.state.selectedItem,
-                            className: _cssClasses2.default.SLIDER(false, this.state.swiping),
-                            onSwipeLeft: this.slideLeft,
-                            onSwipeRight: this.slideRight,
-                            onSwipeMove: this.onSwipeMove,
-                            onSwipeStart: this.onSwipeStart,
-                            onSwipeEnd: this.onSwipeEnd,
-                            style: itemListStyles,
-                            ref: function ref(node) {
-                                return _this3.itemList = node;
-                            } },
-                        this.renderItems()
-                    ),
-                    _react2.default.createElement('button', { type: 'button', className: _cssClasses2.default.ARROW_NEXT(!hasNext), onClick: this.slideLeft })
-                )
-            );
-        }
-    }]);
-
-    return Thumbs;
-}(_react.Component);
-
-Thumbs.displayName = 'Thumbs';
-Thumbs.propsTypes = {
-    children: _propTypes2.default.element.isRequired,
-    transitionTime: _propTypes2.default.number,
-    selectedItem: _propTypes2.default.number,
-    thumbWidth: _propTypes2.default.number
-};
-Thumbs.defaultProps = {
-    selectedItem: 0,
-    transitionTime: 350,
-    axis: 'horizontal'
-};
-exports.default = Thumbs;
-
-/***/ }),
-
-/***/ "./node_modules/react-responsive-carousel/lib/cssClasses.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/react-responsive-carousel/lib/cssClasses.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _classnames = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-    CAROUSEL: function CAROUSEL(isSlider) {
-        return (0, _classnames2.default)({
-            "carousel": true,
-            "carousel-slider": isSlider
-        });
-    },
-
-    WRAPPER: function WRAPPER(isSlider, axis) {
-        return (0, _classnames2.default)({
-            "thumbs-wrapper": !isSlider,
-            "slider-wrapper": isSlider,
-            "axis-horizontal": axis === "horizontal",
-            "axis-vertical": axis !== "horizontal"
-        });
-    },
-
-    SLIDER: function SLIDER(isSlider, isSwiping) {
-        return (0, _classnames2.default)({
-            "thumbs": !isSlider,
-            "slider": isSlider,
-            "animated": !isSwiping
-        });
-    },
-
-    ITEM: function ITEM(isSlider, selected) {
-        return (0, _classnames2.default)({
-            "thumb": !isSlider,
-            "slide": isSlider,
-            "selected": selected
-        });
-    },
-
-    ARROW_PREV: function ARROW_PREV(disabled) {
-        return (0, _classnames2.default)({
-            "control-arrow control-prev": true,
-            "control-disabled": disabled
-        });
-    },
-
-    ARROW_NEXT: function ARROW_NEXT(disabled) {
-        return (0, _classnames2.default)({
-            "control-arrow control-next": true,
-            "control-disabled": disabled
-        });
-    },
-
-    DOT: function DOT(selected) {
-        return (0, _classnames2.default)({
-            "dot": true,
-            'selected': selected
-        });
-    }
-};
-
-/***/ }),
-
-/***/ "./node_modules/react-responsive-carousel/lib/customPropTypes.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/react-responsive-carousel/lib/customPropTypes.js ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var unit = exports.unit = function unit(props, propName, componentName) {
-    if (!/(pt|px|em|rem|vw|vh|%)$/.test(props[propName])) {
-        return new Error('Invalid prop `' + propName + '` supplied to' + ' `' + componentName + '`. Validation failed. It needs to be a size unit like pt, px, em, rem, vw, %');
-    }
-};
-
-/***/ }),
-
-/***/ "./node_modules/react-responsive-carousel/lib/dimensions.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/react-responsive-carousel/lib/dimensions.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-var outerWidth = exports.outerWidth = function outerWidth(el) {
-	var width = el.offsetWidth;
-	var style = getComputedStyle(el);
-
-	width += parseInt(style.marginLeft) + parseInt(style.marginRight);
-	return width;
-};
-
-/***/ }),
-
-/***/ "./node_modules/react-responsive-carousel/lib/index.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/react-responsive-carousel/lib/index.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Thumbs = exports.Carousel = undefined;
-
-var _Carousel = __webpack_require__(/*! ./components/Carousel */ "./node_modules/react-responsive-carousel/lib/components/Carousel.js");
-
-var _Carousel2 = _interopRequireDefault(_Carousel);
-
-var _Thumbs = __webpack_require__(/*! ./components/Thumbs */ "./node_modules/react-responsive-carousel/lib/components/Thumbs.js");
-
-var _Thumbs2 = _interopRequireDefault(_Thumbs);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Carousel = _Carousel2.default;
-exports.Thumbs = _Thumbs2.default;
 
 /***/ }),
 
@@ -86217,10 +85212,10 @@ Store.prototype.getAllCookies = function(cb) {
 /*!************************************************!*\
   !*** ./node_modules/tough-cookie/package.json ***!
   \************************************************/
-/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, author, bugs, contributors, dependencies, description, devDependencies, engines, files, homepage, keywords, license, main, name, repository, scripts, version, default */
+/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, contributors, dependencies, deprecated, description, devDependencies, engines, files, homepage, keywords, license, main, name, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = {"_args":[["tough-cookie@2.3.4","C:\\test\\JS_test\\Gallery\\Client"]],"_from":"tough-cookie@2.3.4","_id":"tough-cookie@2.3.4","_inBundle":false,"_integrity":"sha512-TZ6TTfI5NtZnuyy/Kecv+CnoROnyXn2DN97LontgQpCwsX2XyLYCC0ENhYkehSOwAp8rTQKc/NUIF7BkQ5rKLA==","_location":"/tough-cookie","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"tough-cookie@2.3.4","name":"tough-cookie","escapedName":"tough-cookie","rawSpec":"2.3.4","saveSpec":null,"fetchSpec":"2.3.4"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.4.tgz","_spec":"2.3.4","_where":"C:\\test\\JS_test\\Gallery\\Client","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"engines":{"node":">=0.8"},"files":["lib"],"homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","name":"tough-cookie","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.4"};
+module.exports = {"_from":"tough-cookie@~2.3.0","_id":"tough-cookie@2.3.4","_inBundle":false,"_integrity":"sha512-TZ6TTfI5NtZnuyy/Kecv+CnoROnyXn2DN97LontgQpCwsX2XyLYCC0ENhYkehSOwAp8rTQKc/NUIF7BkQ5rKLA==","_location":"/tough-cookie","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"tough-cookie@~2.3.0","name":"tough-cookie","escapedName":"tough-cookie","rawSpec":"~2.3.0","saveSpec":null,"fetchSpec":"~2.3.0"},"_requiredBy":["/request"],"_resolved":"https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.3.4.tgz","_shasum":"ec60cee38ac675063ffc97a5c18970578ee83655","_spec":"tough-cookie@~2.3.0","_where":"C:\\test\\JS_test\\TestWebpack\\node_modules\\request","author":{"name":"Jeremy Stashewsky","email":"jstashewsky@salesforce.com"},"bugs":{"url":"https://github.com/salesforce/tough-cookie/issues"},"bundleDependencies":false,"contributors":[{"name":"Alexander Savin"},{"name":"Ian Livingstone"},{"name":"Ivan Nikulin"},{"name":"Lalit Kapoor"},{"name":"Sam Thompson"},{"name":"Sebastian Mayr"}],"dependencies":{"punycode":"^1.4.1"},"deprecated":false,"description":"RFC6265 Cookies and Cookie Jar for node.js","devDependencies":{"async":"^1.4.2","string.prototype.repeat":"^0.2.0","vows":"^0.8.1"},"engines":{"node":">=0.8"},"files":["lib"],"homepage":"https://github.com/salesforce/tough-cookie","keywords":["HTTP","cookie","cookies","set-cookie","cookiejar","jar","RFC6265","RFC2965"],"license":"BSD-3-Clause","main":"./lib/cookie","name":"tough-cookie","repository":{"type":"git","url":"git://github.com/salesforce/tough-cookie.git"},"scripts":{"suffixup":"curl -o public_suffix_list.dat https://publicsuffix.org/list/public_suffix_list.dat && ./generate-pubsuffix.js","test":"vows test/*_test.js"},"version":"2.3.4"};
 
 /***/ }),
 
@@ -91495,10 +90490,10 @@ var changeFlag = exports.changeFlag = function changeFlag(flag) {
   };
 };
 
-var changeImageClasses = exports.changeImageClasses = function changeImageClasses(imageClasses) {
+var changeImageArray = exports.changeImageArray = function changeImageArray(imageArray) {
   return {
-    type: "CHANGE_IMAGE_CLASSES",
-    payload: imageClasses
+    type: "CHANGE_IMAGE_ARRAY",
+    payload: imageArray
   };
 };
 
@@ -91506,6 +90501,13 @@ var changeImagesIndex = exports.changeImagesIndex = function changeImagesIndex(i
   return {
     type: "CHANGE_INDEX_IMAGES",
     payload: imagesIndex
+  };
+};
+
+var changeCountImages = exports.changeCountImages = function changeCountImages(count) {
+  return {
+    type: "CHANGE_COUNT_IMAGES",
+    payload: count
   };
 };
 
@@ -91620,6 +90622,102 @@ exports.default = Header;
 
 /***/ }),
 
+/***/ "./src/client/app/components/IncorectPassword.js":
+/*!*******************************************************!*\
+  !*** ./src/client/app/components/IncorectPassword.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+var IncorectPassword = function IncorectPassword() {
+    return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h3', null, 'Incorect password'));
+};
+
+exports.default = IncorectPassword;
+
+/***/ }),
+
+/***/ "./src/client/app/components/IncorectUsername.js":
+/*!*******************************************************!*\
+  !*** ./src/client/app/components/IncorectUsername.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+var IncorectUsername = function IncorectUsername() {
+    return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h3', null, 'Incorect username'));
+};
+
+exports.default = IncorectUsername;
+
+/***/ }),
+
+/***/ "./src/client/app/components/Login.js":
+/*!********************************************!*\
+  !*** ./src/client/app/components/Login.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+var Login = function Login() {
+    return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h3', null, 'Login successful'));
+};
+
+exports.default = Login;
+
+/***/ }),
+
 /***/ "./src/client/app/components/Main.js":
 /*!*******************************************!*\
   !*** ./src/client/app/components/Main.js ***!
@@ -91660,12 +90758,28 @@ var _NoAuth = __webpack_require__(/*! ./NoAuth */ "./src/client/app/components/N
 
 var _NoAuth2 = _interopRequireDefault(_NoAuth);
 
+var _Login = __webpack_require__(/*! ./Login */ "./src/client/app/components/Login.js");
+
+var _Login2 = _interopRequireDefault(_Login);
+
+var _RegisterSuccessful = __webpack_require__(/*! ./RegisterSuccessful */ "./src/client/app/components/RegisterSuccessful.js");
+
+var _RegisterSuccessful2 = _interopRequireDefault(_RegisterSuccessful);
+
+var _IncorectPassword = __webpack_require__(/*! ./IncorectPassword */ "./src/client/app/components/IncorectPassword.js");
+
+var _IncorectPassword2 = _interopRequireDefault(_IncorectPassword);
+
+var _IncorectUsername = __webpack_require__(/*! ./IncorectUsername */ "./src/client/app/components/IncorectUsername.js");
+
+var _IncorectUsername2 = _interopRequireDefault(_IncorectUsername);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
 
 var Main = function Main() {
-    return _react2.default.createElement('div', null, _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects', component: _ProjectsRouter2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _loginPage2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _registerPage2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/no_auth', component: _NoAuth2.default })));
+    return _react2.default.createElement('div', null, _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects', component: _ProjectsRouter2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _loginPage2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _registerPage2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/no_auth', component: _NoAuth2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/login_successful', component: _Login2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/register_successful', component: _RegisterSuccessful2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/username_incorect', component: _IncorectUsername2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/password_incorect', component: _IncorectPassword2.default })));
 };
 
 exports.default = Main;
@@ -91740,6 +90854,38 @@ var ProjectsRouter = function ProjectsRouter() {
   return _react2.default.createElement(_reactRouterDom.Switch, null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/projects', component: _projects2.default }), _react2.default.createElement(_reactRouterDom.Route, { path: '/projects/:id', component: _projectDetails2.default }));
 };
 exports.default = ProjectsRouter;
+
+/***/ }),
+
+/***/ "./src/client/app/components/RegisterSuccessful.js":
+/*!*********************************************************!*\
+  !*** ./src/client/app/components/RegisterSuccessful.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+var RegisterSuccessful = function RegisterSuccessful() {
+    return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('h3', null, 'Register successful'));
+};
+
+exports.default = RegisterSuccessful;
 
 /***/ }),
 
@@ -91878,7 +91024,7 @@ var LoginPage = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { className: 'panel panel-login' }, _react2.default.createElement('div', { className: 'panel-body' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-12' }, _react2.default.createElement('form', { id: 'login-form', style: { display: 'block' } }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', onChange: this.handleChange, id: 'username', tabIndex: '1', type: 'text', placeholder: 'Enter Username', name: 'uname', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', onChange: this.handleChange, id: 'password', tabIndex: '2', type: 'password', placeholder: 'Enter Password', name: 'psw', required: true })), _react2.default.createElement('div', { className: 'form-group text-center' }, _react2.default.createElement('input', { className: '', type: 'checkbox', tabIndex: '4', name: 'remember' }), _react2.default.createElement('label', { htmlFor: 'remember' }, 'Remember me')), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-sm-6 col-sm-offset-3' }, _react2.default.createElement('input', { type: 'submit', name: 'login-submit', onClick: this.handleClick, id: 'login-submit', tabIndex: '3', className: 'form-control btn btn-login', value: 'Log In' })))), _react2.default.createElement('span', { className: 'psw' }, _react2.default.createElement(_reactRouterDom.Link, { to: '/register' }, 'Dont register?'))))))))));
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { className: 'panel panel-login' }, _react2.default.createElement('div', { className: 'panel-body' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-12' }, _react2.default.createElement('form', { id: 'login-form', style: { display: 'block' } }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', onChange: this.handleChange, id: 'username', tabIndex: '1', type: 'text', placeholder: 'Enter Username', name: 'uname', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { className: 'form-control', onChange: this.handleChange, id: 'password', tabIndex: '2', type: 'password', placeholder: 'Enter Password', name: 'psw', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('input', { type: 'submit', name: 'login-submit', onClick: this.handleClick, id: 'login-submit', tabIndex: '3', className: 'form-control btn btn-login', value: 'Log In' }))), _react2.default.createElement('span', { align: 'center', className: 'psw' }, _react2.default.createElement(_reactRouterDom.Link, { to: '/register' }, 'Dont register?'))))))))));
         }
     }]);
 
@@ -92110,7 +91256,6 @@ var Details = function (_Component) {
         _classCallCheck(this, Details);
 
         return _possibleConstructorReturn(this, (Details.__proto__ || Object.getPrototypeOf(Details)).call(this, props));
-        // this.getProgectIngo = this.getProgectIngo.bind(this);
     }
 
     _createClass(Details, [{
@@ -92118,32 +91263,13 @@ var Details = function (_Component) {
         value: function getProgectInfo() {
             var _this2 = this;
 
-            var id = this.props.project.id;
+            // let id = this.props.project.id;
+            var id = this.props.match.params.id;
+            console.log("id:::::::" + id);
             this.props.select(null);
             this.props.Be.project(id, function (err, res, data) {
                 console.dir(data);_this2.props.select(data.project);_this2.props.changeFlag(false);
             });
-            // fetch("https://www.behance.net/v2/projects/"+id+"?client_id=e1A607WbYauktG2el5XT2dbZriXROx4T",
-            // {
-            //     headers: {
-            //         // 'Content-Type': 'application/json',
-            //         // 'Access-Control-Allow-Origin': '*'
-            //     },
-            //     method: "GET",
-            // }) .then((res) => { console.log(res); return res.body })
-            // .then((body) => { console.log(body) })
-            // // .then((user) => { 
-            // //     switch (JSON.stringify(user.name)) {
-            // //         case "null":
-            // //             this.props.changeFlag(false);
-            // //             break;
-            // //         case "trable with password":
-            // //             this.props.changeFlag(false);
-            // //             break;
-            // //         default:
-            // //             this.props.changeFlag(true);
-            // //             break;
-            // //     }})
         }
     }, {
         key: 'getRender',
@@ -92158,7 +91284,7 @@ var Details = function (_Component) {
     }, {
         key: 'componentWillMount',
         value: function componentWillMount() {
-            // this.props.select(null);
+            console.log("WillMount");
             this.props.changeActiveNavLink(["nav-link", "nav-link", "nav-link"]);
             this.getProgectInfo();
         }
@@ -92166,142 +91292,15 @@ var Details = function (_Component) {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
             this.props.changeFlag(true);
+            this.props.changeImagesIndex(0);
         }
     }, {
         key: 'render',
         value: function render() {
-            //   if (!this.props.project) {
             if (this.props.flag) {
                 return _react2.default.createElement('div', null, _react2.default.createElement('h3', { align: 'center' }, 'Project dont load yet:'), _react2.default.createElement(_reactRouterDom.Link, { to: '/' }, 'Back'));
-            } else return _react2.default.createElement(_projectModules2.default, { modules: this.props.project.modules });
-            {/* <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-                      <ol className="carousel-indicators">
-                          <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="1" className="" ></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="2" className="" ></li>
-                      </ol>
-                      <div className="carousel-inner" role="listbox">
-                          <div className="carousel-item active">
-                              <img className="d-block img-fluid" src="http://placehold.it/770x300&text=five" alt="First slide" />
-                          </div>
-                          <div className="carousel-item">
-                              <img className="d-block img-fluid" src="http://placehold.it/770x300&text=six" alt="Second slide" />
-                          </div>
-                          <div className="carousel-item">
-                              <img className="d-block img-fluid" src="http://placehold.it/770x300&text=seven" alt="Third slide" />
-                          </div>
-                      </div>
-                      <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span className="sr-only">Previous</span>
-                      </a>
-                      <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                          <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span className="sr-only">Next</span>
-                      </a>
-                   </div> */}
+            } else return _react2.default.createElement('div', null, _react2.default.createElement('h3', { align: 'center' }, this.props.project.name), _react2.default.createElement(_projectModules2.default, { modules: this.props.project.modules }));
         }
-
-        // render() {
-        //     return (<div id="demo" className="carousel slide" data-ride="carousel">
-
-        //         <ul className="carousel-indicators">
-        //             <li data-target="#demo" data-slide-to="0" className="active"></li>
-        //             <li data-target="#demo" data-slide-to="1"></li>
-        //             <li data-target="#demo" data-slide-to="2"></li>
-        //         </ul>
-
-        //         <div className="carousel-inner">
-        //             <div className="carousel-item active">
-        //                 {/* <img src="http://placehold.it/770x300&text=five" alt="Chicago" /> */}
-        //                 <img src="http://placehold.it/770x300&text=four" alt="Los Angeles" />
-        //             </div>
-        //             <div className="carousel-item">
-        //                 <img src="http://placehold.it/770x300&text=five" alt="Chicago" />
-        //             </div>
-        //             <div className="carousel-item">
-        //                 <img src="http://placehold.it/770x300&text=six" alt="New York" />
-        //             </div>
-        //         </div>
-
-        //         <a className="carousel-control-prev" href="#demo" data-slide="prev">
-        //             <span className="carousel-control-prev-icon"></span>
-        //         </a>
-        //         <a className="carousel-control-next" href="#demo" data-slide="next">
-        //             <span className="carousel-control-next-icon"></span>
-        //         </a>
-
-        //     </div>)
-        // }
-
-
-        // render() {
-        //     return (<div className="container">
-        //         <div id="main_area">
-        //             <div className="row">
-        //                 <div className="col-xs-12" id="slider">
-        //                     <div className="row">
-        //                         <div className="col-sm-8" id="carousel-bounding-box">
-        //                             <div className="carousel slide" id="myCarousel">
-        //                                 <div className="carousel-inner">
-        //                                     <div className="active item" data-slide-number="0">
-        //                                         {/* <img src={project.covers[115]} /></div> */}
-        //                                         <img src="http://placehold.it/770x300&text=four" /></div>
-
-        //                                     <div className="item" data-slide-number="1">
-        //                                         {/* <img src={project.covers[202]} /></div> */}
-        //                                         <img src="http://placehold.it/770x300&text=four" /></div>
-
-        //                                     <div className="item" data-slide-number="2">
-        //                                         {/* <img src={project.covers[230]} /></div> */}
-        //                                         <img src="http://placehold.it/770x300&text=four" /></div>
-
-        //                                     <div className="item" data-slide-number="3">
-        //                                         <img src="http://placehold.it/770x300&text=four" /></div>
-
-        //                                     <div className="item" data-slide-number="4">
-        //                                         <img src="http://placehold.it/770x300&text=five" /></div>
-
-        //                                     <div className="item" data-slide-number="5">
-        //                                         <img src="http://placehold.it/770x300&text=six" /></div>
-        //                                 </div>
-        //                                 <a className="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        //                                     <span className="glyphicon glyphicon-chevron-left"></span>
-        //                                 </a>
-        //                                 <a className="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        //                                     <span className="glyphicon glyphicon-chevron-right"></span>
-        //                                 </a>
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        //     )
-        // }
-
-
-        // render() {
-        //     if (!this.props.project) {
-        //         return (
-        //             <div>
-        //                 <h3>Details:</h3>
-        //                 <p>Такого проекта не существует</p>
-        //                 <Link to='/'>Back</Link>
-        //             </div>);
-        //     }
-        //     return (
-        //         <div className="container">
-        //             <h3>Details:</h3>
-        //             <h2>{this.props.project.name}</h2>
-        //             <img width="300px" src={this.props.project.covers.original} /><br />
-        //             <p>{this.props.project.fields[0]}</p>
-        //             <Link to='/'>Back</Link>
-        //         </div>
-        //     );
-        // }
-
     }]);
 
     return Details;
@@ -92318,11 +91317,12 @@ function matchDispatchToProps(dispatch) {
     return (0, _redux.bindActionCreators)({
         select: _actions.select,
         changeFlag: _actions.changeFlag,
-        changeActiveNavLink: _index.changeActiveNavLink
+        changeActiveNavLink: _index.changeActiveNavLink,
+        changeImagesIndex: _index.changeImagesIndex
     }, dispatch);
 }
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Details);
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Details));
 
 /***/ }),
 
@@ -92362,10 +91362,6 @@ var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-r
 
 var _index = __webpack_require__(/*! ../actions/index */ "./src/client/app/actions/index.js");
 
-var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-var _reactResponsiveCarousel = __webpack_require__(/*! react-responsive-carousel */ "./node_modules/react-responsive-carousel/lib/index.js");
-
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -92387,6 +91383,10 @@ function _inherits(subClass, superClass) {
         throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
     }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
+// import { changeActiveNavLink } from '../actions/index';
+
+// import { Link } from 'react-router-dom';
+
 
 var Modules = function (_Component) {
     _inherits(Modules, _Component);
@@ -92397,22 +91397,22 @@ var Modules = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Modules.__proto__ || Object.getPrototypeOf(Modules)).call(this, props));
 
         _this.handleSwitch = _this.handleSwitch.bind(_this);
+        _this.handlePrevClick = _this.handlePrevClick.bind(_this);
+        _this.handleNextClick = _this.handleNextClick.bind(_this);
+
         return _this;
     }
 
     _createClass(Modules, [{
         key: 'handleSwitch',
-        value: function handleSwitch(_module) {
+        value: function handleSwitch(_module, index) {
             switch (_module.type) {
                 case "text":
-                    return _react2.default.createElement('div', { align: 'center', className: 'container', dangerouslySetInnerHTML: { __html: _module.text } });
+                    return _react2.default.createElement('div', { key: index, align: 'center', className: 'container', dangerouslySetInnerHTML: { __html: _module.text } });
                     break;
                 case "embed":
-                    return _react2.default.createElement('div', { align: 'center', className: 'container', dangerouslySetInnerHTML: { __html: _module.embed } });
+                    return _react2.default.createElement('div', { key: index, align: 'center', className: 'container', dangerouslySetInnerHTML: { __html: _module.embed } });
                     break;
-                // case "image":
-                //     return <div align="center" className="container" ><img src={_module.src} /></div>
-                //     break;
                 default:
                     break;
 
@@ -92423,31 +91423,84 @@ var Modules = function (_Component) {
         value: function showModules() {
             var _this2 = this;
 
-            return this.props.modules.map(function (_module) {
-                return _this2.handleSwitch(_module);
-                // return <div className="col-xs-12 col-sm-6 col-md-4" onClick={() => this.props.select(project)}
-                //         key={project.id}>
-                //         {this.checkAuth(project)}
-                //     </div>;
+            return this.props.modules.map(function (_module, index) {
+                return _this2.handleSwitch(_module, index);
             });
+        }
+    }, {
+        key: 'createImagesArray',
+        value: function createImagesArray() {
+            var tmp = [];
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = this.props.modules[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var _module = _step.value;
+
+                    if (_module.type == "image") {
+                        tmp.push(_module);
+                    }
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+
+            this.props.changeImageArray(tmp);
+        }
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.createImagesArray();
         }
     }, {
         key: 'getImages',
         value: function getImages() {
-            this.getClasses();
-            return this.props.modules.map(function (_module) {
-                return _react2.default.createElement('div', { key: _module.id }, _react2.default.createElement('img', { src: _module.src }));
+            var _this3 = this;
+
+            if (this.props.imageArray != []) return this.props.imageArray.map(function (_module, index) {
+                if (_module.type == "image") {
+                    _this3.props.changeCountImages(index);
+                    return _react2.default.createElement('div', { style: { height: _module.height, width: _module.width }, key: index, className: index == _this3.props.activeIndex ? "carousel-item active" : "carousel-item" }, _react2.default.createElement('img', { style: { height: _module.height, width: _module.width }, className: 'd-block img-fluid', src: _module.src }), _react2.default.createElement('a', { className: 'carousel-control-prev', onClick: _this3.handlePrevClick, href: '#carouselExampleIndicators', role: 'button', 'data-slide': 'prev' }, _react2.default.createElement('span', { className: 'carousel-control-prev-icon', 'aria-hidden': 'true' }), _react2.default.createElement('span', { className: 'sr-only' }, 'Previous')), _react2.default.createElement('a', { className: 'carousel-control-next', onClick: _this3.handleNextClick, href: '#carouselExampleIndicators', role: 'button', 'data-slide': 'next' }, _react2.default.createElement('span', { className: 'carousel-control-next-icon', 'aria-hidden': 'true' }), _react2.default.createElement('span', { className: 'sr-only' }, 'Next')));
+                }
             });
         }
     }, {
-        key: 'handleClick',
-        value: function handleClick(e) {
+        key: 'handlePrevClick',
+        value: function handlePrevClick(e) {
             e.preventDefault();
+            if (this.props.activeIndex == 0) {
+                this.props.changeImagesIndex(this.props.count);
+            } else {
+                this.props.changeImagesIndex(this.props.activeIndex - 1);
+            }
+        }
+    }, {
+        key: 'handleNextClick',
+        value: function handleNextClick(e) {
+            e.preventDefault();
+            if (this.props.activeIndex == this.props.count) {
+                this.props.changeImagesIndex(0);
+            } else {
+                this.props.changeImagesIndex(this.props.activeIndex + 1);
+            }
         }
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement(_reactResponsiveCarousel.Carousel, null, this.getImages()), this.showModules());
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { align: 'center', id: 'carouselExampleIndicators', className: 'carousel slide', 'data-ride': 'carousel' }, _react2.default.createElement('div', { className: 'carousel-inner', role: 'listbox' }, this.getImages())), this.showModules());
         }
     }]);
 
@@ -92456,48 +91509,21 @@ var Modules = function (_Component) {
 
 function mapStateToProps(state) {
     return {
-        projectsLink: state.navLinks[0],
-        loginActive: state.navLinks[1],
-        registerActive: state.navLinks[2]
+        activeIndex: state.index,
+        count: state.count,
+        imageArray: state.imageArray
     };
 }
 
 function matchDispatchToProps(dispatch) {
     return (0, _redux.bindActionCreators)({
-        changeActiveNavLink: _index.changeActiveNavLink
+        changeImagesIndex: _index.changeImagesIndex,
+        changeCountImages: _index.changeCountImages,
+        changeImageArray: _index.changeImageArray
     }, dispatch);
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Modules);
-
-//<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-
-{} /* <ol className="carousel-indicators">
-   <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-   <li data-target="#carouselExampleIndicators" data-slide-to="1" className="" ></li>
-   <li data-target="#carouselExampleIndicators" data-slide-to="2" className="" ></li>
-   </ol> */
-//<div className="carousel-inner" role="listbox">
-{} /* <div className="carousel-item active">
-      <img className="d-block img-fluid" src="http://placehold.it/770x300&text=five" alt="First slide" />
-   </div>
-   <div className="carousel-item active">
-      <img className="d-block img-fluid" src="http://placehold.it/770x300&text=six" alt="Second slide" />
-   </div>
-   <div className="carousel-item">
-      <img className="d-block img-fluid" src="http://placehold.it/770x300&text=seven" alt="Third slide" />
-   </div> */
-//   {this.getImages()}
-//</div>
-//<a className="carousel-control-prev" onClick={this.handleClick} href="#carouselExampleIndicators" role="button" data-slide="prev">
-//   <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-//   <span className="sr-only">Previous</span>
-//</a>
-//<a className="carousel-control-next" onClick={this.handleClick} href="#carouselExampleIndicators" role="button" data-slide="next">
-//   <span className="carousel-control-next-icon" aria-hidden="true"></span>
-//   <span className="sr-only">Next</span>
-//</a>
-//</div>
 
 /***/ }),
 
@@ -92547,7 +91573,9 @@ __webpack_require__(/*! ../resources/projects.css */ "./src/client/app/resources
 
 __webpack_require__(/*! ../resources/search-input.css */ "./src/client/app/resources/search-input.css");
 
-__webpack_require__(/*! ../resources/img.css */ "./src/client/app/resources/img.css");
+var _reactInfiniteScrollComponent = __webpack_require__(/*! react-infinite-scroll-component */ "./node_modules/react-infinite-scroll-component/lib/index.js");
+
+var _reactInfiniteScrollComponent2 = _interopRequireDefault(_reactInfiniteScrollComponent);
 
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
@@ -92571,10 +91599,6 @@ function _inherits(subClass, superClass) {
     }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
-var PER_PAGE = 10;
-var RANGE_DISPLAYED = 10;
-var TOTAL_COUNT = 100;
-
 var Projects = function (_Component) {
     _inherits(Projects, _Component);
 
@@ -92585,7 +91609,8 @@ var Projects = function (_Component) {
 
         _this.handleChange = _this.handleChange.bind(_this);
         _this.handleClick = _this.handleClick.bind(_this);
-        _this.handlePageChange = _this.handlePageChange.bind(_this);
+        _this.getProjectsBySearch = _this.getProjectsBySearch.bind(_this);
+        _this.showProjectsList = _this.showProjectsList.bind(_this);
         return _this;
     }
 
@@ -92604,20 +91629,22 @@ var Projects = function (_Component) {
     }, {
         key: 'checkAuth',
         value: function checkAuth(project) {
-            if (this.props.flag) {
+            if (this.props.flag === true) {
                 return _react2.default.createElement(_reactRouterDom.Link, { to: '/projects/' + project.id }, this.projectInfo(project));
-            } else return _react2.default.createElement(_reactRouterDom.Link, { to: '/no_auth' }, this.projectInfo(project));
+            }return _react2.default.createElement(_reactRouterDom.Link, { to: '/no_auth' }, this.projectInfo(project));
         }
     }, {
         key: 'projectInfo',
         value: function projectInfo(project) {
-            return _react2.default.createElement('div', { className: 'image-flip' }, _react2.default.createElement('div', { className: 'card', style: { height: '350px' } }, _react2.default.createElement('div', { className: 'card-body text-center' }, _react2.default.createElement('div', { className: 'img_wrap' }, _react2.default.createElement('img', { className: ' img-fluid', src: project.covers.original, alt: 'card image' })), _react2.default.createElement('h5', { className: 'card-title' }, project.name))));
+            return _react2.default.createElement('div', { className: 'image-flip' }, _react2.default.createElement('div', { className: 'card', style: { height: '330px' } }, _react2.default.createElement('div', { className: 'card-body text-center' }, _react2.default.createElement('p', null, _react2.default.createElement('img', { className: ' img-fluid', src: project.covers[404], alt: 'card image' })), _react2.default.createElement('h6', { className: 'card-title' }, project.name))));
         }
     }, {
         key: 'getProjectsBySearch',
         value: function getProjectsBySearch() {
             var _this3 = this;
 
+            var page = this.props.activePage;
+            this.props.changeActivePage(page + 1);
             this.props.Be.projects({
                 q: this.props.queryForSearch,
                 page: this.props.activePage
@@ -92640,12 +91667,6 @@ var Projects = function (_Component) {
             this.props.changeQueryForSearch(e.target.value);
         }
     }, {
-        key: 'handlePageChange',
-        value: function handlePageChange(pageNumber) {
-            this.props.changeActivePage(pageNumber);
-            this.getProjectsBySearch();
-        }
-    }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
             this.getProjectsBySearch();
@@ -92653,14 +91674,17 @@ var Projects = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('br', null), _react2.default.createElement('h1', { align: 'center' }, 'Projects:'), _react2.default.createElement('br', null), _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-6' }, _react2.default.createElement('div', { className: 'input-group' }, _react2.default.createElement('input', { value: this.props.queryForSearch, onChange: this.handleChange, type: 'text', id: 'search-query', className: 'form-control', placeholder: 'Search for...' }), _react2.default.createElement('span', { className: 'input-group-btn' }, _react2.default.createElement('button', { onClick: this.handleClick, className: 'btn btn-light', type: 'button' }, 'Go!')))))), _react2.default.createElement('br', null), _react2.default.createElement('section', { id: 'team', className: 'pb-5' }, _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, this.showProjectsList()))), _react2.default.createElement(_reactJsPagination2.default, {
-                hideDisabled: true,
-                activePage: this.props.activePage,
-                itemsCountPerPage: PER_PAGE,
-                totalItemsCount: TOTAL_COUNT,
-                pageRangeDisplayed: RANGE_DISPLAYED,
-                onChange: this.handlePageChange
-            }));
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('br', null), _react2.default.createElement('h1', { align: 'center' }, 'Projects:'), _react2.default.createElement('br', null), _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-6' }, _react2.default.createElement('div', { className: 'input-group' }, _react2.default.createElement('input', { value: this.props.queryForSearch, onChange: this.handleChange, type: 'text', id: 'search-query', className: 'form-control', placeholder: 'Search for...' }), _react2.default.createElement('span', { className: 'input-group-btn' }, _react2.default.createElement('button', { onClick: this.handleClick, className: 'btn btn-light', type: 'button' }, 'Go!')))))), _react2.default.createElement('br', null), _react2.default.createElement(_reactInfiniteScrollComponent2.default, {
+                pullDownToRefresh: true,
+                dataLength: this.props.projects.length //This is important field to render the next data
+                , pullDownToRefreshContent: _react2.default.createElement('h3', { style: { textAlign: 'center' } }, "\u2193 Pull down to refresh"),
+                releaseToRefreshContent: _react2.default.createElement('h3', { style: { textAlign: 'center' } }, "\u2191 Release to refresh"),
+                refreshFunction: this.showProjectsList,
+                next: this.getProjectsBySearch,
+                hasMore: true,
+                loader: _react2.default.createElement('h4', null, 'Loading...')
+                // children={this.showProjectsList()}
+                , endMessage: _react2.default.createElement('p', { style: { textAlign: 'center' } }, _react2.default.createElement('b', null, 'Yay! You have seen it all')) }, _react2.default.createElement('section', { id: 'team', className: 'pb-5' }, _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, this.showProjectsList())))));
         }
     }]);
 
@@ -92686,37 +91710,7 @@ function matchDispatchToProps(dispatch) {
     }, dispatch);
 }
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Projects);
-
-//test() {
-//     fetch("http://www.behance.net/v2/projects?client_id=e1A607WbYauktG2el5XT2dbZriXROx4T&q=" + this.props.queryForSearch + "&page=" + this.props.activePage,
-//         {
-//             headers: {
-//                 // 'Content-Type': 'application/json',
-//                 // 'Authorization': 'Basic bnVsbDpudWxs',
-//                 // 'Host': 'www.behance.net',
-//                 // 'X-Target-URI': 'http://www.behance.net',
-//                 // 'Connection': 'Keep-Alive'
-//                 'Access-Control-Allow-Origin': '*://*/*',
-//                 'Access-Control-Allow-Credentials': 'true'
-//             },
-//             method: "GET"
-//         }).then((res) => { console.log(res) })//return res.json() })
-//     // .then((body) => { console.log(body.projects) })
-//     // .then((user) => {
-//     //     switch (JSON.stringify(user.name)) {
-//     //         case "null":
-//     //             this.props.changeFlag(false);
-//     //             break;
-//     //         case "trable with password":
-//     //             this.props.changeFlag(false);
-//     //             break;
-//     //         default:
-//     //             this.props.changeFlag(true);
-//     //             break;
-//     //     }
-//     // })
-// }
+exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Projects));
 
 /***/ }),
 
@@ -92862,7 +91856,7 @@ var Register = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { className: 'panel panel-login' }, _react2.default.createElement('div', { className: 'panel-body' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-12' }, _react2.default.createElement('form', { id: 'register-form' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'username', tabIndex: '1', onChange: this.handleChange, name: 'username', placeholder: 'Username', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'truthname', tabIndex: '2', onChange: this.handleChange, placeholder: 'Full name', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'email', id: 'email', tabIndex: '3', onChange: this.handleChange, name: 'email', placeholder: 'Email Address', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password', tabIndex: '4', onChange: this.handleChange, name: 'password', placeholder: 'Password', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password_confirm', tabIndex: '5', onChange: this.handleChange, name: 'password_confirm', placeholder: 'Password confirm', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('input', { type: 'submit', name: 'register-submit', tabIndex: '6', id: 'register-submit', className: 'form-control btn btn-register', value: 'Register Now' })))))))))));
+            return _react2.default.createElement('div', { className: 'container' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-md-6 col-md-offset-3' }, _react2.default.createElement('div', { className: 'panel panel-login' }, _react2.default.createElement('div', { className: 'panel-body' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('div', { className: 'col-lg-12' }, _react2.default.createElement('form', { id: 'register-form' }, _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'username', tabIndex: '1', onChange: this.handleChange, name: 'username', placeholder: 'Username', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'text', id: 'truthname', tabIndex: '2', onChange: this.handleChange, placeholder: 'Full name', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'email', id: 'email', tabIndex: '3', onChange: this.handleChange, name: 'email', placeholder: 'Email Address', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password', tabIndex: '4', onChange: this.handleChange, name: 'password', placeholder: 'Password', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('input', { type: 'password', id: 'password_confirm', tabIndex: '5', onChange: this.handleChange, name: 'password_confirm', placeholder: 'Password confirm', className: 'form-control', required: true })), _react2.default.createElement('div', { className: 'form-group' }, _react2.default.createElement('div', { className: 'row' }, _react2.default.createElement('input', { type: 'submit', name: 'register-submit', onClick: this.handleClick, tabIndex: '6', id: 'register-submit', className: 'form-control btn btn-register', value: 'Register Now' })))))))))));
         }
     }]);
 
@@ -92964,6 +91958,35 @@ exports.default = function () {
 
 /***/ }),
 
+/***/ "./src/client/app/reducers/change-count-images.js":
+/*!********************************************************!*\
+  !*** ./src/client/app/reducers/change-count-images.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var action = arguments[1];
+
+    switch (action.type) {
+        case "CHANGE_COUNT_IMAGES":
+            return action.payload;
+            break;
+        default:
+            return state;
+    }
+};
+
+/***/ }),
+
 /***/ "./src/client/app/reducers/change-flag.js":
 /*!************************************************!*\
   !*** ./src/client/app/reducers/change-flag.js ***!
@@ -92984,6 +92007,35 @@ exports.default = function () {
 
     switch (action.type) {
         case "CHANGE_FLAG":
+            return action.payload;
+            break;
+        default:
+            return state;
+    }
+};
+
+/***/ }),
+
+/***/ "./src/client/app/reducers/change-image-array.js":
+/*!*******************************************************!*\
+  !*** ./src/client/app/reducers/change-image-array.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var action = arguments[1];
+
+    switch (action.type) {
+        case "CHANGE_IMAGE_ARRAY":
             return action.payload;
             break;
         default:
@@ -93134,7 +92186,7 @@ exports.default = function () {
     var action = arguments[1];
 
     switch (action.type) {
-        case "CHANGE_IMAGES_INDEX":
+        case "CHANGE_INDEX_IMAGES":
             return action.payload;
             break;
         default:
@@ -93200,6 +92252,14 @@ var _imagesIndex = __webpack_require__(/*! ./images-index */ "./src/client/app/r
 
 var _imagesIndex2 = _interopRequireDefault(_imagesIndex);
 
+var _changeCountImages = __webpack_require__(/*! ./change-count-images */ "./src/client/app/reducers/change-count-images.js");
+
+var _changeCountImages2 = _interopRequireDefault(_changeCountImages);
+
+var _changeImageArray = __webpack_require__(/*! ./change-image-array */ "./src/client/app/reducers/change-image-array.js");
+
+var _changeImageArray2 = _interopRequireDefault(_changeImageArray);
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -93214,7 +92274,9 @@ var allReducers = (0, _redux.combineReducers)({
     registerPage: _changeRegisterPage2.default,
     loginPage: _changeLoginPage2.default,
     flag: _changeFlag2.default,
-    index: _imagesIndex2.default
+    index: _imagesIndex2.default,
+    count: _changeCountImages2.default,
+    imageArray: _changeImageArray2.default
 
 });
 
@@ -93345,31 +92407,12 @@ exports.default = function () {
 
     switch (action.type) {
         case "CHANGE_PROJECTS":
-            return action.payload;
+            return state.concat(action.payload);
             break;
         default:
             return state;
     }
 };
-
-/***/ }),
-
-/***/ "./src/client/app/resources/img.css":
-/*!******************************************!*\
-  !*** ./src/client/app/resources/img.css ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".img_wrap {\r\n    width: 300px;\r\n    height: 300px;\r\n    border-style: solid;\r\n  }\r\n  \r\n  .img_wrap img {\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n    object-position: 0 0;\r\n  }", ""]);
-
-// exports
-
 
 /***/ }),
 

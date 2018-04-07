@@ -10,6 +10,12 @@ export const changeProjects = (projects)=>{
     payload: projects
   }
 }
+export const newProjects = (projects) => {
+  return {
+    type: "NEW_PROJECTS",
+    payload: projects
+  }
+}
 export const changeQueryForSearch = (query)=>{
   return{
     type:"CHANGE_QUERY_FOR_SEARCH",
