@@ -1,10 +1,7 @@
 export default function (state = [], action) {
     switch (action.type) {
-        case "NEW_PROJECTS":
+        case "CHANGE_IMAGE_ARRAY":      
             return action.payload;
-            break;
-        case "CHANGE_PROJECTS":
-            return state.concat(action.payload);
             break;
         default:
             return state;

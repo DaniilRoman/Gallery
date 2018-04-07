@@ -110,7 +110,7 @@ class Register extends Component {
 
                                         <div className="form-group">
                                             <div className="row">
-                                                <input type="submit" name="register-submit" tabIndex="6" id="register-submit" className="form-control btn btn-register" value="Register Now" />
+                                                <input type="submit" name="register-submit" onClick={this.handleClick} tabIndex="6" id="register-submit" className="form-control btn btn-register" value="Register Now" />
                                             </div>
                                         </div>
                                     </form>

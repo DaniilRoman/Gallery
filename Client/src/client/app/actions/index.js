@@ -10,6 +10,12 @@ export const changeProjects = (projects)=>{
     payload: projects
   }
 }
+export const newProjects = (projects) => {
+  return {
+    type: "NEW_PROJECTS",
+    payload: projects
+  }
+}
 export const changeQueryForSearch = (query)=>{
   return{
     type:"CHANGE_QUERY_FOR_SEARCH",
@@ -49,5 +55,26 @@ export const changeFlag = (flag) => {
   return {
     type: "CHANGE_FLAG",
     payload: flag
+  }
+}
+
+export const changeImageArray = (imageArray) => {
+  return {
+    type: "CHANGE_IMAGE_ARRAY",
+    payload: imageArray
+  }
+}
+
+export const changeImagesIndex = (imagesIndex) => {
+  return {
+    type: "CHANGE_INDEX_IMAGES",
+    payload: imagesIndex
+  }
+}
+
+export const changeCountImages = (count) => {
+  return {
+    type: "CHANGE_COUNT_IMAGES",
+    payload: count
   }
 }
