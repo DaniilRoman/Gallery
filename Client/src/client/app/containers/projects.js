@@ -109,7 +109,7 @@ class Projects extends Component {
 
                 <InfiniteScroll
                     pullDownToRefresh
-                    dataLength={this.props.projects.length} //This is important field to render the next data
+                    dataLength={this.props.projects.length}
                     pullDownToRefreshContent={
                         <h3 style={{ textAlign: 'center' }}>&#8595; Pull down to refresh</h3>
                     }
@@ -120,7 +120,6 @@ class Projects extends Component {
                     next={this.nextProjects}
                     hasMore={true}
                     loader={<h4>Loading...</h4>}
-                    // children={this.showProjectsList()}
                     endMessage={
                         <p style={{ textAlign: 'center' }}>
                             <b>Yay! You have seen it all</b>
