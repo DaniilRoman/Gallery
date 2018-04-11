@@ -19,7 +19,6 @@ class Details extends Component {
 
 
     getProgectInfo() {
-        // let id = this.props.project.id;
         let id = this.props.match.params.id;
         console.log("id:::::::" + id);
         this.props.select(null);
